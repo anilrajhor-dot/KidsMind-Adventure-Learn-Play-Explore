@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+<!-- KidsMind Adventure - Developed by Anil Sharma, Former General Manager, Central Bank of India -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#5b4bdb">
+<meta name="author" content="Anil Sharma, Former General Manager, Central Bank of India">
 <title>KidsMind Adventure – Learn, Play &amp; Explore</title>
 <style>
 :root{
@@ -88,6 +90,27 @@ svg{max-width:100%}
 @media (max-width:560px){body{font-size:17px}.hero{grid-template-columns:1fr;text-align:center;justify-items:center}.mascot{width:96px;height:96px}.btn{padding:8px 14px}.btn.big{padding:10px 22px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 body.rm *{animation:none!important;transition:none!important}
+
+.gcard .ic svg{width:72px;height:72px;display:block;margin:0 auto}
+.arc-cv{width:100%;max-width:640px;height:auto;display:block;margin:0 auto;border-radius:18px;background:#0b1030;touch-action:none;user-select:none;-webkit-user-select:none;box-shadow:var(--sh)}
+.arc-cv:focus-visible{outline:4px solid var(--sun)}
+.arc-hud{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 0}
+.arc-hud .pill{font-size:1rem;font-weight:800}
+.arc-pad{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0;user-select:none;-webkit-user-select:none;touch-action:none}
+.arc-pad button{min-width:68px;min-height:68px;font-size:1.6rem;border-radius:20px;border:3px solid var(--pri);background:#fff;color:var(--pri);font-weight:900;touch-action:none;box-shadow:0 4px 0 #d9d5f7}
+.arc-pad button.down,.arc-pad button:active{background:var(--pri);color:#fff}
+.bd{display:grid;gap:0;max-width:480px;margin:8px auto;border:6px solid #6b3f1d;border-radius:10px;overflow:hidden;aspect-ratio:1}
+.bd button{position:relative;padding:0;border:0;border-radius:0;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;font-size:clamp(1.1rem,6vw,2.1rem);font-weight:900;touch-action:manipulation}
+.bd .lt{background:#f3dcb5}.bd .dk{background:#8a5a2b}
+.bd .sel{outline:4px solid var(--sun);outline-offset:-4px}.bd .dest{box-shadow:inset 0 0 0 4px #12b886}
+.pc{width:78%;height:78%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8em;border:3px solid rgba(0,0,0,.35);box-shadow:0 3px 0 rgba(0,0,0,.3)}
+.pc.r{background:#e5484d;color:#fff}.pc.b{background:#222a4a;color:#ffe08a;border-color:#fff}
+.mm{display:grid;gap:8px;max-width:560px;margin:8px auto}
+.mm button.mc{aspect-ratio:1;min-width:0;min-height:56px;font-size:clamp(1.4rem,7vw,2.6rem);border-radius:14px;border:3px solid #d9d5f7;background:linear-gradient(135deg,#8e5cf7,#5b4bdb);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2px;line-height:1.1}
+.mm button.mc.up{background:#fff;color:#1f2750}.mm button.mc.ok{background:var(--ok-bg);border-color:var(--ok);color:#1f2750}
+.mm button.mc small{font-size:.7rem;font-weight:800}
+.arc-ctl{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;align-items:center;margin:8px 0}
+.arc-ctl label{font-weight:800}.arc-ctl input[type=range]{width:min(220px,60vw);height:32px}
 </style>
 </head>
 <body>
@@ -133,7 +156,7 @@ hello:['Hi! I am Mindy. Let’s play and learn!','नमस्ते! मैं 
 start:['Start Playing','खेलना शुरू करो'],pickAge:['Pick your age group','अपनी उम्र का समूह चुनो'],
 allGames:['All Games','सभी खेल'],age1:['Little Explorers','छोटे खोजी'],age2:['Smart Adventurers','समझदार साहसी'],age3:['Brain Champions','दिमाग के चैंपियन'],
 ages:['Ages {0}','उम्र {0}'],years:['{0} years','{0} वर्ष'],
-cat_all:['All','सभी'],cat_brain:['Brain','दिमाग'],cat_lang:['Words','शब्द'],cat_sci:['Nature & Science','प्रकृति और विज्ञान'],cat_create:['Create','रचना'],cat_life:['Life Skills','जीवन कौशल'],
+cat_all:['All','सभी'],cat_arcade:['Arcade & Strategy','आर्केड और रणनीति'],arc_banner:['Fast fun and clever thinking: 10 arcade and strategy games. Anyone can play any game, and age is only a suggestion.','तेज़ मज़ा और चतुर सोच: 10 आर्केड और रणनीति खेल। कोई भी कोई भी खेल खेल सकता है, उम्र सिर्फ एक सुझाव है।'],credit:['Developed by Anil Sharma, Former General Manager, Central Bank of India','अनिल शर्मा द्वारा विकसित, पूर्व महाप्रबंधक, सेंट्रल बैंक ऑफ इंडिया'],about:['About this app','इस ऐप के बारे में'],cat_brain:['Brain','दिमाग'],cat_lang:['Words','शब्द'],cat_sci:['Nature & Science','प्रकृति और विज्ञान'],cat_create:['Create','रचना'],cat_life:['Life Skills','जीवन कौशल'],
 cont:['Continue Playing','खेल जारी रखो'],favs:['My Favourites','मेरे पसंदीदा'],noFavs:['Tap ♡ on a game to save it here.','किसी खेल पर ♡ दबाओ, वह यहाँ आ जाएगा।'],noRecent:['Games you play will show here.','जो खेल तुम खेलोगे वे यहाँ दिखेंगे।'],
 daily:['Daily Challenge','आज की चुनौती'],dailyGo:['Play today’s challenge','आज की चुनौती खेलो'],dailyDone:['Done today! Play again if you like.','आज पूरी हुई! चाहो तो फिर खेलो।'],dailyTxt:['Today: {0}','आज: {0}'],
 progress:['My Progress','मेरी प्रगति'],played:['Games played','खेले गए खेल'],levels:['Levels done','पूरे स्तर'],stars:['Stars','सितारे'],bests:['Personal bests','सर्वश्रेष्ठ स्कोर'],badges:['Badges','बैज'],
@@ -277,13 +300,13 @@ function recAge(g,age){return age===0||g.ages.indexOf(age)>=0}
 function gameCard(g){const fav=S.fav.indexOf(g.id)>=0;const st=S.g[g.id];const gs=gameStars(g.id);
   return h('div',{class:'gcard',style:{'--c':g.color}},
     h('button',{class:'fav','aria-label':fav?t('favDel'):t('favAdd'),'aria-pressed':fav,onclick:e=>{e.stopPropagation();S.fav=fav?S.fav.filter(x=>x!==g.id):S.fav.concat(g.id);save();keepScroll(Home)}},fav?'♥':'♡'),
-    h('div',{class:'ic','aria-hidden':'true'},g.icon),h('b',null,L(g.name)),
+    h('div',{class:'ic','aria-hidden':'true',html:g.art||null},g.art?null:g.icon),h('b',null,L(g.name)),
     h('span',{class:'tag'},g.ages.length===3?t('ages','3–14'):g.ages.map(a=>AGEINFO[a].yrs).join(' · ')),
     h('span',{class:'stars','aria-label':gs+' '+t('stars')},gs?'★ '+gs:'☆'),
     h('button',{class:'btn sm',onclick:()=>Engine.open(g.id)},'▶ '+t('play')))}
 function keepScroll(fn){const y=window.scrollY;fn();window.scrollTo(0,y)}
 function Home(){Engine.cur=Home;const T=totals();const di=dailyInfo();const ddone=!!S.daily[di.key];
-  const cats=['all','brain','lang','sci','create','life'];
+  const cats=['all','brain','lang','sci','create','life','arcade'];
   let list=GAMES.filter(g=>homeCat==='all'||g.cat===homeCat);
   const recL=list.filter(g=>recAge(g,S.age)),othL=S.age?list.filter(g=>!recAge(g,S.age)):[];
   const node=h('div',null,
@@ -308,7 +331,8 @@ function Home(){Engine.cur=Home;const T=totals();const di=dailyInfo();const ddon
         h('button',{class:'btn big warn',onclick:()=>Engine.open(di.game.id,{daily:true,diff:di.diff})},'▶ '+t('dailyGo')))),
     /* game grid */
     h('div',{class:'sec'},h('h2',null,'🎮 '+(S.age?t('rec')+' · '+t('age'+S.age):t('allGames')))),
-    h('div',{class:'row',role:'group','aria-label':'Categories'},cats.map(c=>h('button',{class:'chip'+(homeCat===c?' on':''),'aria-pressed':homeCat===c,onclick:()=>{homeCat=c;keepScroll(Home)}},t('cat_'+c)))),
+    h('div',{class:'row',role:'group','aria-label':'Categories'},cats.map(c=>h('button',{class:'chip'+(homeCat===c?' on':''),'aria-pressed':homeCat===c,onclick:()=>{homeCat=c;keepScroll(Home)}},(c==='arcade'?'🕹️ ':'')+t('cat_'+c)))),
+    homeCat==='arcade'?h('div',{class:'card',style:{marginTop:'10px',background:'linear-gradient(135deg,#2a2f6b,#7a3fe0)',color:'#fff'}},h('h2',{style:{color:'#fff'}},'🕹️ '+t('cat_arcade')),h('p',null,t('arc_banner'))):null,
     h('div',{class:'grid g2',style:{marginTop:'12px'}},recL.map(gameCard)),
     othL.length?h('div',null,h('div',{class:'sec'},h('h2',null,t('others'))),h('div',{class:'grid g2'},othL.map(gameCard))):null,
     /* progress */
@@ -318,7 +342,8 @@ function Home(){Engine.cur=Home;const T=totals();const di=dailyInfo();const ddon
       h('div',{class:'grid g2'},GAMES.map(g=>h('div',null,g.icon+' '+L(g.name)+': ',h('b',null,(S.g[g.id]&&S.g[g.id].best)||'–'))))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('h3',null,'🏅 '+t('badges')),
       h('div',{class:'row'},BADGES.map(b=>h('span',{class:'pill',style:{opacity:S.badges[b[0]]?1:.4}},(S.badges[b[0]]?'🏅 ':'🔒 ')+t(b[1]))))),
-    h('p',{style:{textAlign:'center',opacity:.7,marginTop:'20px'}},t('stored')));
+    h('p',{style:{textAlign:'center',opacity:.7,marginTop:'20px'}},t('stored')),
+    h('p',{class:'credit',style:{textAlign:'center',fontWeight:700,marginTop:'6px'}},'✨ '+t('credit')));
   show(node)}
 function Parent(){Engine.cur=Parent;
   const node=h('div',null,
@@ -329,6 +354,7 @@ function Parent(){Engine.cur=Parent;
         h('button',{class:'chip'+(S.music?' on':''),'aria-pressed':!!S.music,onclick:()=>{S.music=!S.music;save();Snd.get();Snd.music();Parent()}},'🎵 '+t('music')+': '+(S.music?t('on'):t('off'))),
         h('button',{class:'chip'+(S.rm?' on':''),'aria-pressed':!!S.rm,onclick:()=>{S.rm=!S.rm;save();applyRM();Parent()}},'🌿 '+t('pReduced')+': '+(S.rm?t('on'):t('off'))))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('h2',null,t('pData')),h('p',null,t('pDataTxt')),h('p',{class:'fb info'},Store.ok?t('pStoreOk'):t('pStoreNo'))),
+    h('div',{class:'card',style:{marginTop:'12px'}},h('h2',null,t('about')),h('p',null,'KidsMind Adventure – Learn, Play & Explore'),h('p',{class:'credit'},h('b',null,t('credit')))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('button',{class:'btn warn',onclick:()=>openModal(h('div',null,h('h2',null,t('pReset')),h('p',null,t('pResetQ')),h('div',{class:'row'},
       h('button',{class:'btn alt',onclick:closeModal},t('cancel')),
       h('button',{class:'btn warn',onclick:()=>{const lang=S.lang;S=defState();S.lang=lang;Store.del(KEY);save();closeModal();Snd.music();applyRM();toast(t('pResetDone'));Engine.go(Home)}},t('pReset')))))},'🗑 '+t('pReset'))));
@@ -393,6 +419,47 @@ function Quiz(api,cfg){
   api.onCleanup(clearTimer);
   nextQ();
   return{res,skip:nextQ,state:st}}
+/* ===== Shared arcade helpers (canvas loop, keys, touch pad, HUD, end screens) ===== */
+addTX({ar_start:['Start','शुरू करो'],ar_ready:['Ready?','तैयार?'],ar_over:['Game over','खेल खत्म'],ar_try:['Try again','फिर कोशिश करो'],ar_score:['Score','अंक'],ar_lives:['Lives','जीवन'],ar_level:['Level {0}','स्तर {0}'],ar_paused:['Paused','रुका हुआ'],ar_best:['Best','सर्वश्रेष्ठ'],ar_win:['You did it!','तुमने कर दिखाया!'],ar_next:['Next level','अगला स्तर'],ar_menu:['Menu','मेनू'],ar_ctrl:['Controls','नियंत्रण'],ar_kb:['Keyboard: arrow keys or A/D, space to act. Touch: use the big buttons or drag on the game.','कीबोर्ड: तीर कुंजियाँ या A/D, स्पेस से क्रिया। टच: बड़े बटन या खेल पर खींचो।'],ar_auto:['The game pauses when you leave this tab.','टैब छोड़ने पर खेल अपने आप रुक जाता है।'],ar_hs:['New best!','नया सर्वश्रेष्ठ!'],ar_play:['Play','खेलो'],ar_left:['Left','बाएँ'],ar_right:['Right','दाएँ'],ar_up:['Up','ऊपर'],ar_down:['Down','नीचे'],ar_fire:['Fire','दागो'],ar_jump:['Jump','कूदो'],ar_cv:['Game area','खेल का क्षेत्र']});
+function arcCanvas(api,W,H,label){const cv=h('canvas',{width:W,height:H,class:'arc-cv',tabindex:0,role:'img','aria-label':label||t('ar_cv')});return cv}
+function arcPos(cv,e){const r=cv.getBoundingClientRect();return{x:(e.clientX-r.left)*cv.width/r.width,y:(e.clientY-r.top)*cv.height/r.height}}
+function arcLoop(api,update,draw){const st={paused:false,run:true,last:0,t:0,stop(){st.run=false}};
+  function frame(ts){if(!st.run)return;const dt=Math.min(.05,(ts-(st.last||ts))/1000);st.last=ts;if(!st.paused){st.t+=dt;update(dt)}draw();api.raf(frame)}
+  api.raf(frame);
+  api.setPause(()=>{st.paused=true},()=>{st.paused=false});
+  api.on(document,'visibilitychange',()=>{if(document.hidden&&!st.paused&&Engine.sess){Engine.sess.paused=true;st.paused=true;Engine.header(Engine.sess)}});
+  return st}
+function arcPausedOverlay(ctx,W,H,st){if(!st.paused)return;ctx.fillStyle='rgba(10,14,40,.65)';ctx.fillRect(0,0,W,H);ctx.fillStyle='#fff';ctx.font='900 '+Math.round(W/12)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('⏸ '+t('ar_paused'),W/2,H/2)}
+const ARC_KEYS={ArrowLeft:'left',a:'left',A:'left',ArrowRight:'right',d:'right',D:'right',ArrowUp:'up',w:'up',W:'up',ArrowDown:'down',s:'down',S:'down',' ':'fire',Enter:'fire',z:'fire',Z:'fire'};
+function arcKeys(api){const k={};
+  const typing=e=>/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||'')||!$('#modal').classList.contains('hid');
+  api.on(window,'keydown',e=>{if(typing(e))return;const m=ARC_KEYS[e.key];if(!m)return;k[m]=true;if(e.key.indexOf('Arrow')===0||e.key===' ')e.preventDefault()});
+  api.on(window,'keyup',e=>{const m=ARC_KEYS[e.key];if(m)k[m]=false});
+  api.on(window,'blur',()=>{for(const x in k)k[x]=false});return k}
+function arcPad(api,keys,defs){const lab={left:'ar_left',right:'ar_right',up:'ar_up',down:'ar_down',fire:'ar_fire',jump:'ar_jump'};
+  return h('div',{class:'arc-pad',role:'group','aria-label':t('ar_ctrl')},defs.map(d=>{const name=d[0];const b=h('button',{type:'button','aria-label':t(lab[name]||name),onpointerdown:e=>{e.preventDefault();keys[name]=true;b.classList.add('down');try{b.setPointerCapture(e.pointerId)}catch(x){}},onpointerup:e=>{keys[name]=false;b.classList.remove('down')},onpointercancel:()=>{keys[name]=false;b.classList.remove('down')},onlostpointercapture:()=>{keys[name]=false;b.classList.remove('down')},oncontextmenu:e=>e.preventDefault()},d[1]);return b}))}
+function arcHUD(defs){const el={};const node=h('div',{class:'arc-hud'},defs.map(d=>{const s=h('span',{class:'pill'},'');el[d[0]]=s;return s}));const prev={};
+  return{node,set(o){for(const k in o){if(prev[k]===o[k])continue;prev[k]=o[k];const d=defs.find(x=>x[0]===k);if(el[k])el[k].textContent=d[1]+' '+o[k]}}}}
+function arcRecord(api){const st=gstat(api.id);const sc=api.score;const nb=sc>(st.best||0);if(nb){st.best=sc;save()}return nb}
+function arcOver(api,box,o){const nb=arcRecord(api);api.snd('no');
+  box.replaceChildren(h('div',{class:'card',style:{textAlign:'center'}},h('div',{class:'big-em','aria-hidden':'true'},'💪'),h('h1',null,o.title||t('ar_over')),h('p',null,h('b',null,t('ar_score')+': '+api.score),nb?'  ✨ '+t('ar_hs'):''),o.msg?h('p',null,L(o.msg)):null,
+    h('div',{class:'row c'},h('button',{class:'btn big',onclick:o.retry},'🔄 '+t('ar_try')),h('button',{class:'btn alt',onclick:()=>api.menu()},t('ar_menu')),h('button',{class:'btn alt',onclick:()=>Engine.go(Home)},'🏠 '+t('home')))));
+  api.onLang(()=>arcOver(api,box,o))}
+function arcIntro(api,box,o){/* o:{title,text,go} - simple start card */
+  const draw=()=>box.replaceChildren(h('div',{class:'card',style:{textAlign:'center'}},o.title?h('h2',null,L(o.title)):null,o.text?h('p',null,L(o.text)):null,h('p',{class:'sim'},t('ar_kb')+' '+t('ar_auto')),h('button',{class:'btn big',onclick:o.go},'▶ '+t('ar_start'))));
+  api.onLang(draw);draw()}
+function arcCircleSeg(cx,cy,r,x1,y1,x2,y2){const dx=x2-x1,dy=y2-y1;const l2=dx*dx+dy*dy;let tt=l2?((cx-x1)*dx+(cy-y1)*dy)/l2:0;tt=Math.max(0,Math.min(1,tt));const px=x1+tt*dx,py=y1+tt*dy;return (cx-px)*(cx-px)+(cy-py)*(cy-py)<=r*r}
+const ART={
+ checkers:'<svg viewBox="0 0 64 64"><rect x="4" y="4" width="56" height="56" rx="6" fill="#8a5a2b"/><g fill="#f3dcb5"><rect x="4" y="4" width="14" height="14"/><rect x="32" y="4" width="14" height="14"/><rect x="18" y="18" width="14" height="14"/><rect x="46" y="18" width="14" height="14"/><rect x="4" y="32" width="14" height="14"/><rect x="32" y="32" width="14" height="14"/><rect x="18" y="46" width="14" height="14"/><rect x="46" y="46" width="14" height="14"/></g><circle cx="25" cy="25" r="9" fill="#e5484d" stroke="#7a1d20" stroke-width="2"/><circle cx="39" cy="39" r="9" fill="#222a4a" stroke="#fff" stroke-width="2"/><path d="M33 37l3 -4 3 4 3 -4 0 8h-12z" fill="#ffd34d" transform="translate(-3 0)"/></svg>',
+ sub:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#1c7ed6"/><circle cx="12" cy="14" r="3" fill="#a5d8ff"/><circle cx="20" cy="8" r="2" fill="#a5d8ff"/><ellipse cx="32" cy="36" rx="20" ry="11" fill="#ffd43b" stroke="#b58900" stroke-width="2"/><rect x="28" y="20" width="10" height="9" rx="3" fill="#ffd43b" stroke="#b58900" stroke-width="2"/><circle cx="26" cy="36" r="4" fill="#d0ebff" stroke="#b58900" stroke-width="2"/><circle cx="38" cy="36" r="4" fill="#d0ebff" stroke="#b58900" stroke-width="2"/><path d="M52 36l8-6v12z" fill="#f59f00"/><path d="M0 58q8-6 16 0t16 0 16 0 16 0v6H0z" fill="#e9c46a"/></svg>',
+ galaxy:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#12163f"/><g fill="#fff"><circle cx="10" cy="12" r="1.5"/><circle cx="52" cy="10" r="1.5"/><circle cx="44" cy="30" r="1"/><circle cx="14" cy="38" r="1"/></g><path d="M32 34l9 20-9-5-9 5z" fill="#74c0fc" stroke="#fff" stroke-width="2"/><circle cx="32" cy="46" r="2.5" fill="#ff6b6b"/><rect x="28" y="10" width="8" height="8" rx="3" fill="#69db7c"/><rect x="26" y="14" width="12" height="6" rx="3" fill="#69db7c"/><path d="M32 22v8" stroke="#ffd43b" stroke-width="3" stroke-linecap="round"/></svg>',
+ maze:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#fff4dd"/><path d="M8 8h48v48H8zM8 20h28M20 32h36M8 44h28M44 20v12M44 44v12" fill="none" stroke="#5b4bdb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="14" cy="14" r="4" fill="#12b886"/><path d="M50 50l2 -6 2 6 -6 -3.6h8z" fill="#ffb703"/></svg>',
+ bubble:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#cfe9ff"/><circle cx="14" cy="14" r="9" fill="#ff6b6b"/><circle cx="32" cy="14" r="9" fill="#ffd43b"/><circle cx="50" cy="14" r="9" fill="#51cf66"/><circle cx="23" cy="30" r="9" fill="#ff6b6b"/><circle cx="41" cy="30" r="9" fill="#339af0"/><circle cx="32" cy="55" r="7" fill="#ffd43b"/><path d="M32 47v-8" stroke="#1f2750" stroke-width="3" stroke-dasharray="3 3"/></svg>',
+ hockey:'<svg viewBox="0 0 64 64"><rect x="10" y="3" width="44" height="58" rx="8" fill="#e7f5ff" stroke="#1971c2" stroke-width="3"/><path d="M10 32h44" stroke="#1971c2" stroke-width="2"/><circle cx="32" cy="32" r="8" fill="none" stroke="#1971c2" stroke-width="2"/><circle cx="32" cy="14" r="7" fill="#e5484d"/><circle cx="32" cy="50" r="7" fill="#339af0"/><circle cx="32" cy="32" r="3.5" fill="#222"/></svg>',
+ fruit:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#fff0d9"/><circle cx="26" cy="36" r="16" fill="#ff922b"/><circle cx="26" cy="36" r="11" fill="#ffd8a8"/><path d="M26 25v22M15 36h22M18 28l16 16M34 28L18 44" stroke="#ff922b" stroke-width="1.5"/><path d="M30 18q6-10 14-8-2 8-14 8z" fill="#51cf66"/><path d="M8 58L58 8" stroke="#1f2750" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 6"/></svg>',
+ tank:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#d3f9d8"/><rect x="10" y="38" width="38" height="12" rx="6" fill="#2f9e44"/><rect x="18" y="28" width="22" height="12" rx="5" fill="#51cf66" stroke="#2b8a3e" stroke-width="2"/><path d="M36 31l20-8" stroke="#2b8a3e" stroke-width="5" stroke-linecap="round"/><circle cx="16" cy="44" r="3" fill="#d3f9d8"/><circle cx="29" cy="44" r="3" fill="#d3f9d8"/><circle cx="42" cy="44" r="3" fill="#d3f9d8"/><circle cx="58" cy="16" r="4" fill="#ff6b6b"/></svg>',
+ sky:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#a5d8ff"/><ellipse cx="14" cy="14" rx="9" ry="5" fill="#fff"/><rect x="4" y="50" width="22" height="7" rx="3.5" fill="#51cf66"/><rect x="36" y="36" width="22" height="7" rx="3.5" fill="#51cf66"/><circle cx="20" cy="38" r="6" fill="#ff6b6b"/><rect x="16" y="43" width="8" height="7" rx="2" fill="#364fc7"/><path d="M47 22l2 -6 2 6 -6 -3.6h8z" fill="#ffd43b" stroke="#e67700"/></svg>',
+ memory:'<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#f3f0ff"/><rect x="5" y="12" width="24" height="34" rx="6" fill="#5b4bdb"/><text x="17" y="36" font-size="22" text-anchor="middle" fill="#fff" font-weight="900">?</text><rect x="35" y="18" width="24" height="34" rx="6" fill="#fff" stroke="#5b4bdb" stroke-width="3"/><path d="M47 28l3 6 6 1-4.5 4 1.5 7-6-3.5-6 3.5 1.5-7-4.5-4 6-1z" fill="#ffd43b" stroke="#e67700"/></svg>'};
 /* ===== GAME 1: Treasure Quest ===== */
 addTX({
 tq_count:['How many do you see?','तुम्हें कितने दिखते हैं?'],tq_next:['What comes next?','आगे क्या आएगा?'],tq_odd:['Which one does not belong?','कौन सा अलग है?'],
@@ -1402,6 +1469,546 @@ function petStart(api){const stage=api.stage;const D=api.data;
 registerGame({id:'pet',icon:'🐾',color:'#e64980',cat:'life',ages:[1,2,3],nodiff:true,name:['My Magic Pet','मेरा जादुई पालतू'],desc:['Care for a gentle pet. It never gets sick or sad when you are away.','एक प्यारे पालतू की देखभाल करो। तुम्हारे दूर रहने पर भी वह कभी बीमार या उदास नहीं होता।'],
   note:['Pets are never lost. There are no penalties and no need to visit every day. Use a pretend name, not a real person’s name.','पालतू कभी खोता नहीं। कोई सज़ा नहीं और रोज़ आने की ज़रूरत नहीं। नकली नाम रखो, किसी असली इंसान का नहीं।'],
   how:[['Choose a pet and give it a pretend name.','एक पालतू चुनो और उसे कोई मनगढ़ंत नाम दो।'],['Feed, play, wash, put it to sleep or learn together.','खिलाओ, खेलो, नहलाओ, सुलाओ या साथ सीखो।'],['Earn star coins by learning, and use them to dress up your pet.','सीखकर स्टार सिक्के कमाओ और उनसे पालतू को सजाओ।'],['Your pet is saved on this device only.','तुम्हारा पालतू सिर्फ इसी डिवाइस पर सहेजा जाता है।']],start:petStart});
+/* ===== GAME 13: Checkers Challenge ===== */
+addTX({ck_turn:['{0} to move','{0} की चाल'],ck_red:['Red ●','लाल ●'],ck_blk:['Black ◆','काला ◆'],ck_you:['You (Red ●)','तुम (लाल ●)'],ck_cpu:['Computer (Black ◆)','कंप्यूटर (काला ◆)'],ck_must:['You must jump when you can!','कूदकर पकड़ सकते हो तो पकड़ना ज़रूरी है!'],ck_think:['Computer is thinking…','कंप्यूटर सोच रहा है…'],ck_undo:['Undo','पीछे'],ck_hint:['Hint','संकेत'],ck_wins:['{0} wins!','{0} जीता!'],ck_draw:['Draw! Nobody could make progress.','बराबरी! कोई आगे नहीं बढ़ सका।'],ck_lost:['The computer won this time. Try an easier level or use hints.','इस बार कंप्यूटर जीता। आसान स्तर या संकेत आज़माओ।'],ck_hintmsg:['Try moving the highlighted piece.','चमकते मोहरे को चलाकर देखो।'],ck_king:['A piece became a king ♛!','एक मोहरा राजा बन गया ♛!'],ck_sel:['Pick a piece that can move.','चलने वाला मोहरा चुनो।'],ck_sq:['row {0}, column {1}, {2}','पंक्ति {0}, स्तंभ {1}, {2}'],ck_e:['empty','खाली'],ck_r:['red piece','लाल मोहरा'],ck_b:['black piece','काला मोहरा'],ck_rk:['red king','लाल राजा'],ck_bk:['black king','काला राजा'],ck_cap:['{0} piece(s) captured','{0} मोहरे पकड़े'],ck_rules:['Rules: move diagonally on dark squares. Jump over opponents to capture them. Jumps are required. Reach the far side to become a king ♛.','नियम: गहरे खानों पर तिरछा चलो। विरोधी के ऊपर से कूदकर उसे पकड़ो। कूदना ज़रूरी है। दूसरी तरफ पहुँचकर राजा ♛ बनो।']});
+function ckInit(){const b=[];for(let r=0;r<8;r++){b.push([]);for(let c=0;c<8;c++){b[r].push((r+c)%2===1?(r<3?'b':r>4?'r':''):'')}}return b}
+const ckSide=p=>p?p.toLowerCase():'';
+function ckJumps(b,r,c,p,capd){/* returns list of {path,caps} */const res=[];const side=ckSide(p),king=p===p.toUpperCase();const dirs=king?[[1,1],[1,-1],[-1,1],[-1,-1]]:(side==='r'?[[-1,1],[-1,-1]]:[[1,1],[1,-1]]);
+  for(const[dr,dc]of dirs){const mr=r+dr,mc=c+dc,lr=r+2*dr,lc=c+2*dc;if(lr<0||lr>7||lc<0||lc>7)continue;const mp=b[mr][mc];if(!mp||ckSide(mp)===side)continue;if(capd.some(x=>x[0]===mr&&x[1]===mc))continue;if(b[lr][lc]&&!(lr===capd.start[0]&&lc===capd.start[1]))continue;
+    const nc=capd.concat([[mr,mc]]);nc.start=capd.start;const promote=!king&&((side==='r'&&lr===0)||(side==='b'&&lr===7));
+    const further=promote?[]:ckJumps(b,lr,lc,p,nc);
+    if(further.length)further.forEach(f=>res.push({path:[[lr,lc]].concat(f.path),caps:[[mr,mc]].concat(f.caps)}));else res.push({path:[[lr,lc]],caps:[[mr,mc]]})}
+  return res}
+function ckMoves(b,side){const caps=[],simple=[];for(let r=0;r<8;r++)for(let c=0;c<8;c++){const p=b[r][c];if(!p||ckSide(p)!==side)continue;const cd=[];cd.start=[r,c];
+    ckJumps(b,r,c,p,cd).forEach(j=>caps.push({from:[r,c],path:j.path,caps:j.caps}));
+    const king=p===p.toUpperCase();const dirs=king?[[1,1],[1,-1],[-1,1],[-1,-1]]:(side==='r'?[[-1,1],[-1,-1]]:[[1,1],[1,-1]]);
+    for(const[dr,dc]of dirs){const nr=r+dr,nc=c+dc;if(nr>=0&&nr<8&&nc>=0&&nc<8&&!b[nr][nc])simple.push({from:[r,c],path:[[nr,nc]],caps:[]})}}
+  return caps.length?caps:simple}
+function ckApply(b,m){const nb=b.map(r=>r.slice());const[fr,fc]=m.from;let p=nb[fr][fc];nb[fr][fc]='';m.caps.forEach(([r,c])=>nb[r][c]='');const[er,ec]=m.path[m.path.length-1];
+  if(p==='r'&&er===0)p='R';if(p==='b'&&er===7)p='B';nb[er][ec]=p;return nb}
+function ckEval(b,side){let s=0;for(let r=0;r<8;r++)for(let c=0;c<8;c++){const p=b[r][c];if(!p)continue;const k=p===p.toUpperCase();let v=k?160:100;const sd=ckSide(p);if(!k)v+=sd==='r'?(7-r)*4:r*4;if(c===0||c===7)v+=3;s+=sd===side?v:-v}return s}
+function ckSearch(b,side,me,depth,al,be){const mv=ckMoves(b,side);if(!depth||!mv.length){return{v:mv.length?ckEval(b,me):(side===me?-9999-depth:9999+depth)}}
+  let best=null;const max=side===me;let v=max?-1e9:1e9;
+  for(const m of mv){const r=ckSearch(ckApply(b,m),side==='r'?'b':'r',me,depth-1,al,be).v;
+    if(max?r>v:r<v){v=r;best=m}if(max)al=Math.max(al,v);else be=Math.min(be,v);if(be<=al)break}
+  return{v,m:best}}
+function checkersStart(api){const stage=api.stage;const two=api.mode==='two';const dep=[0,2,5][api.diff];
+  let b,turn,hist,sel,hintMv,msg,over,quiet,thinking;
+  function init(){b=ckInit();turn='r';hist=[];sel=null;hintMv=null;msg='';over=false;quiet=0;thinking=false;api.setScore(0);draw()}
+  const nm=s=>two?t(s==='r'?'ck_red':'ck_blk'):t(s==='r'?'ck_you':'ck_cpu');
+  const cnt=s=>{let n=0;b.forEach(r=>r.forEach(p=>{if(p&&ckSide(p)===s)n++}));return n};
+  function cellLabel(r,c){const p=b[r][c];return t('ck_sq',r+1,c+1,p?t('ck_'+(p==='r'?'r':p==='b'?'b':p==='R'?'rk':'bk')):t('ck_e'))}
+  function draw(){api.setProgress((24-cnt('b'))/12/2+(12-cnt('r'))*0);api.onLang(draw);
+    const moves=over?[]:ckMoves(b,turn);const mustJump=moves.length&&moves[0].caps.length>0;
+    const selMoves=sel?moves.filter(m=>m.from[0]===sel[0]&&m.from[1]===sel[1]):[];
+    const mover=new Set(moves.map(m=>m.from[0]*8+m.from[1]));
+    const grid=h('div',{class:'bd',role:'grid','aria-label':'Checkers',style:{gridTemplateColumns:'repeat(8,1fr)'}},b.flatMap((row,r)=>row.map((p,c)=>{const dark=(r+c)%2===1;const isSel=sel&&sel[0]===r&&sel[1]===c;const isDest=selMoves.some(m=>{const e=m.path[m.path.length-1];return e[0]===r&&e[1]===c});
+      const hl=hintMv&&((hintMv.from[0]===r&&hintMv.from[1]===c)||(hintMv.path.some(x=>x[0]===r&&x[1]===c)));
+      return h('button',{role:'gridcell',class:(dark?'dk':'lt')+(isSel?' sel':'')+(isDest?' dest':'')+(hl?' sel':''),disabled:dark?null:true,'aria-label':cellLabel(r,c)+(isDest?', '+t('ck_hintmsg').slice(0,0):''),'aria-pressed':!!isSel,onclick:()=>click(r,c)},
+        p?h('span',{class:'pc '+(ckSide(p)==='r'?'r':'b'),'aria-hidden':'true'},(p===p.toUpperCase()?'♛':ckSide(p)==='r'?'●':'◆')):(isDest?h('span',{style:{width:'30%',height:'30%',borderRadius:'50%',background:'#12b886',opacity:.8},'aria-hidden':'true'}):null))})));
+    stage.replaceChildren(h('div',null,h('div',{class:'arc-hud'},h('span',{class:'pill'},'🔴 '+cnt('r')),h('span',{class:'pill'},'⚫ '+cnt('b')),!over?h('span',{class:'pill',role:'status'},thinking?t('ck_think'):t('ck_turn',nm(turn))):null),
+      grid,msg?h('p',{class:'fb info',role:'status'},msg):(mustJump&&!over&&(two||turn==='r')?h('p',{class:'fb info',role:'status'},t('ck_must')):null),
+      h('p',{class:'sim'},t('ck_rules')),
+      h('div',{class:'row c'},h('button',{class:'btn alt',disabled:hist.length&&!thinking&&!over?null:true,onclick:undo},'↩ '+t('ck_undo')),h('button',{class:'btn alt',disabled:over||thinking||(!two&&turn!=='r')?true:null,onclick:hint},'💡 '+t('ck_hint')),h('button',{class:'btn alt',onclick:init},'🔄 '+t('restart')))))}
+  function click(r,c){if(over||thinking||(!two&&turn!=='r'))return;const p=b[r][c];hintMv=null;msg='';const moves=ckMoves(b,turn);
+    if(p&&ckSide(p)===turn){if(moves.some(m=>m.from[0]===r&&m.from[1]===c)){sel=[r,c];api.snd('tap')}else{msg=moves[0]&&moves[0].caps.length?t('ck_must'):t('ck_sel');api.snd('no')}draw();return}
+    if(sel){const m=moves.find(m=>m.from[0]===sel[0]&&m.from[1]===sel[1]&&m.path[m.path.length-1][0]===r&&m.path[m.path.length-1][1]===c);if(m){play(m);return}}
+    msg=t('ck_sel');draw()}
+  function play(m){hist.push({b:b.map(r=>r.slice()),turn,quiet});const wasMan=b[m.from[0]][m.from[1]];const nb=ckApply(b,m);const king=nb[m.path[m.path.length-1][0]][m.path[m.path.length-1][1]]!==wasMan;
+    quiet=(m.caps.length||wasMan===wasMan.toLowerCase())?0:quiet+1;b=nb;sel=null;hintMv=null;msg=m.caps.length?t('ck_cap',m.caps.length):(king?t('ck_king'):'');
+    if(m.caps.length){api.addScore(m.caps.length*10);api.snd('ok')}else api.snd('pop');if(king)api.addScore(15);
+    turn=turn==='r'?'b':'r';const nm2=ckMoves(b,turn);
+    if(!nm2.length){finish(turn==='r'?'b':'r');return}
+    if(quiet>=40){over=true;draw();api.after(()=>api.complete({stars:1,key:two?'two':'D'+api.diff,summary:()=>t('ck_draw'),onContinue:init}),500);return}
+    draw();if(!two&&turn==='b')ai()}
+  function ai(){thinking=true;draw();api.after(()=>{const mv=ckMoves(b,'b');let m;if(dep===0)m=mv[Math.floor(api.rnd()*mv.length)];else m=ckSearch(b,'b','b',dep,-1e9,1e9).m||mv[0];thinking=false;play(m)},550)}
+  function undo(){if(!hist.length||thinking||over)return;let h1=hist.pop();if(!two&&h1.turn==='b'&&hist.length){}/* human move undone */
+    if(!two){while(h1.turn!=='r'&&hist.length)h1=hist.pop()}
+    b=h1.b;turn=h1.turn;quiet=h1.quiet;sel=null;hintMv=null;msg='';draw()}
+  function hint(){const r=ckSearch(b,turn,turn,3,-1e9,1e9).m;hintMv=r;msg=t('ck_hintmsg');draw()}
+  function finish(winner){over=true;draw();const youWon=two||winner==='r';
+    if(youWon){const stars=two?3:[1,2,3][api.diff];api.addScore(50);api.after(()=>api.complete({stars,key:two?'two':'D'+api.diff,summary:()=>t('ck_wins',nm(winner)),onContinue:init}),700)}
+    else api.after(()=>arcOver(api,stage,{msg:['The computer won this time. Try an easier level or use hints.','इस बार कंप्यूटर जीता। आसान स्तर या संकेत आज़माओ।'],retry:init}),700)}
+  init()}
+registerGame({id:'checkers',icon:'♟️',art:ART.checkers,color:'#c2410c',cat:'arcade',ages:[2,3],name:['Checkers Challenge','चेकर्स चैलेंज'],desc:['Classic draughts with jumps, kings, undo and a smart computer opponent.','क्लासिक चेकर्स: कूदना, राजा, पीछे और चतुर कंप्यूटर प्रतिद्वंदी।'],
+  modes:[{id:'ai',label:['vs Computer','कंप्यूटर के खिलाफ']},{id:'two',label:['2 Players','2 खिलाड़ी']}],
+  how:[['Tap a piece, then tap a highlighted square to move.','मोहरा दबाओ, फिर चमकते खाने को दबाकर चलो।'],['Jump over opponents to capture them. If you can jump, you must.','विरोधी के ऊपर से कूदकर उसे पकड़ो। कूद सकते हो तो कूदना ज़रूरी है।'],['Reach the far row to crown a king ♛ that moves both ways.','दूसरी तरफ पहुँचकर राजा ♛ बनो जो दोनों दिशाओं में चलता है।'],['Win by blocking or capturing every opponent piece. Use ↩ Undo or 💡 Hint any time.','हर विरोधी मोहरे को पकड़कर या रोककर जीतो। कभी भी ↩ पीछे या 💡 संकेत लो।']],start:checkersStart});
+/* ===== GAME 14: Submarine Rescue ===== */
+addTX({sb_lv:['Level {0}/{1}','स्तर {0}/{1}'],sb_ox:['Oxygen','ऑक्सीजन'],sb_res:['Rescued {0}/{1}','बचाए {0}/{1}'],sb_gem:['Treasure {0}/{1}','खज़ाना {0}/{1}'],sb_li:['Lives {0}','जीवन {0}'],sb_sonar:['Sonar','सोनार'],sb_ready:['Sonar ready','सोनार तैयार'],sb_wait:['Sonar {0}s','सोनार {0} सेकंड'],sb_hit:['Bump! Be careful of rocks and jellyfish.','टक्कर! चट्टानों और जेलीफ़िश से सावधान।'],sb_low:['Low oxygen! Find bubbles 🫧','ऑक्सीजन कम! बुलबुले 🫧 ढूँढो'],sb_out:['Out of oxygen! New tank fitted.','ऑक्सीजन खत्म! नई टंकी लगी।'],sb_save:['Rescued a friend! 🎉','एक दोस्त बचाया! 🎉'],sb_done:['Level complete!','स्तर पूरा!'],sb_sum:['Rescued {0} of {1}, treasure {2} of {3}.','बचाए {1} में से {0}, खज़ाना {3} में से {2}।'],sb_aria:['Underwater game. Steer the submarine, collect treasure, rescue sea creatures and avoid rocks.','पानी के नीचे का खेल। पनडुब्बी चलाओ, खज़ाना जमा करो, समुद्री जीवों को बचाओ और चट्टानों से बचो।'],sb_tip:['Move with arrow keys, W A S D, the ◀▲▼▶ buttons, or drag on the sea. Press 📡 (space) for sonar. Collect 💎, touch 🐠 to rescue, grab 🫧 for air, avoid 🪨 and 🪼.','तीर कुंजियों, W A S D, ◀▲▼▶ बटन या समुद्र पर खींचकर चलो। सोनार के लिए 📡 (स्पेस) दबाओ। 💎 जमा करो, बचाने के लिए 🐠 को छुओ, हवा के लिए 🫧 लो, 🪨 और 🪼 से बचो।']});
+const SB_C=['🐠','🐢','🐙','🐬','🦀','🐡'];
+function subStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;const keys=arcKeys(api);
+  const W=640,H=400,NL=5;let lvl,objs,sub,cam,len,ox,lives,inv,sonar,sonCd,rescued,totalC,gems,totalG,msg,msgT,over,cv,ctx,hud,tgt,dark,ringT,startLives;
+  function gen(l){const rnd=api.rnd;objs=[];len=2600+l*450;let x=520;let sinceB=0;totalC=0;totalG=0;
+    while(x<len-300){const r=rnd();let o;const y=50+rnd()*(H-130);
+      if(sinceB>520||r<.14){o={k:'bub',x,y,r:20};sinceB=0}
+      else if(r<.40){o={k:'rock',x,y:Math.min(H-60,Math.max(60,y)),r:34+rnd()*(18+l*3)}}
+      else if(r<.52+Math.min(.1,l*.02)&&api.diff>=0){o={k:'jelly',x,y,r:20,by:y,ph:rnd()*6,sp:1.2+rnd()*.8,amp:50+rnd()*50}}
+      else if(r<.72){o={k:'gem',x,y,r:18};totalG++}
+      else{o={k:'cr',x,y,r:24,e:SB_C[Math.floor(rnd()*SB_C.length)],hid:false};totalC++}
+      objs.push(o);sinceB+=220;x+=190+rnd()*190}
+    if(totalC<3){for(let i=0;i<3-totalC;i++){objs.push({k:'cr',x:900+i*600,y:120+i*100,r:24,e:SB_C[i],hid:false});totalC++}}
+    if(totalG<3){for(let i=0;i<3;i++){objs.push({k:'gem',x:700+i*700,y:300-i*70,r:18});totalG++}}
+    objs.sort((a,b)=>a.x-b.x)}
+  function begin(l,fresh){lvl=l;gen(l);if(fresh!==false){lives=[5,4,3][api.diff];startLives=lives}sub={x:140,y:H/2,vx:0,vy:0};cam=0;ox=100;inv=0;sonar=0;sonCd=0;rescued=0;gems=0;msg='';msgT=0;over=false;tgt=null;ringT=0;dark=l>=2||api.diff===2;
+    cv=arcCanvas(api,W,H,t('sb_aria'));ctx=cv.getContext('2d');hud=arcHUD([['lv','🌊'],['ox','🫧'],['rs','🐠'],['gm','💎'],['li','❤️'],['sn','📡']]);
+    cv.addEventListener('pointerdown',e=>{tgt=arcPos(cv,e);try{cv.setPointerCapture(e.pointerId)}catch(x){}});cv.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType==='touch')tgt=arcPos(cv,e)});const rel=()=>{tgt=null};cv.addEventListener('pointerup',rel);cv.addEventListener('pointercancel',rel);
+    const pad=arcPad(api,keys,[['left','◀'],['up','▲'],['down','▼'],['right','▶'],['fire','📡']]);
+    box.replaceChildren(h('div',null,hud.node,cv,pad,h('p',{class:'sim'},t('sb_tip')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>begin(lvl,true)},'🔄 '+t('restart')))));
+    api.setProgress(l/NL);if(!loop)loop=arcLoop(api,update,draw)}
+  function hurt(){if(inv>0)return;lives--;inv=1.8;api.snd('no');msg=t('sb_hit');msgT=1.6;if(lives<=0){over=true;api.after(()=>arcOver(api,box,{retry:()=>begin(0,true)}),400)}}
+  function update(dt){if(over)return;const base=[70,90,115][api.diff]+lvl*8;cam+=base*dt;sub.x+=base*dt;
+    let ax=(keys.right?1:0)-(keys.left?1:0),ay=(keys.down?1:0)-(keys.up?1:0);
+    if(tgt&&!ax&&!ay){const dx=tgt.x-(sub.x-cam),dy=tgt.y-sub.y;const d=Math.hypot(dx,dy);if(d>8){ax=dx/d;ay=dy/d}}
+    const sp=210;sub.vx+=(ax*sp-sub.vx)*Math.min(1,dt*6);sub.vy+=(ay*sp-sub.vy)*Math.min(1,dt*6);
+    let sx=sub.x-cam+sub.vx*dt;sx=Math.max(34,Math.min(W-34,sx));sub.x=cam+sx;sub.y=Math.max(30,Math.min(H-50,sub.y+sub.vy*dt));
+    sub.x+=0;
+    ox-=dt*(api.diff===0?1.6:api.diff===1?2.2:2.8);if(ox<=0){ox=70;lives--;inv=2;msg=t('sb_out');msgT=2;api.snd('no');if(lives<=0){over=true;api.after(()=>arcOver(api,box,{retry:()=>begin(0,true)}),400);return}}
+    inv-=dt;sonCd-=dt;sonar-=dt;ringT+=dt;
+    if(keys.fire&&sonCd<=0){sonar=3;sonCd=7;ringT=0;api.snd('pop')}
+    objs.forEach(o=>{if(o.k==='jelly')o.y=o.by+Math.sin(loop.t*o.sp+o.ph)*o.amp;if(o.dead)return;const d=Math.hypot(o.x-sub.x,o.y-sub.y);const rr=o.r+22;
+      if(d<rr){if(o.k==='gem'){o.dead=true;gems++;api.addScore(10);api.snd('ok')}else if(o.k==='cr'){o.dead=true;rescued++;api.addScore(25);api.snd('ok');msg=t('sb_save');msgT=1.2}else if(o.k==='bub'){o.dead=true;ox=Math.min(100,ox+35);api.snd('pop')}else if(o.k==='rock'&&d<o.r+14||o.k==='jelly'&&d<o.r+16){hurt();const a=Math.atan2(sub.y-o.y,sub.x-o.x);sub.vx=Math.cos(a)*260;sub.vy=Math.sin(a)*260}}});
+    if(ox<28&&!msgT>0&&Math.floor(loop.t*2)%6===0){}
+    if(cam+W>=len&&!over){over=true;api.snd('win');api.addScore(Math.round(ox)+lives*10);const rr=rescued/Math.max(1,totalC),gg=gems/Math.max(1,totalG);const st=1+(rr>=.7?1:0)+(gg>=.7&&lives>=startLives-1||rr>=.99&&gg>=.5?1:0);
+      api.after(()=>api.complete({stars:Math.min(3,st),key:'L'+(lvl+1),summary:()=>t('sb_done')+' '+t('sb_sum',rescued,totalC,gems,totalG),onContinue:()=>begin(lvl+1<NL?lvl+1:0,false)}),500)}
+    msgT-=dt;hud.set({lv:t('sb_lv',lvl+1,NL),ox:Math.round(ox)+'%'+(ox<28?' ⚠':''),rs:rescued+'/'+totalC,gm:gems+'/'+totalG,li:'❤'.repeat(Math.max(0,lives)),sn:sonCd>0?t('sb_wait',Math.ceil(sonCd)):t('sb_ready')})}
+  function draw(){if(!ctx)return;const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,dark?'#0b3c75':'#4dabf7');g.addColorStop(1,dark?'#04122b':'#1864ab');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(255,255,255,.18)';for(let i=0;i<18;i++){const x=((i*137-cam*.5)%W+W)%W,y=H-((loop.t*30+i*53)%H);ctx.beginPath();ctx.arc(x,y,2+i%3,0,7);ctx.fill()}
+    ctx.fillStyle='#e9c46a';ctx.fillRect(0,H-20,W,20);ctx.fillStyle='#2f9e44';for(let i=0;i<12;i++){const x=((i*90-cam*.9)%(W+90)+W+90)%(W+90)-30;ctx.fillRect(x,H-50,6,32);ctx.fillRect(x+10,H-40,5,22)}
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    const vis=o=>{if(!dark)return true;if(sonar>0)return true;return Math.hypot(o.x-sub.x,o.y-sub.y)<190};
+    objs.forEach(o=>{const x=o.x-cam;if(x<-80||x>W+80||o.dead)return;
+      if(o.k==='rock'){ctx.fillStyle='#868e96';ctx.beginPath();ctx.arc(x,o.y,o.r,0,7);ctx.fill();ctx.fillStyle='#6c757d';ctx.beginPath();ctx.arc(x-o.r*.3,o.y-o.r*.25,o.r*.3,0,7);ctx.fill();ctx.strokeStyle='#343a40';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,o.y,o.r,0,7);ctx.stroke()}
+      else if(o.k==='jelly'){ctx.font='36px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.fillText('🪼',x,o.y);ctx.strokeStyle='#ff6b6b';ctx.lineWidth=2;ctx.setLineDash([3,3]);ctx.beginPath();ctx.arc(x,o.y,o.r+8,0,7);ctx.stroke();ctx.setLineDash([])}
+      else if(vis(o)){ctx.font=(o.k==='cr'?'38px':'30px')+' system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.fillText(o.k==='gem'?'💎':o.k==='bub'?'🫧':o.e,x,o.y+Math.sin(loop.t*2+o.x)*3);if(sonar>0&&(o.k==='gem'||o.k==='cr')){ctx.strokeStyle='#ffd43b';ctx.lineWidth=3;ctx.beginPath();ctx.arc(x,o.y,24+Math.sin(loop.t*8)*4,0,7);ctx.stroke()}}});
+    /* sonar indicators for items ahead */
+    if(sonar>0){objs.forEach(o=>{if(o.dead||(o.k!=='gem'&&o.k!=='cr'))return;const x=o.x-cam;if(x>W-10&&x<W+900){ctx.fillStyle='#ffd43b';ctx.beginPath();ctx.moveTo(W-6,o.y);ctx.lineTo(W-22,o.y-8);ctx.lineTo(W-22,o.y+8);ctx.fill()}});const rr=ringT*260;ctx.strokeStyle='rgba(255,255,255,'+Math.max(0,1-ringT/1.3)+')';ctx.lineWidth=4;ctx.beginPath();ctx.arc(sub.x-cam,sub.y,rr,0,7);ctx.stroke()}
+    /* sub */
+    if(!(inv>0&&Math.floor(loop.t*12)%2)){ctx.save();ctx.translate(sub.x-cam,sub.y);ctx.rotate(Math.max(-.3,Math.min(.3,sub.vy/600)));ctx.fillStyle='#ffd43b';ctx.beginPath();ctx.ellipse(0,0,34,17,0,0,7);ctx.fill();ctx.strokeStyle='#b58900';ctx.lineWidth=3;ctx.stroke();ctx.fillStyle='#ffd43b';ctx.fillRect(-6,-28,14,12);ctx.strokeRect(-6,-28,14,12);ctx.fillStyle='#d0ebff';ctx.beginPath();ctx.arc(8,-2,7,0,7);ctx.arc(-10,-2,6,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#f59f00';ctx.beginPath();ctx.moveTo(-34,0);ctx.lineTo(-46,-10);ctx.lineTo(-46,10);ctx.fill();ctx.restore()}
+    if(dark){const rad=ctx.createRadialGradient(sub.x-cam,sub.y,60,sub.x-cam,sub.y,sonar>0?520:210);rad.addColorStop(0,'rgba(0,0,0,0)');rad.addColorStop(1,'rgba(0,5,25,'+(sonar>0?.25:.72)+')');ctx.fillStyle=rad;ctx.fillRect(0,0,W,H)}
+    /* oxygen bar */
+    ctx.fillStyle='rgba(255,255,255,.3)';ctx.fillRect(10,H-16,160,10);ctx.fillStyle=ox<28?'#ff6b6b':'#69db7c';ctx.fillRect(10,H-16,160*Math.max(0,ox)/100,10);ctx.fillStyle='#fff';ctx.font='700 11px system-ui,sans-serif';ctx.textAlign='left';ctx.fillText(t('sb_ox'),12,H-24);
+    ctx.fillStyle='rgba(255,255,255,.35)';ctx.fillRect(W-170,12,160,8);ctx.fillStyle='#fff';ctx.fillRect(W-170,12,160*Math.min(1,(cam+W)/len),8);
+    if(ox<28&&Math.floor(loop.t*2)%2){ctx.fillStyle='#ff6b6b';ctx.font='900 22px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(t('sb_low'),W/2,40)}else if(msgT>0){ctx.fillStyle='#fff';ctx.font='900 22px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(msg,W/2,40)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Submarine Rescue','पनडुब्बी बचाव'],text:['Dive in your submarine! Collect treasure, rescue sea friends, watch your oxygen and avoid rocks.','अपनी पनडुब्बी में गोता लगाओ! खज़ाना जमा करो, समुद्री दोस्तों को बचाओ, ऑक्सीजन पर नज़र रखो और चट्टानों से बचो।'],go:()=>begin(0,true)})}
+registerGame({id:'sub',icon:'🤿',art:ART.sub,color:'#1864ab',cat:'arcade',ages:[2,3],name:['Submarine Rescue','सबमरीन रेस्क्यू'],desc:['Steer a submarine, rescue sea creatures, collect treasure and use sonar.','पनडुब्बी चलाओ, समुद्री जीवों को बचाओ, खज़ाना जमा करो और सोनार इस्तेमाल करो।'],
+  how:[['Steer in any direction with arrow keys, W A S D, the buttons, or by dragging.','तीर कुंजियों, W A S D, बटनों या खींचकर किसी भी दिशा में चलाओ।'],['Touch 💎 to collect and 🐠 to rescue. 🫧 refills your oxygen.','💎 को छूकर जमा करो और 🐠 को छूकर बचाओ। 🫧 ऑक्सीजन भरता है।'],['Avoid 🪨 rocks and 🪼 jellyfish (dashed ring). Each bump costs a life.','🪨 चट्टानों और 🪼 जेलीफ़िश (धारीदार घेरा) से बचो। हर टक्कर एक जीवन लेती है।'],['Press 📡 or space for sonar. It shows hidden items for 3 seconds. Reach the end to finish.','सोनार के लिए 📡 या स्पेस दबाओ। यह 3 सेकंड छिपी चीज़ें दिखाता है। खत्म करने के लिए अंत तक पहुँचो।']],start:subStart});
+/* ===== GAME 15: Galaxy Defender ===== */
+addTX({gd_wave:['Wave {0}','लहर {0}'],gd_boss:['BOSS!','बॉस!'],gd_lives:['Lives {0}','जीवन {0}'],gd_auto:['Auto-fire: {0}','ऑटो-फायर: {0}'],gd_on:['on','चालू'],gd_off:['off','बंद'],gd_sh:['Shield!','कवच!'],gd_rf:['Rapid fire!','तेज़ फायर!'],gd_tr:['Triple shot!','तीन गोले!'],gd_hit:['Ouch! Shield up for a moment.','ओह! थोड़ी देर कवच चालू।'],gd_win:['The galaxy is safe! 🌌','आकाशगंगा सुरक्षित है! 🌌'],gd_sum:['Lives left: {0}.','बचे जीवन: {0}।'],gd_aria:['Space arcade. Move your ship and shoot enemies and asteroids.','अंतरिक्ष आर्केड। यान चलाओ और दुश्मनों व उल्कापिंडों को गिराओ।'],gd_tip:['Drag on the game, use ◀ ▶ buttons or arrow keys to move. Hold 🔥 or space to shoot.','खेल पर खींचो, ◀ ▶ बटन या तीर कुंजियों से चलो। गोली चलाने के लिए 🔥 या स्पेस दबाए रखो।'],gd_pu:['Catch ✨ ⚡ 🛡 power-ups for help!','मदद के लिए ✨ ⚡ 🛡 पावर-अप पकड़ो!']});
+function galaxyStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;const keys=arcKeys(api);
+  const W=480,H=640,NW=6;let ship,bul,ebul,en,ast,pu,fx,wave,lives,dir,fireT,over,cv,ctx,hud,auto,spawnA,shield,rapid,triple,inv,ebT,banner,bannerT,boss,ptrX,fb;
+  function begin(w0){wave=w0||0;lives=3;over=false;auto=api.diff===0;setup(wave,true);
+    cv=arcCanvas(api,W,H,t('gd_aria'));ctx=cv.getContext('2d');hud=arcHUD([['wv','🌠'],['li','❤️'],['pw','✨']]);cv.style.maxWidth='460px';
+    cv.addEventListener('pointerdown',e=>{ptrX=arcPos(cv,e).x;try{cv.setPointerCapture(e.pointerId)}catch(x){}});cv.addEventListener('pointermove',e=>{if(e.buttons||e.pointerType==='touch'){ptrX=arcPos(cv,e).x}});cv.addEventListener('pointerup',()=>{ptrX=null});cv.addEventListener('pointercancel',()=>{ptrX=null});
+    const autoB=h('button',{class:'btn alt',onclick:()=>{auto=!auto;autoB.textContent='⚙ '+t('gd_auto',auto?t('gd_on'):t('gd_off'))}},'⚙ '+t('gd_auto',auto?t('gd_on'):t('gd_off')));
+    fb={};const pad=arcPad(api,keys,[['left','◀'],['fire','🔥'],['right','▶']]);
+    box.replaceChildren(h('div',null,hud.node,cv,pad,h('div',{class:'row c'},autoB,h('button',{class:'btn alt',onclick:()=>begin(0)},'🔄 '+t('restart'))),h('p',{class:'sim'},t('gd_tip')+' '+t('gd_pu'))));
+    api.setProgress(0);if(!loop)loop=arcLoop(api,update,draw)}
+  function setup(w,fresh){bul=[];ebul=[];en=[];ast=[];pu=pu&&!fresh?pu:[];fx=[];fireT=0;spawnA=2;ebT=1.4;dir=1;boss=null;inv=1.5;
+    if(fresh){ship={x:W/2,y:H-70};shield=0;rapid=0;triple=0;pu=[];api.setScore(0)}
+    const isBoss=(w+1)%3===0;banner=isBoss?t('gd_boss'):t('gd_wave',w+1);bannerT=1.8;
+    if(isBoss){boss={x:W/2,y:90,hp:18+w*5+api.diff*8,max:18+w*5+api.diff*8,dir:1,t:0,sh:1.2}}
+    else{const rows=Math.min(4,2+Math.floor(w/2)+(api.diff>0?1:0)),cols=Math.min(8,5+Math.floor(w/2));for(let r=0;r<rows;r++)for(let c=0;c<cols;c++)en.push({x:60+c*(W-120)/(cols-1||1),y:70+r*48,hp:(w>=3&&r===0)||(api.diff===2&&r===0)?2:1,e:r%2?'👾':'🛸'})}}
+  function shoot(){const rf=rapid>0;fireT=rf?.12:api.diff===0?.3:.24;const b=(dx)=>bul.push({x:ship.x+dx*16,y:ship.y-26,vx:dx*60,vy:-720});if(triple>0){b(-1);b(0);b(1)}else b(0);api.snd('tap')}
+  function lose1(){if(inv>0||shield>0)return;lives--;api.snd('no');inv=2;shield=0;ebul=[];bannerT=1.2;banner=t('gd_hit');for(let i=0;i<12;i++)fx.push({x:ship.x,y:ship.y,vx:(Math.random()-.5)*300,vy:(Math.random()-.5)*300,t:0,c:'#ffa94d'});if(lives<=0){over=true;api.after(()=>arcOver(api,box,{retry:()=>begin(0)}),500)}}
+  function update(dt){if(over)return;
+    const sp=330;if(keys.left)ship.x-=sp*dt;if(keys.right)ship.x+=sp*dt;if(ptrX!=null)ship.x+=Math.max(-sp*1.6*dt,Math.min(sp*1.6*dt,ptrX-ship.x));ship.x=Math.max(24,Math.min(W-24,ship.x));
+    fireT-=dt;if((keys.fire||auto)&&fireT<=0)shoot();inv-=dt;shield-=dt;rapid-=dt;triple-=dt;bannerT-=dt;
+    bul.forEach(b=>{b.x+=b.vx*dt;b.y+=b.vy*dt});bul=bul.filter(b=>b.y>-20);
+    ebul.forEach(b=>{b.x+=b.vx*dt;b.y+=b.vy*dt});ebul=ebul.filter(b=>b.y<H+20&&b.x>-20&&b.x<W+20);
+    /* formation */
+    if(en.length){let edge=false;const spd=40+wave*9+api.diff*14+(30-en.length)*.0+Math.max(0,(24-en.length))*2;en.forEach(e=>{e.x+=dir*spd*dt;if(e.x>W-30||e.x<30)edge=true});if(edge){dir=-dir;en.forEach(e=>{e.y+=22;e.x+=dir*4})}
+      ebT-=dt;if(ebT<=0){ebT=Math.max(.45,1.4-wave*.12-api.diff*.2);const s=en[Math.floor(Math.random()*en.length)];ebul.push({x:s.x,y:s.y+14,vx:0,vy:220+wave*12+api.diff*30})}
+      if(en.some(e=>e.y>H-120)){en.forEach(e=>e.y-=90);lose1()}}
+    if(boss){boss.t+=dt;boss.x+=boss.dir*(90+wave*8)*dt;if(boss.x>W-70||boss.x<70)boss.dir=-boss.dir;boss.sh-=dt;if(boss.sh<=0){boss.sh=Math.max(.7,1.4-api.diff*.2-wave*.05);const n=3+(wave>3?2:0);for(let i=0;i<n;i++){const a=Math.PI/2+(i-(n-1)/2)*.35;ebul.push({x:boss.x,y:boss.y+30,vx:Math.cos(a)*190,vy:Math.sin(a)*190})}}}
+    /* asteroids */
+    spawnA-=dt;if(spawnA<=0&&(wave>=1||api.diff>0)){spawnA=Math.max(1.1,3.2-wave*.3-api.diff*.5);ast.push({x:30+Math.random()*(W-60),y:-30,r:20+Math.random()*10,vy:90+wave*10+Math.random()*40,vx:(Math.random()-.5)*60,hp:2})}
+    ast.forEach(a=>{a.x+=a.vx*dt;a.y+=a.vy*dt});ast=ast.filter(a=>a.y<H+40&&a.hp>0);
+    /* collisions */
+    bul.forEach(b=>{en.forEach(e=>{if(!b.dead&&Math.abs(b.x-e.x)<22&&Math.abs(b.y-e.y)<20){b.dead=true;e.hp--;if(e.hp<=0){e.dead=true;api.addScore(10+wave*2);api.snd('pop');for(let i=0;i<6;i++)fx.push({x:e.x,y:e.y,vx:(Math.random()-.5)*220,vy:(Math.random()-.5)*220,t:0,c:'#ffd43b'});if(Math.random()<.14)pu.push({x:e.x,y:e.y,k:['shield','rapid','triple'][Math.floor(Math.random()*3)]})}}});
+      ast.forEach(a=>{if(!b.dead&&Math.hypot(b.x-a.x,b.y-a.y)<a.r){b.dead=true;a.hp--;if(a.hp<=0){api.addScore(5);api.snd('pop');for(let i=0;i<5;i++)fx.push({x:a.x,y:a.y,vx:(Math.random()-.5)*160,vy:(Math.random()-.5)*160,t:0,c:'#adb5bd'})}}});
+      if(boss&&!b.dead&&Math.abs(b.x-boss.x)<60&&Math.abs(b.y-boss.y)<36){b.dead=true;boss.hp--;api.addScore(2);if(boss.hp<=0){api.addScore(100);boss.dead=true;for(let i=0;i<24;i++)fx.push({x:boss.x,y:boss.y,vx:(Math.random()-.5)*400,vy:(Math.random()-.5)*400,t:0,c:'#ff922b'})}}});
+    bul=bul.filter(b=>!b.dead);en=en.filter(e=>!e.dead);if(boss&&boss.dead)boss=null;
+    ebul.forEach(b=>{if(Math.abs(b.x-ship.x)<16&&Math.abs(b.y-ship.y)<20){b.dead=true;lose1()}});ebul=ebul.filter(b=>!b.dead);
+    ast.forEach(a=>{if(Math.hypot(a.x-ship.x,a.y-ship.y)<a.r+14){a.hp=0;lose1()}});
+    pu.forEach(p=>{p.y+=110*dt;if(Math.abs(p.x-ship.x)<28&&Math.abs(p.y-ship.y)<30){p.dead=true;api.snd('ok');if(p.k==='shield'){shield=9;banner=t('gd_sh')}else if(p.k==='rapid'){rapid=9;banner=t('gd_rf')}else{triple=9;banner=t('gd_tr')}bannerT=1}});pu=pu.filter(p=>!p.dead&&p.y<H+20);
+    fx.forEach(f=>{f.x+=f.vx*dt;f.y+=f.vy*dt;f.t+=dt});fx=fx.filter(f=>f.t<.6);
+    if(!en.length&&!boss&&!over){ if(wave+1>=NW){over=true;api.snd('win');api.addScore(100+lives*20);api.after(()=>api.complete({stars:lives>=3?3:lives===2?2:1,key:'main',summary:()=>t('gd_win')+' '+t('gd_sum',lives),onContinue:()=>begin(0)}),700)}else{wave++;api.setProgress(wave/NW);api.addScore(20);setup(wave,false);inv=2}}
+    hud.set({wv:t('gd_wave',wave+1)+'/'+NW,li:'❤'.repeat(Math.max(0,lives)),pw:(shield>0?'🛡':'')+(rapid>0?'⚡':'')+(triple>0?'✨':'')||'–'})}
+  function draw(){if(!ctx)return;ctx.fillStyle='#0b1030';ctx.fillRect(0,0,W,H);ctx.fillStyle='rgba(255,255,255,.7)';for(let i=0;i<40;i++){const x=(i*97)%W,y=((i*173+loop.t*30*(1+i%3))%H);ctx.fillRect(x,y,2,2)}
+    ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='32px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';en.forEach(e=>{ctx.fillText(e.e,e.x,e.y);if(e.hp>1){ctx.fillStyle='#ffd43b';ctx.fillRect(e.x-12,e.y+18,24,3)}});
+    ast.forEach(a=>{ctx.fillStyle='#868e96';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();ctx.fillStyle='#6c757d';ctx.beginPath();ctx.arc(a.x-a.r*.3,a.y-a.r*.2,a.r*.25,0,7);ctx.arc(a.x+a.r*.3,a.y+a.r*.3,a.r*.18,0,7);ctx.fill()});
+    if(boss){ctx.font='84px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.fillText('🛸',boss.x,boss.y);ctx.fillStyle='#fff';ctx.fillRect(boss.x-50,boss.y-52,100,8);ctx.fillStyle='#ff6b6b';ctx.fillRect(boss.x-50,boss.y-52,100*boss.hp/boss.max,8);ctx.fillStyle='#fff';ctx.font='900 14px system-ui,sans-serif';ctx.fillText(t('gd_boss'),boss.x,boss.y+54)}
+    ctx.fillStyle='#ffd43b';bul.forEach(b=>ctx.fillRect(b.x-2,b.y-8,4,14));ctx.fillStyle='#ff6b6b';ebul.forEach(b=>{ctx.beginPath();ctx.arc(b.x,b.y,5,0,7);ctx.fill()});
+    ctx.font='26px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';pu.forEach(p=>ctx.fillText(p.k==='shield'?'🛡️':p.k==='rapid'?'⚡':'✨',p.x,p.y));
+    if(!(inv>0&&Math.floor(loop.t*10)%2)){ctx.save();ctx.translate(ship.x,ship.y);ctx.fillStyle='#74c0fc';ctx.beginPath();ctx.moveTo(0,-26);ctx.lineTo(20,18);ctx.lineTo(0,10);ctx.lineTo(-20,18);ctx.closePath();ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#ff922b';ctx.beginPath();ctx.moveTo(-6,14);ctx.lineTo(0,26+Math.random()*6);ctx.lineTo(6,14);ctx.fill();if(shield>0){ctx.strokeStyle='rgba(81,207,102,.9)';ctx.lineWidth=4;ctx.beginPath();ctx.arc(0,0,32,0,7);ctx.stroke()}ctx.restore()}
+    fx.forEach(f=>{ctx.globalAlpha=Math.max(0,1-f.t/.6);ctx.fillStyle=f.c;ctx.fillRect(f.x-3,f.y-3,6,6);ctx.globalAlpha=1});
+    if(bannerT>0){ctx.fillStyle='rgba(255,255,255,'+Math.min(1,bannerT)+')';ctx.font='900 44px system-ui,sans-serif';ctx.fillText(banner,W/2,H/2-60)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Galaxy Defender','गैलेक्सी डिफेंडर'],text:['Defend the galaxy! Shoot aliens and asteroids, grab power-ups and beat the bosses.','आकाशगंगा की रक्षा करो! एलियन और उल्कापिंड गिराओ, पावर-अप पकड़ो और बॉस को हराओ।'],go:()=>begin(0)})}
+registerGame({id:'galaxy',icon:'🚀',art:ART.galaxy,color:'#3b5bdb',cat:'arcade',ages:[2,3],name:['Galaxy Defender','गैलेक्सी डिफेंडर'],desc:['Fly your spaceship, blast aliens and asteroids, and beat the bosses.','अपना यान उड़ाओ, एलियन और उल्कापिंड उड़ाओ और बॉस को हराओ।'],
+  how:[['Move with ◀ ▶, arrow keys, A D, or by dragging on the game.','◀ ▶, तीर कुंजियों, A D या खेल पर खींचकर चलो।'],['Hold 🔥 or space to shoot. Auto-fire can be switched on or off.','गोली चलाने के लिए 🔥 या स्पेस दबाए रखो। ऑटो-फायर चालू या बंद कर सकते हो।'],['Catch ✨ triple shot, ⚡ rapid fire and 🛡 shield power-ups.','✨ तीन गोले, ⚡ तेज़ फायर और 🛡 कवच पावर-अप पकड़ो।'],['Survive all 6 waves. Bosses appear on waves 3 and 6. You have 3 lives.','सभी 6 लहरों में टिके रहो। बॉस लहर 3 और 6 में आते हैं। तुम्हारे पास 3 जीवन हैं।']],start:galaxyStart});
+/* ===== GAME 16: Maze Chase ===== */
+addTX({mz_hint:['Show path ({0})','रास्ता दिखाओ ({0})'],mz_lv:['Maze {0} of {1}','भूलभुलैया {0} / {1}'],mz_stars:['Stars {0}/{1}','तारे {0}/{1}'],mz_time:['Time {0}s','समय {0} सेकंड'],mz_caught:['Oops! A chaser got you. Back to the start!','अरे! पीछा करने वाले ने पकड़ लिया। वापस शुरुआत पर!'],mz_late:['Time ran out in this maze.','इस भूलभुलैया में समय खत्म हो गया।'],mz_goal:['Reach the 🏁. Collect ⭐ on the way. Avoid 👾.','🏁 तक पहुँचो। रास्ते में ⭐ इकट्ठा करो। 👾 से बचो।'],mz_done:['Maze solved!','भूलभुलैया हल!'],mz_sum:['Stars collected: {0} of {1}. Time: {2}s.','इकट्ठे तारे: {1} में से {0}। समय: {2} सेकंड।'],mz_all:['All done! You solved every maze!','सब पूरे! तुमने हर भूलभुलैया हल की!'],mz_need:['Get to the exit!','बाहर निकलने के रास्ते पर जाओ!'],mz_hp:['Path shown. It fades soon.','रास्ता दिखाया। यह जल्दी गायब होगा।'],mz_nohint:['No hints left in this maze.','इस भूलभुलैया में संकेत खत्म।'],mz_aria:['Maze board. Use arrow keys or the buttons to move.','भूलभुलैया। चलने के लिए तीर कुंजियाँ या बटन इस्तेमाल करो।']});
+const MZ_N=[5,6,7,8,9,10,12,14];
+function mzGen(rnd,n){const w=[];for(let i=0;i<n*n;i++)w.push(15);/* N1 E2 S4 W8 */const seen=new Set([0]);const st=[0];
+  while(st.length){const cur=st[st.length-1];const x=cur%n,y=(cur/n)|0;const nb=[];if(y>0&&!seen.has(cur-n))nb.push([cur-n,1,4]);if(x<n-1&&!seen.has(cur+1))nb.push([cur+1,2,8]);if(y<n-1&&!seen.has(cur+n))nb.push([cur+n,4,1]);if(x>0&&!seen.has(cur-1))nb.push([cur-1,8,2]);
+    if(!nb.length){st.pop();continue}const[nx,a,b2]=nb[Math.floor(rnd()*nb.length)];w[cur]&=~a;w[nx]&=~b2;seen.add(nx);st.push(nx)}
+  return w}
+function mzPath(w,n,from,to){const prev=new Map([[from,-1]]);const q=[from];while(q.length){const c=q.shift();if(c===to)break;const x=c%n;[[1,c-n],[2,c+1],[4,c+n],[8,c-1]].forEach(([bit,nx])=>{if(!(w[c]&bit)&&!prev.has(nx)&&nx>=0&&nx<n*n&&!(bit===2&&x===n-1)&&!(bit===8&&x===0)){prev.set(nx,c);q.push(nx)}})}
+  const path=[];let c=to;while(c!==-1&&c!==undefined){path.push(c);c=prev.get(c)}return path.reverse()}
+function mazeStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let lvl=0;const keys=arcKeys(api);let loop=null;
+  let n,w,px,py,stars,total,enemies,lives,cd,ecd,time,hints,hintPath,hintT,msg,over,cv,ctx,hud,CS,swipe;
+  const S0=640;
+  function begin(l){lvl=l;n=MZ_N[l];w=mzGen(api.rnd,n);px=0;py=0;lives=3;msg='';over=false;time=0;cd=0;ecd=0;hints=api.diff===0?4:api.diff===1?2:1;hintPath=null;hintT=0;CS=S0/n;
+    const free=[];for(let i=1;i<n*n-1;i++)free.push(i);const sh=api.shuffle(free);total=Math.max(3,Math.round(n*0.7));stars=new Set(sh.slice(0,total));const ne=api.diff===0?0:api.diff===1?(l>=3?1:0):Math.min(3,1+(l>=3?1:0)+(l>=6?1:0));
+    enemies=sh.slice(total,total+ne).map(c=>({x:c%n,y:(c/n)|0,dir:0,got:0}));/* keep enemies away from start */enemies.forEach(e=>{if(e.x+e.y<4){e.x=n-1-e.x;e.y=n-1-e.y}});
+    cv=arcCanvas(api,S0,S0,t('mz_aria'));ctx=cv.getContext('2d');hud=arcHUD([['lv','🧭'],['st','⭐'],['li','❤️'],['tm','⏱']]);
+    cv.addEventListener('pointerdown',e=>{swipe=arcPos(cv,e)});cv.addEventListener('pointerup',e=>{if(!swipe)return;const p=arcPos(cv,e);const dx=p.x-swipe.x,dy=p.y-swipe.y;swipe=null;if(Math.abs(dx)<20&&Math.abs(dy)<20)return;if(Math.abs(dx)>Math.abs(dy))tryMove(dx>0?1:-1,0);else tryMove(0,dy>0?1:-1)});
+    const hb=h('button',{class:'btn alt',onclick:useHint},'💡 '+t('mz_hint',hints));
+    const pad=h('div',{class:'arc-pad',role:'group'},[['◀','left',-1,0],['▲','up',0,-1],['▼','down',0,1],['▶','right',1,0]].map(d=>h('button',{type:'button','aria-label':t('ar_'+d[1]),onclick:()=>tryMove(d[2],d[3])},d[0])));
+    box.replaceChildren(h('div',null,hud.node,cv,msg?null:null,h('p',{id:'mz-msg',class:'sim',role:'status'},t('mz_goal')),pad,h('div',{class:'row c'},hb,h('button',{class:'btn alt',onclick:()=>begin(lvl)},'🔄 '+t('restart')))));
+    box.hb=hb;api.onLang(()=>{const m=$('#mz-msg');if(m)m.textContent=t('mz_goal');if(box.hb)box.hb.textContent='💡 '+t('mz_hint',hints)});
+    if(!loop)loop=arcLoop(api,update,draw);api.setProgress(l/MZ_N.length)}
+  function say(m){const e=$('#mz-msg');if(e)e.textContent=m}
+  function useHint(){if(over||loop.paused)return;if(hints<=0){say(t('mz_nohint'));return}hints--;box.hb.textContent='💡 '+t('mz_hint',hints);hintPath=mzPath(w,n,py*n+px,n*n-1);hintT=3.5;api.addScore(-5);say(t('mz_hp'))}
+  function tryMove(dx,dy){if(over||loop.paused)return;const c=py*n+px;const bit=dx===1?2:dx===-1?8:dy===1?4:1;if(w[c]&bit){api.snd('tap');return}px+=dx;py+=dy;api.snd('pop');const id=py*n+px;
+    if(stars.has(id)){stars.delete(id);api.addScore(10);api.snd('ok')}hintPath=null;check()}
+  function check(){if(enemies.some(e=>e.x===px&&e.y===py)){lives--;say(t('mz_caught'));api.snd('no');px=0;py=0;if(lives<=0){over=true;loop.paused=true;api.after(()=>{loop.paused=false;arcOver(api,box,{retry:()=>begin(lvl)})},300)}return}
+    if(px===n-1&&py===n-1&&!over){over=true;api.snd('win');const got=total-stars.size;api.addScore(20+Math.max(0,Math.round(n*n*0.6-time)));const par=n*n*0.9;const stt=1+(got===total?1:0)+(time<=par?1:0);
+      api.after(()=>api.complete({stars:stt,key:'M'+(lvl+1),summary:()=>t('mz_sum',got,total,Math.round(time)),onContinue:()=>{lvl+1<MZ_N.length?begin(lvl+1):begin(0)}}),400)}}
+  function update(dt){if(over)return;time+=dt;cd-=dt;
+    if(cd<=0){if(keys.left){tryMove(-1,0);cd=.14}else if(keys.right){tryMove(1,0);cd=.14}else if(keys.up){tryMove(0,-1);cd=.14}else if(keys.down){tryMove(0,1);cd=.14}}
+    if(hintT>0){hintT-=dt;if(hintT<=0)hintPath=null}
+    ecd-=dt;const speed=api.diff===2?.42:.65;if(ecd<=0&&enemies.length){ecd=speed;enemies.forEach(e=>{const c=e.y*n+e.x;let nxt;const chase=api.diff===2||(api.diff===1&&lvl>=5);
+        if(chase&&Math.abs(e.x-px)+Math.abs(e.y-py)<7){const p=mzPath(w,n,c,py*n+px);nxt=p[1]}
+        if(nxt==null){const opts=[];[[1,0,2],[-1,0,8],[0,1,4],[0,-1,1]].forEach(([dx,dy,bit],i)=>{if(!(w[c]&bit)&&i!==(e.dir^1))opts.push([dx,dy,i])});const o=opts.length?opts[Math.floor(api.rnd()*opts.length)]:[0,0,e.dir];e.x+=o[0];e.y+=o[1];e.dir=o[2]}else{e.x=nxt%n;e.y=(nxt/n)|0}});check()}
+    hud.set({lv:t('mz_lv',lvl+1,MZ_N.length),st:total-stars.size+'/'+total,li:'❤'.repeat(Math.max(0,lives)),tm:Math.round(time)+'s'});
+    if(api.diff===2&&time>n*n*1.6&&!over){over=true;loop.paused=true;api.after(()=>{loop.paused=false;arcOver(api,box,{msg:['Time ran out in this maze.','इस भूलभुलैया में समय खत्म हो गया।'],retry:()=>begin(lvl)})},200)}}
+  function draw(){if(!ctx)return;ctx.fillStyle='#fff7e0';ctx.fillRect(0,0,S0,S0);
+    if(hintPath){ctx.strokeStyle='rgba(18,184,136,.7)';ctx.lineWidth=CS*.25;ctx.lineCap='round';ctx.beginPath();hintPath.forEach((c,i)=>{const x=(c%n+.5)*CS,y=((c/n|0)+.5)*CS;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke()}
+    ctx.font=Math.round(CS*.62)+'px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    stars.forEach(c=>ctx.fillText('⭐',(c%n+.5)*CS,((c/n|0)+.5)*CS));ctx.fillText('🏁',(n-.5)*CS,(n-.5)*CS);enemies.forEach(e=>ctx.fillText('👾',(e.x+.5)*CS,(e.y+.5)*CS));ctx.font=Math.round(CS*.7)+'px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.fillText('🙂',(px+.5)*CS,(py+.5)*CS);
+    ctx.strokeStyle='#5b4bdb';ctx.lineWidth=Math.max(3,CS*.09);ctx.lineCap='round';ctx.beginPath();
+    for(let i=0;i<n*n;i++){const x=(i%n)*CS,y=((i/n)|0)*CS;if(w[i]&1){ctx.moveTo(x,y);ctx.lineTo(x+CS,y)}if(w[i]&2){ctx.moveTo(x+CS,y);ctx.lineTo(x+CS,y+CS)}if(w[i]&4){ctx.moveTo(x,y+CS);ctx.lineTo(x+CS,y+CS)}if(w[i]&8){ctx.moveTo(x,y);ctx.lineTo(x,y+CS)}}ctx.stroke();arcPausedOverlay(ctx,S0,S0,loop)}
+  arcIntro(api,box,{title:['Maze Chase','मेज़ चेज़'],text:['Find the way to the 🏁. Collect ⭐ and keep away from 👾.','🏁 तक का रास्ता ढूँढो। ⭐ इकट्ठा करो और 👾 से दूर रहो।'],go:()=>begin(0)})}
+registerGame({id:'maze',icon:'🧭',art:ART.maze,color:'#364fc7',cat:'arcade',ages:[1,2,3],name:['Maze Chase','मेज़ चेज़'],desc:['Find your way through mazes, collect stars and dodge friendly chasers.','भूलभुलैया में रास्ता ढूँढो, तारे इकट्ठा करो और पीछा करने वालों से बचो।'],
+  how:[['Move with arrow keys, W A S D, the on-screen arrows, or by swiping on the maze.','तीर कुंजियों, W A S D, स्क्रीन के तीरों या भूलभुलैया पर स्वाइप से चलो।'],['Reach 🏁 to finish. Collect ⭐ for extra points.','खत्म करने के लिए 🏁 तक पहुँचो। ज़्यादा अंकों के लिए ⭐ इकट्ठा करो।'],['Easy has no chasers. Higher levels have 👾 that wander or follow you.','आसान में पीछा करने वाले नहीं। ऊँचे स्तरों में 👾 भटकते या तुम्हारा पीछा करते हैं।'],['Stuck? Press 💡 to see the path for a few seconds.','अटक गए? कुछ सेकंड रास्ता देखने के लिए 💡 दबाओ।']],start:mazeStart});
+/* ===== GAME 17: Bubble Popper ===== */
+addTX({bp_lv:['Level {0}','स्तर {0}'],bp_shots:['Shots {0}','शॉट {0}'],bp_swap:['Swap','अदला-बदली'],bp_aim:['Aim with your finger or mouse, then tap to shoot. Left/right arrows aim, space shoots.','उँगली या माउस से निशाना लगाओ, फिर दबाकर दागो। बाएँ/दाएँ तीर से निशाना, स्पेस से दागना।'],bp_combo:['Combo x{0}!','कॉम्बो x{0}!'],bp_clear:['Board cleared!','बोर्ड साफ़!'],bp_over:['The bubbles reached the bottom line.','बुलबुले नीचे की रेखा तक पहुँच गए।'],bp_next:['Next','अगला'],bp_sum:['Misses: {0}. Great aiming!','चूक: {0}। बढ़िया निशाना!'],bp_aria:['Bubble game area. Match three or more of the same symbol.','बुलबुला खेल। एक ही चिह्न के तीन या ज़्यादा मिलाओ।'],bp_how:['Match 3+ of the same colour AND symbol.','एक ही रंग और चिह्न के 3+ मिलाओ।']});
+const BP_COL=['#ff6b6b','#339af0','#51cf66','#ffd43b','#cc5de8','#ff922b'],BP_SYM=['●','▲','■','★','♥','◆'];
+function bubbleStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);const keys=arcKeys(api);let loop=null;
+  const W=480,H=640,R=20,RH=R*1.7320508,ROWS=15,SX=W/2,SY=596;
+  let grid,off,lvl,ang,shot,cur,nxt,misses,shots,combo,ncol,fx,over,cv,ctx,hud,prevFire,rowEvery,missRow;
+  const colsIn=r=>((r+off)&1)?11:12;
+  const cx=(r,c)=>R+c*2*R+(((r+off)&1)?R:0),cy=r=>R+r*RH;
+  function mkRow(){const r=[];for(let c=0;c<12;c++)r.push(Math.floor(api.rnd()*ncol));return r}
+  function begin(l){lvl=l;off=0;over=false;misses=0;shots=0;combo=0;fx=[];shot=null;ang=-Math.PI/2;missRow=0;prevFire=false;
+    ncol=Math.min(6,[3,4,5][api.diff]+(l>=3?1:0));rowEvery=[0,7,5][api.diff];const nr=[4,5,6][api.diff]+Math.min(3,l);grid=[];for(let r=0;r<nr;r++){const row=[];for(let c=0;c<colsIn(r);c++)row.push(Math.floor(api.rnd()*ncol));grid.push(row)}
+    cur=pickCol();nxt=pickCol();
+    cv=arcCanvas(api,W,H,t('bp_aria'));ctx=cv.getContext('2d');hud=arcHUD([['lv','🫧'],['sh','🎯'],['cb','✨']]);
+    const upd=e=>{const p=arcPos(cv,e);ang=Math.atan2(p.y-SY,p.x-SX);ang=Math.max(-Math.PI+.2,Math.min(-.2,ang))};
+    cv.addEventListener('pointerdown',e=>{upd(e)});cv.addEventListener('pointermove',e=>{if(e.pointerType==='mouse'||e.buttons)upd(e)});cv.addEventListener('pointerup',e=>{upd(e);fire()});
+    box.replaceChildren(h('div',null,hud.node,cv,h('p',{class:'sim'},t('bp_aim')+' '+t('bp_how')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>{if(!shot){const x=cur;cur=nxt;nxt=x}}},'🔄 '+t('bp_swap')),h('button',{class:'btn alt',onclick:()=>begin(lvl)},'↺ '+t('restart')))));
+    if(!loop)loop=arcLoop(api,update,draw);api.setProgress(l/6);api.onLang(()=>{})}
+  function present(){const s=new Set();grid.forEach(r=>r.forEach(v=>{if(v!=null)s.add(v)}));return s.size?[...s]:[0]}
+  function pickCol(){const p=present();return p[Math.floor(api.rnd()*p.length)]}
+  function fire(){if(over||loop.paused||shot)return;shot={x:SX,y:SY,vx:Math.cos(ang)*760,vy:Math.sin(ang)*760,c:cur};cur=nxt;nxt=pickCol();shots++;api.snd('tap')}
+  function trace(){const pts=[[SX,SY]];let x=SX,y=SY,dx=Math.cos(ang),dy=Math.sin(ang);const maxLen=api.diff===2?380:900;let len=0;
+    while(len<maxLen&&y>R){x+=dx*6;y+=dy*6;len+=6;if(x<R){x=R;dx=-dx;pts.push([x,y])}if(x>W-R){x=W-R;dx=-dx;pts.push([x,y])}
+      if(hit(x,y))break}
+    pts.push([x,y]);return pts}
+  function hit(x,y){for(let r=0;r<grid.length;r++)for(let c=0;c<grid[r].length;c++){if(grid[r][c]==null)continue;const dx=cx(r,c)-x,dy=cy(r)-y;if(dx*dx+dy*dy<(1.75*R)*(1.75*R))return true}return false}
+  function snap(x,y,color){let best=null,bd=1e9;const r0=Math.max(0,Math.round((y-R)/RH));
+    for(let r=Math.max(0,r0-1);r<=r0+1;r++){const n=colsIn(r);for(let c=0;c<n;c++){if(grid[r]&&grid[r][c]!=null)continue;const d=(cx(r,c)-x)**2+(cy(r)-y)**2;if(d<bd){bd=d;best=[r,c]}}}
+    if(!best)return;const[r,c]=best;while(grid.length<=r)grid.push(Array.from({length:colsIn(grid.length)},()=>null));if(grid[r].length<colsIn(r)){while(grid[r].length<colsIn(r))grid[r].push(null)}
+    grid[r][c]=color;
+    const grp=flood(r,c);let popped=0,dropped=0;
+    if(grp.length>=3){grp.forEach(([a,b])=>{grid[a][b]=null;fx.push({x:cx(a,b),y:cy(a),t:0,c:color})});popped=grp.length;
+      const keep=new Set();const q=[];for(let cc=0;cc<grid[0].length;cc++)if(grid[0][cc]!=null){q.push([0,cc]);keep.add('0,'+cc)}
+      while(q.length){const[a,b]=q.shift();nbrs(a,b).forEach(([na,nb])=>{if(grid[na]&&grid[na][nb]!=null&&!keep.has(na+','+nb)){keep.add(na+','+nb);q.push([na,nb])}})}
+      grid.forEach((row,a)=>row.forEach((v,b)=>{if(v!=null&&!keep.has(a+','+b)){row[b]=null;dropped++;fx.push({x:cx(a,b),y:cy(a),t:0,c:v})}}));
+      combo++;const pts=(popped*10+dropped*20)*combo;api.addScore(pts);api.snd('ok');missRow=0}
+    else{combo=0;misses++;missRow++;api.snd('pop')}
+    while(grid.length&&grid[grid.length-1].every(v=>v==null))grid.pop();
+    if(!grid.length||grid.every(r=>r.every(v=>v==null))){win();return}
+    if(rowEvery&&missRow>=rowEvery){missRow=0;off^=1;grid.unshift(mkRow().slice(0,colsIn(0)))}
+    if(grid.some((row,a)=>a>=ROWS-1&&row.some(v=>v!=null))){lose();return}
+    if(!present().includes(cur))cur=pickCol();if(!present().includes(nxt))nxt=pickCol()}
+  function nbrs(r,c){const odd=((r+off)&1)===1;const d=odd?[[-1,0],[-1,1],[0,-1],[0,1],[1,0],[1,1]]:[[-1,-1],[-1,0],[0,-1],[0,1],[1,-1],[1,0]];return d.map(([a,b])=>[r+a,c+b]).filter(([a,b])=>a>=0&&b>=0&&b<colsIn(a))}
+  function flood(r,c){const col=grid[r][c];const seen=new Set([r+','+c]);const q=[[r,c]];const out=[];while(q.length){const[a,b]=q.shift();out.push([a,b]);nbrs(a,b).forEach(([na,nb])=>{if(grid[na]&&grid[na][nb]===col&&!seen.has(na+','+nb)){seen.add(na+','+nb);q.push([na,nb])}})}return out}
+  function win(){over=true;api.snd('win');api.addScore(100);const st=misses<=4?3:misses<=10?2:1;api.after(()=>api.complete({stars:st,key:'L'+(lvl+1),summary:()=>t('bp_clear')+' '+t('bp_sum',misses),onContinue:()=>begin(lvl+1<6?lvl+1:0)}),500)}
+  function lose(){over=true;api.after(()=>arcOver(api,box,{msg:['The bubbles reached the bottom line.','बुलबुले नीचे की रेखा तक पहुँच गए।'],retry:()=>begin(lvl)}),400)}
+  function update(dt){if(over)return;if(keys.left)ang-=1.6*dt;if(keys.right)ang+=1.6*dt;ang=Math.max(-Math.PI+.2,Math.min(-.2,ang));
+    if(keys.fire&&!prevFire)fire();prevFire=!!keys.fire;
+    fx.forEach(f=>f.t+=dt);fx=fx.filter(f=>f.t<.4);
+    if(shot){const steps=Math.ceil(Math.hypot(shot.vx,shot.vy)*dt/4);for(let i=0;i<steps&&shot;i++){shot.x+=shot.vx*dt/steps;shot.y+=shot.vy*dt/steps;if(shot.x<R){shot.x=R;shot.vx=-shot.vx}if(shot.x>W-R){shot.x=W-R;shot.vx=-shot.vx}
+        if(shot.y<=R||hit(shot.x,shot.y)){const s=shot;shot=null;snap(s.x,s.y,s.c)}}}
+    hud.set({lv:t('bp_lv',lvl+1),sh:shots,cb:combo>1?t('bp_combo',combo):'–'})}
+  function bub(x,y,c,r){ctx.beginPath();ctx.arc(x,y,r-1,0,7);ctx.fillStyle=BP_COL[c];ctx.fill();ctx.lineWidth=2.5;ctx.strokeStyle='#fff';ctx.stroke();ctx.fillStyle=c===3?'#5a4300':'#fff';ctx.font='900 '+Math.round(r*1.05)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(BP_SYM[c],x,y+1)}
+  function draw(){if(!ctx)return;const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#13306b');g.addColorStop(1,'#0b1030');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(255,120,120,.7)';ctx.setLineDash([8,8]);ctx.lineWidth=2;const ly=cy(ROWS-1)-R;ctx.beginPath();ctx.moveTo(0,ly);ctx.lineTo(W,ly);ctx.stroke();ctx.setLineDash([]);
+    grid.forEach((row,r)=>row.forEach((v,c)=>{if(v!=null)bub(cx(r,c),cy(r),v,R)}));
+    fx.forEach(f=>{ctx.beginPath();ctx.arc(f.x,f.y,R+f.t*50,0,7);ctx.strokeStyle='rgba(255,255,255,'+(0.8-f.t*2)+')';ctx.lineWidth=3;ctx.stroke()});
+    if(!shot&&!over){const pts=trace();ctx.setLineDash([5,9]);ctx.strokeStyle='rgba(255,255,255,.85)';ctx.lineWidth=3;ctx.lineCap='round';ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.stroke();ctx.setLineDash([])}
+    ctx.save();ctx.translate(SX,SY);ctx.rotate(ang+Math.PI/2);ctx.fillStyle='#adb5ff';ctx.fillRect(-9,-44,18,44);ctx.restore();
+    if(shot)bub(shot.x,shot.y,shot.c,R);else bub(SX,SY,cur,R+2);ctx.fillStyle='#fff';ctx.font='700 14px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('▶',SX+70,SY-6);bub(SX+100,SY+4,nxt,13);
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Bubble Popper','बबल पॉपर'],text:['Shoot bubbles to match three or more of the same colour and symbol.','बुलबुले दागकर एक ही रंग और चिह्न के तीन या ज़्यादा मिलाओ।'],go:()=>begin(0)})}
+registerGame({id:'bubble',icon:'🫧',art:ART.bubble,color:'#1c7ed6',cat:'arcade',ages:[1,2,3],name:['Bubble Popper','बबल पॉपर'],desc:['Aim, shoot and match bubbles. Every colour has its own symbol too.','निशाना लगाओ, दागो और बुलबुले मिलाओ। हर रंग का अपना चिह्न भी है।'],
+  how:[['Aim with a finger or mouse (or ◀ ▶ keys). Tap or press space to shoot.','उँगली या माउस (या ◀ ▶ कुंजियाँ) से निशाना लगाओ। दागने के लिए दबाओ या स्पेस।'],['Match 3 or more bubbles of the same colour and symbol to pop them.','एक ही रंग और चिह्न के 3 या ज़्यादा बुलबुले मिलाकर फोड़ो।'],['Bubbles that lose their connection fall for bonus points. Chain pops make combos.','जिन बुलबुलों का सहारा हट जाए वे बोनस अंकों के साथ गिरते हैं। लगातार फोड़ने पर कॉम्बो मिलता है।'],['Do not let bubbles cross the red line. Easy mode has fewer colours and no new rows.','बुलबुलों को लाल रेखा पार न करने दो। आसान में कम रंग हैं और नई पंक्तियाँ नहीं आतीं।']],start:bubbleStart});
+/* ===== GAME 18: Air Hockey Duel ===== */
+addTX({ah_goal:['GOAL!','गोल!'],ah_p1:['You','तुम'],ah_p2:['Computer','कंप्यूटर'],ah_pl1:['Player 1','खिलाड़ी 1'],ah_pl2:['Player 2','खिलाड़ी 2'],ah_first:['First to {0} wins','जो पहले {0} बनाए वह जीते'],ah_won:['{0} wins {1}–{2}!','{0} {1}–{2} से जीता!'],ah_ctl1:['Drag in your half to move your paddle. Player 1: bottom half (arrow keys). Player 2: top half (W A S D).','अपने आधे हिस्से में खींचकर पैडल चलाओ। खिलाड़ी 1: नीचे का आधा (तीर कुंजियाँ)। खिलाड़ी 2: ऊपर का आधा (W A S D)।'],ah_aria:['Air hockey table. Drag to move your paddle.','एयर हॉकी टेबल। पैडल चलाने के लिए खींचो।']});
+function hockeyStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);const two=api.mode==='two';let loop=null;
+  const W=400,H=640,PR=32,UR=17,GAP=150,target=[3,5,7][api.diff],aiSpd=[200,330,470][api.diff];
+  let pk,p1,p2,sc,serve,over,cv,ctx,hud,flash,ptrs,k2,still;
+  function begin(){sc=[0,0];over=false;flash=0;ptrs=new Map();still=0;
+    p1={x:W/2,y:H-90,vx:0,vy:0,tx:W/2,ty:H-90};p2={x:W/2,y:90,vx:0,vy:0,tx:W/2,ty:90};k2={};
+    cv=arcCanvas(api,W,H,t('ah_aria'));ctx=cv.getContext('2d');cv.style.maxWidth='420px';cv.style.touchAction='none';
+    hud=arcHUD([['sc','🏒']]);
+    const half=e=>arcPos(cv,e).y>H/2?1:2;
+    cv.addEventListener('pointerdown',e=>{e.preventDefault();const p=arcPos(cv,e);const who=two?half(e):1;ptrs.set(e.pointerId,who);try{cv.setPointerCapture(e.pointerId)}catch(x){}move(who,p)});
+    cv.addEventListener('pointermove',e=>{if(!ptrs.has(e.pointerId))return;move(ptrs.get(e.pointerId),arcPos(cv,e))});
+    const rel=e=>ptrs.delete(e.pointerId);cv.addEventListener('pointerup',rel);cv.addEventListener('pointercancel',rel);
+    box.replaceChildren(h('div',null,hud.node,cv,h('p',{class:'sim'},t('ah_ctl1')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:begin},'🔄 '+t('restart')))));
+    reset(Math.random()<.5?1:2);if(!loop)loop=arcLoop(api,update,draw)}
+  function move(who,p){const pl=who===1?p1:p2;pl.tx=Math.max(PR,Math.min(W-PR,p.x));pl.ty=who===1?Math.max(H/2+PR,Math.min(H-PR,p.y)):Math.max(PR,Math.min(H/2-PR,p.y))}
+  function reset(toward){pk={x:W/2,y:H/2,vx:0,vy:0};serve=.9;pk.vy=0;pk.dir=toward===1?1:-1}
+  api.on(window,'keydown',e=>{if(!$('#modal').classList.contains('hid'))return;const m={w:'up',a:'left',s:'down',d:'right',W:'up',A:'left',S:'down',D:'right'}[e.key];if(m&&two&&k2)k2[m]=true});
+  api.on(window,'keyup',e=>{const m={w:'up',a:'left',s:'down',d:'right',W:'up',A:'left',S:'down',D:'right'}[e.key];if(m&&k2)k2[m]=false});
+  const keys=arcKeys(api);
+  function stepPaddle(pl,dt,maxS){const dx=pl.tx-pl.x,dy=pl.ty-pl.y,d=Math.hypot(dx,dy);const s=Math.min(d,maxS*dt);const nx=d?pl.x+dx/d*s:pl.x,ny=d?pl.y+dy/d*s:pl.y;pl.vx=(nx-pl.x)/dt;pl.vy=(ny-pl.y)/dt;pl.x=nx;pl.y=ny}
+  function update(dt){if(over)return;
+    /* keyboard */
+    const sp=420;if(keys.left)p1.tx-=sp*dt;if(keys.right)p1.tx+=sp*dt;if(keys.up)p1.ty-=sp*dt;if(keys.down)p1.ty+=sp*dt;p1.tx=Math.max(PR,Math.min(W-PR,p1.tx));p1.ty=Math.max(H/2+PR,Math.min(H-PR,p1.ty));
+    if(two){if(k2.left)p2.tx-=sp*dt;if(k2.right)p2.tx+=sp*dt;if(k2.up)p2.ty-=sp*dt;if(k2.down)p2.ty+=sp*dt;p2.tx=Math.max(PR,Math.min(W-PR,p2.tx));p2.ty=Math.max(PR,Math.min(H/2-PR,p2.ty))}
+    else aiMove(dt);
+    stepPaddle(p1,dt,1500);stepPaddle(p2,dt,two?1500:aiSpd);
+    if(flash>0)flash-=dt;
+    if(serve>0){serve-=dt;if(serve<=0){pk.vy=pk.dir*(api.diff===0?170:260);pk.vx=(Math.random()-.5)*120}return}
+    const subs=3;for(let i=0;i<subs;i++)physics(dt/subs);
+    still=Math.hypot(pk.vx,pk.vy)<12?still+dt:0;if(still>3){pk.vy+=(pk.y<H/2?1:-1)*-1*140;still=0}
+    hud.set({sc:(two?t('ah_pl1'):t('ah_p1'))+' '+sc[0]+'  –  '+sc[1]+' '+(two?t('ah_pl2'):t('ah_p2'))+'   ('+t('ah_first',target)+')'});api.setScore(sc[0]*10)}
+  function aiMove(dt){const inMine=pk.y<H/2+10;let tx=W/2,ty=70;
+    if(inMine&&serve<=0){const behind=pk.y-20;if(Math.abs(pk.vy)<40&&Math.abs(pk.x-p2.x)<PR+UR+8&&pk.y>p2.y){tx=pk.x;ty=pk.y+6}else{tx=pk.x+(api.diff===2?(pk.x-W/2)*-0.0:0);ty=Math.max(PR,Math.min(H/2-PR,behind>p2.y?p2.y:pk.y-(PR+UR)*.9))}
+      if(pk.vy<0&&pk.y<p2.y+80){ty=Math.max(PR,Math.min(H/2-PR,pk.y-(PR+UR)*.6));tx=pk.x}}
+    else if(pk.vy<0&&api.diff>0){tx=W/2+(pk.x-W/2)*.55}
+    p2.tx=Math.max(PR,Math.min(W-PR,tx));p2.ty=Math.max(PR,Math.min(H/2-PR,ty))}
+  function physics(dt){pk.x+=pk.vx*dt;pk.y+=pk.vy*dt;const f=Math.pow(.62,dt);pk.vx*=Math.pow(.996,dt*60);pk.vy*=Math.pow(.996,dt*60);
+    if(pk.x<UR){pk.x=UR;pk.vx=Math.abs(pk.vx)*.95}if(pk.x>W-UR){pk.x=W-UR;pk.vx=-Math.abs(pk.vx)*.95}
+    const inGoal=Math.abs(pk.x-W/2)<GAP/2-UR*.2;
+    if(pk.y<UR&&!inGoal){pk.y=UR;pk.vy=Math.abs(pk.vy)*.95}if(pk.y>H-UR&&!inGoal){pk.y=H-UR;pk.vy=-Math.abs(pk.vy)*.95}
+    if(pk.y<-UR){goal(0)}else if(pk.y>H+UR){goal(1)}
+    [p1,p2].forEach(pl=>{const dx=pk.x-pl.x,dy=pk.y-pl.y,d=Math.hypot(dx,dy),min=PR+UR;if(d<min&&d>0){const nx=dx/d,ny=dy/d;pk.x=pl.x+nx*min;pk.y=pl.y+ny*min;const rvx=pk.vx-pl.vx,rvy=pk.vy-pl.vy;const vn=rvx*nx+rvy*ny;if(vn<0){pk.vx-=(1.9)*vn*nx;pk.vy-=1.9*vn*ny;const m=Math.hypot(pk.vx,pk.vy);const mx=980;if(m>mx){pk.vx*=mx/m;pk.vy*=mx/m}if(m<120){pk.vx=nx*160;pk.vy=ny*160}api.snd('pop')}}})}
+  function goal(who){sc[who]++;flash=.9;api.snd('ok');const other=who===0?2:1;if(sc[who]>=target){over=true;api.after(finish,900);return}reset(who===0?2:1)}
+  function finish(){const w=sc[0]>sc[1]?0:1;const names=two?[t('ah_pl1'),t('ah_pl2')]:[t('ah_p1'),t('ah_p2')];
+    if(two||w===0){api.addScore(30);api.complete({stars:two?3:[1,2,3][api.diff],key:two?'two':'D'+api.diff,score:sc[0]*10+(w===0?30:0),summary:()=>t('ah_won',names[w],sc[w],sc[1-w]),onContinue:begin})}
+    else arcOver(api,box,{msg:['The computer won this match. Try a lower level or practise your defence!','इस मैच में कंप्यूटर जीता। नीचे का स्तर आज़माओ या बचाव का अभ्यास करो!'],retry:begin})}
+  function draw(){if(!ctx)return;ctx.fillStyle='#e7f5ff';ctx.fillRect(0,0,W,H);ctx.strokeStyle='#74c0fc';ctx.lineWidth=4;ctx.strokeRect(2,2,W-4,H-4);ctx.beginPath();ctx.moveTo(0,H/2);ctx.lineTo(W,H/2);ctx.stroke();ctx.beginPath();ctx.arc(W/2,H/2,60,0,7);ctx.stroke();
+    ctx.fillStyle='#ffa8a8';ctx.fillRect(W/2-GAP/2,0,GAP,8);ctx.fillStyle='#a5d8ff';ctx.fillRect(W/2-GAP/2,H-8,GAP,8);
+    const pad=(pl,c)=>{ctx.beginPath();ctx.arc(pl.x,pl.y,PR,0,7);ctx.fillStyle=c;ctx.fill();ctx.lineWidth=4;ctx.strokeStyle='#fff';ctx.stroke();ctx.beginPath();ctx.arc(pl.x,pl.y,PR*.45,0,7);ctx.fillStyle='rgba(255,255,255,.4)';ctx.fill()};
+    pad(p2,'#e5484d');pad(p1,'#1c7ed6');ctx.fillStyle='#1f2750';ctx.beginPath();ctx.arc(pk.x,pk.y,UR,0,7);ctx.fill();ctx.strokeStyle='#ffd43b';ctx.lineWidth=3;ctx.stroke();
+    ctx.fillStyle='#1c7ed6';ctx.font='700 14px system-ui,sans-serif';ctx.textAlign='left';ctx.fillText(two?t('ah_pl1'):t('ah_p1'),10,H-12);ctx.fillStyle='#e5484d';ctx.fillText(two?t('ah_pl2'):t('ah_p2'),10,22);
+    if(flash>0){ctx.fillStyle='rgba(255,212,59,'+Math.min(.85,flash)+')';ctx.font='900 64px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(t('ah_goal'),W/2,H/2+20)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Air Hockey Duel','एयर हॉकी ड्यूल'],text:two?['Two players, one device. Bottom half is Player 1, top half is Player 2.','दो खिलाड़ी, एक डिवाइस। नीचे का आधा खिलाड़ी 1 का, ऊपर का आधा खिलाड़ी 2 का।']:['Slide your paddle to hit the puck into the top goal. Defend your own goal!','पैडल सरकाकर पक को ऊपर के गोल में मारो। अपने गोल को बचाओ!'],go:begin})}
+registerGame({id:'hockey',icon:'🏒',art:ART.hockey,color:'#1971c2',cat:'arcade',ages:[2,3],name:['Air Hockey Duel','एयर हॉकी ड्यूल'],desc:['Fast air hockey against the computer or a friend on the same screen.','कंप्यूटर या उसी स्क्रीन पर दोस्त के साथ तेज़ एयर हॉकी।'],
+  modes:[{id:'ai',label:['vs Computer','कंप्यूटर के खिलाफ']},{id:'two',label:['2 Players','2 खिलाड़ी']}],
+  how:[['Drag your paddle with a finger or mouse. Keys also work: arrow keys (Player 1), W A S D (Player 2).','उँगली या माउस से पैडल खींचो। कुंजियाँ भी चलती हैं: तीर (खिलाड़ी 1), W A S D (खिलाड़ी 2)।'],['Hit the puck into the opponent’s goal at the end of the table.','पक को टेबल के दूसरे सिरे पर विरोधी के गोल में मारो।'],['First to reach the target score wins. Use ⏸ to pause.','जो पहले लक्ष्य अंक तक पहुँचे वह जीतता है। रोकने के लिए ⏸ दबाओ।'],['In 2-player mode each player uses their own half of the screen.','2 खिलाड़ी मोड में हर खिलाड़ी स्क्रीन के अपने आधे हिस्से का उपयोग करता है।']],start:hockeyStart});
+/* ===== GAME 19: Fruit Slice Frenzy ===== */
+addTX({fs_lv:['Level {0}','स्तर {0}'],fs_goal:['Slice {0} fruits','{0} फल काटो'],fs_miss:['Missed {0}/{1}','चूके {0}/{1}'],fs_cb:['Combo x{0}! +{1}','कॉम्बो x{0}! +{1}'],fs_decoy:['Oops, that was a decoy! -5','अरे, यह नकली था! -5'],fs_aria:['Fruit slicing area. Swipe across fruit, or press space to slice the lowest fruit.','फल काटने का क्षेत्र। फलों के ऊपर स्वाइप करो या सबसे नीचे का फल काटने के लिए स्पेस दबाओ।'],fs_won:['Juicy! You sliced {0} fruits with {1} misses left.','रसीला! तुमने {0} फल काटे और {1} चूक बाकी रहीं।'],fs_lose:['Too many fruits fell. Try again!','बहुत से फल गिर गए। फिर कोशिश करो!'],fs_tip:['Swipe or drag across fruit to slice it. Dashed circles with ✗ are decoys: do not slice them!','फल के ऊपर स्वाइप करके या खींचकर काटो। ✗ वाले धारीदार घेरे नकली हैं: उन्हें मत काटो!']});
+const FS_F=['🍎','🍊','🍉','🍌','🍓','🍍','🍇','🥭','🍐','🍑'],FS_D=['🎈','🧦'];
+function fruitStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;
+  const W=640,H=480,G=640;let items,halves,drops,trail,lvl,got,need,misses,maxMiss,spawnT,over,cv,ctx,hud,combo,comboT,pts,msg,msgT,last;
+  function begin(l){lvl=l;items=[];halves=[];drops=[];trail=[];got=0;need=12+l*5;misses=0;maxMiss=[7,5,4][api.diff];spawnT=.6;over=false;combo=0;comboT=0;msg='';msgT=0;last=null;
+    cv=arcCanvas(api,W,H,t('fs_aria'));ctx=cv.getContext('2d');hud=arcHUD([['lv','🍉'],['g','🎯'],['m','❌']]);
+    const seg=(x1,y1,x2,y2)=>{if(over||loop.paused)return;trail.push({x:x2,y:y2,t:0});let n=0;items.forEach(it=>{if(!it.dead&&arcCircleSeg(it.x,it.y,it.r,x1,y1,x2,y2)){slice(it);n++}})};
+    let down=false;
+    cv.addEventListener('pointerdown',e=>{down=true;const p=arcPos(cv,e);last=p;try{cv.setPointerCapture(e.pointerId)}catch(x){}seg(p.x,p.y,p.x,p.y)});
+    cv.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'&&!down)return;const p=arcPos(cv,e);if(last)seg(last.x,last.y,p.x,p.y);last=p});
+    const up=()=>{down=false;last=null};cv.addEventListener('pointerup',up);cv.addEventListener('pointercancel',up);cv.addEventListener('pointerleave',()=>{if(!down)last=null});
+    api.on(window,'keydown',e=>{if((e.key===' '||e.key==='Enter')&&$('#modal').classList.contains('hid')&&!over&&!loop.paused&&Engine.sess&&document.activeElement.tagName!=='BUTTON'){e.preventDefault();const c=items.filter(i=>!i.dead&&i.y<H-20&&i.vy>-50).sort((a,b)=>b.y-a.y)[0]||items.filter(i=>!i.dead)[0];if(c){slice(c)}}});
+    box.replaceChildren(h('div',null,hud.node,cv,h('p',{class:'sim'},t('fs_tip')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>begin(lvl)},'🔄 '+t('restart')))));
+    if(!loop)loop=arcLoop(api,update,draw);api.setProgress(l/5)}
+  function slice(it){it.dead=true;
+    if(it.decoy){api.addScore(-5);msg=t('fs_decoy');msgT=1.4;combo=0;api.snd('no');for(let i=0;i<5;i++)drops.push({x:it.x,y:it.y,vx:(Math.random()-.5)*200,vy:-Math.random()*200,t:0,c:'#adb5bd'});return}
+    got++;comboT=.45;combo++;let p=10;if(combo>1){const b=5*(combo-1);p+=b;msg=t('fs_cb',combo,b);msgT=1}api.addScore(p);api.snd('pop');
+    halves.push({e:it.e,x:it.x,y:it.y,vx:it.vx-90,vy:it.vy-60,r:it.r,s:-1,rot:0,t:0},{e:it.e,x:it.x,y:it.y,vx:it.vx+90,vy:it.vy-60,r:it.r,s:1,rot:0,t:0});
+    for(let i=0;i<6;i++)drops.push({x:it.x,y:it.y,vx:(Math.random()-.5)*260,vy:-Math.random()*220,t:0,c:'#ffa94d'});
+    if(got>=need)win()}
+  function win(){over=true;api.snd('win');const left=maxMiss-misses;const st=left>=Math.ceil(maxMiss*.7)?3:left>=Math.ceil(maxMiss*.35)?2:1;api.addScore(30);api.after(()=>api.complete({stars:st,key:'L'+(lvl+1),summary:()=>t('fs_won',got,left),onContinue:()=>begin(lvl+1<5?lvl+1:0)}),500)}
+  function lose(){over=true;api.after(()=>arcOver(api,box,{msg:['Too many fruits fell. Try again!','बहुत से फल गिर गए। फिर कोशिश करो!'],retry:()=>begin(lvl)}),300)}
+  function spawn(){const n=1+Math.floor(Math.random()*(1+Math.min(2,lvl*.7+api.diff*.5)));for(let i=0;i<n;i++){const decoy=Math.random()<[.1,.16,.22][api.diff];const x=90+Math.random()*(W-180);const vy=-(620+Math.random()*140+lvl*10);items.push({x,y:H+30,vx:(W/2-x)*(.25+Math.random()*.3),vy,r:36,e:decoy?FS_D[Math.floor(Math.random()*2)]:FS_F[Math.floor(Math.random()*FS_F.length)],decoy,dead:false})}}
+  function update(dt){if(over)return;spawnT-=dt;if(spawnT<=0){spawn();spawnT=Math.max(.55,1.35-lvl*.1-api.diff*.15)*(.7+Math.random()*.6)}
+    comboT-=dt;if(comboT<=0)combo=0;msgT-=dt;
+    items.forEach(it=>{it.vy+=G*dt;it.x+=it.vx*dt;it.y+=it.vy*dt;if(!it.dead&&it.y>H+50&&it.vy>0){it.dead=true;it.gone=true;if(!it.decoy){misses++;api.snd('no');if(misses>=maxMiss)lose()}}});items=items.filter(i=>!(i.dead&&(i.gone||true)));
+    halves.forEach(hf=>{hf.vy+=G*dt;hf.x+=hf.vx*dt;hf.y+=hf.vy*dt;hf.rot+=hf.s*dt*3;hf.t+=dt});halves=halves.filter(hf=>hf.y<H+80&&hf.t<2);
+    drops.forEach(d=>{d.vy+=G*.6*dt;d.x+=d.vx*dt;d.y+=d.vy*dt;d.t+=dt});drops=drops.filter(d=>d.t<.8);
+    trail.forEach(p=>p.t+=dt);trail=trail.filter(p=>p.t<.22);
+    hud.set({lv:t('fs_lv',lvl+1),g:got+'/'+need,m:t('fs_miss',misses,maxMiss)})}
+  function emoji(e,x,y,r){ctx.font=Math.round(r*1.5)+'px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(e,x,y+2)}
+  function draw(){if(!ctx)return;const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#ffe8cc');g.addColorStop(1,'#ffd8a8');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    items.forEach(it=>{if(it.decoy){ctx.beginPath();ctx.arc(it.x,it.y,it.r+4,0,7);ctx.setLineDash([6,5]);ctx.lineWidth=3;ctx.strokeStyle='#495057';ctx.stroke();ctx.setLineDash([]);emoji(it.e,it.x,it.y,it.r);ctx.fillStyle='#c92a2a';ctx.font='900 22px system-ui,sans-serif';ctx.fillText('✗',it.x+it.r*.7,it.y-it.r*.7)}else emoji(it.e,it.x,it.y,it.r)});
+    halves.forEach(hf=>{ctx.save();ctx.translate(hf.x,hf.y);ctx.rotate(hf.rot);ctx.beginPath();ctx.rect(hf.s<0?-hf.r*1.2:0,-hf.r*1.2,hf.r*1.2,hf.r*2.4);ctx.clip();emoji(hf.e,0,0,hf.r);ctx.restore()});
+    drops.forEach(d=>{ctx.globalAlpha=Math.max(0,1-d.t/.8);ctx.fillStyle=d.c;ctx.beginPath();ctx.arc(d.x,d.y,5,0,7);ctx.fill();ctx.globalAlpha=1});
+    if(trail.length>1){ctx.lineCap='round';ctx.lineJoin='round';for(let i=1;i<trail.length;i++){const a=trail[i-1],b=trail[i];ctx.strokeStyle='rgba(255,255,255,'+Math.max(0,.95-b.t*4)+')';ctx.lineWidth=10*(1-b.t*3.5>0?1-b.t*3.5:0)+1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}}
+    if(msgT>0){ctx.fillStyle='rgba(31,39,80,.85)';ctx.font='900 30px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(msg,W/2,60)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Fruit Slice Frenzy','फ्रूट स्लाइस फ्रेंज़ी'],text:['Swipe across flying fruit to slice it. Avoid the dashed decoys marked ✗.','उड़ते फलों पर स्वाइप करके काटो। ✗ वाले धारीदार नकली चीज़ों से बचो।'],go:()=>begin(0)})}
+registerGame({id:'fruit',icon:'🍉',art:ART.fruit,color:'#f76707',cat:'arcade',ages:[2,3],name:['Fruit Slice Frenzy','फ्रूट स्लाइस फ्रेंज़ी'],desc:['Swipe to slice flying fruit, build combos and dodge silly decoys.','उड़ते फलों को स्वाइप करके काटो, कॉम्बो बनाओ और मज़ेदार नकली चीज़ों से बचो।'],
+  how:[['Swipe or drag across fruit to slice it. Mouse users just move over the fruit.','फल के ऊपर स्वाइप या खींचकर काटो। माउस से बस फल के ऊपर चलाओ।'],['Slicing several fruits quickly makes a combo with bonus points.','कई फल जल्दी काटने पर बोनस अंकों वाला कॉम्बो बनता है।'],['Dashed ✗ items are decoys. Slicing them costs 5 points, but you do not lose.','धारीदार ✗ वाली चीज़ें नकली हैं। उन्हें काटने पर 5 अंक कटते हैं, पर तुम हारते नहीं।'],['Do not let too many fruits fall. Keyboard: press space to slice the lowest fruit.','बहुत से फल गिरने न दो। कीबोर्ड: सबसे नीचे का फल काटने के लिए स्पेस दबाओ।']],start:fruitStart});
+/* ===== GAME 20: Tank Tactics ===== */
+addTX({tk_angle:['Angle {0}°','कोण {0}°'],tk_power:['Power {0}','शक्ति {0}'],tk_fire:['Fire!','दागो!'],tk_move:['Move','चलो'],tk_shots:['Shots {0}','गोले {0}'],tk_ms:['Mission {0} of {1}','मिशन {0} / {1}'],tk_tg:['Targets {0}/{1}','निशाने {0}/{1}'],tk_wind:['Wind {0}','हवा {0}'],tk_nowind:['No wind','हवा नहीं'],tk_aria:['Tank arena. Use the sliders to aim, then press Fire.','टैंक मैदान। निशाना लगाने के लिए स्लाइडर चलाओ, फिर दागो दबाओ।'],tk_clear:['Mission clear! All targets popped.','मिशन पूरा! सारे निशाने गिर गए।'],tk_sum:['Shots left: {0}.','बचे गोले: {0}।'],tk_miss:['Out of shots. Try the mission again!','गोले खत्म। मिशन फिर आज़माओ!'],tk_life:['Tank lives {0}','टैंक जीवन {0}'],tk_tip:['Tip: raise the angle to fly over walls. Power changes the distance.','सुझाव: दीवार के ऊपर से निकलने के लिए कोण बढ़ाओ। शक्ति दूरी बदलती है।'],tk_keys:['Keys: ←/→ move, ↑/↓ angle, + / − power, space fire.','कुंजियाँ: ←/→ चलो, ↑/↓ कोण, + / − शक्ति, स्पेस दागो।'],tk_hit:['Boing! Target hit!','बोइंग! निशाना लगा!']});
+function tankStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;const keys=arcKeys(api);
+  const W=640,Hh=400,GY=340,NM=8;let ms,ang,pow,tx,shots,tg,walls,wind,proj,fx,msg,msgT,over,lives,cv,ctx,hud,sA,sP,prevF,boom;
+  function mission(i){const rnd=api.rnd;const w=[];const d=[];wind=0;
+    if(i>=1)w.push({x:300+rnd()*30,y:GY-(60+i*16),w:26,h:60+i*16});
+    if(i>=4)w.push({x:450+rnd()*20,y:GY-(70+i*8),w:26,h:70+i*8});
+    if(i>=2)w.push({x:540,y:GY-70,w:70,h:14,plat:true});
+    const n=Math.min(4,1+Math.floor(i/2)+(api.diff===2?1:0));
+    for(let k=0;k<n;k++){const x=400+k*(i>=4?50:60)+rnd()*20+(k===n-1?10:0);let y=GY-24;if(i>=2&&k===0){d.push({x:575,y:GY-70-24,r:22,hit:false,t:0});continue}
+      d.push({x:Math.min(610,x),y,r:22,hit:false,t:0,mv:(api.diff>=1&&i>=3&&k%2===1)?{ax:0,ay:36+rnd()*20,sp:1.2+rnd()}:null,bx:Math.min(610,x),by:y})}
+    if(api.diff>=1&&i>=2)wind=(i%2?1:-1)*(2+Math.min(6,i))*(api.diff===2?1.4:1);
+    walls=w;tg=d;shots=n+(api.diff===0?4:api.diff===1?3:2)+(i>=3?1:0)}
+  function begin(i,keepLives){ms=i;if(!keepLives)lives=3;ang=45;pow=60;tx=70;proj=null;fx=[];msg='';msgT=0;over=false;boom=null;mission(i);
+    cv=arcCanvas(api,W,Hh,t('tk_aria'));ctx=cv.getContext('2d');hud=arcHUD([['ms','🎖️'],['tg','🎯'],['sh','💥'],['li','❤️'],['wd','🌬️']]);
+    sA=h('input',{type:'range',min:5,max:85,value:ang,'aria-label':t('tk_angle',ang),oninput:e=>{ang=+e.target.value;lbl()}});sP=h('input',{type:'range',min:20,max:100,value:pow,'aria-label':t('tk_power',pow),oninput:e=>{pow=+e.target.value;lbl()}});
+    const la=h('label',{id:'tk-a'},''),lp=h('label',{id:'tk-p'},'');
+    const mvL=h('button',{class:'btn alt',type:'button','aria-label':t('ar_left'),onpointerdown:()=>keys.left=true,onpointerup:()=>keys.left=false,onpointerleave:()=>keys.left=false,onpointercancel:()=>keys.left=false},'◀ '+t('tk_move')),mvR=h('button',{class:'btn alt',type:'button','aria-label':t('ar_right'),onpointerdown:()=>keys.right=true,onpointerup:()=>keys.right=false,onpointerleave:()=>keys.right=false,onpointercancel:()=>keys.right=false},t('tk_move')+' ▶');
+    const fb=h('button',{class:'btn big warn',onclick:fire},'💥 '+t('tk_fire'));
+    box.replaceChildren(h('div',null,hud.node,cv,h('div',{class:'arc-ctl'},la,sA,lp,sP),h('div',{class:'arc-ctl'},mvL,fb,mvR),h('p',{class:'sim'},t('tk_tip')+' '+t('tk_keys')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>begin(ms,true)},'🔄 '+t('restart')))));
+    lbl();api.setProgress(i/NM);if(!loop)loop=arcLoop(api,update,draw);api.onLang(()=>{lbl()})}
+  function lbl(){const a=$('#tk-a'),p=$('#tk-p');if(a)a.textContent=t('tk_angle',Math.round(ang));if(p)p.textContent=t('tk_power',Math.round(pow));if(sA){sA.value=ang;sA.setAttribute('aria-label',t('tk_angle',Math.round(ang)))}if(sP){sP.value=pow;sP.setAttribute('aria-label',t('tk_power',Math.round(pow)))}}
+  function barrel(){const a=ang*Math.PI/180;return{x:tx+Math.cos(a)*34,y:GY-30-Math.sin(a)*34,vx:Math.cos(a)*pow*8,vy:-Math.sin(a)*pow*8}}
+  function fire(){if(over||proj||loop.paused||shots<=0)return;const b=barrel();proj={x:b.x,y:b.y,vx:b.vx,vy:b.vy,t:0};shots--;api.snd('pop');msg='';}
+  function hitWall(x,y){return walls.some(w=>x>w.x&&x<w.x+w.w&&y>w.y&&y<w.y+w.h)}
+  function update(dt){if(over)return;
+    if(keys.left)tx=Math.max(40,tx-110*dt);if(keys.right)tx=Math.min(210,tx+110*dt);if(keys.up)ang=Math.min(85,ang+40*dt);if(keys.down)ang=Math.max(5,ang-40*dt);
+    if(keys.fire&&!prevF)fire();prevF=!!keys.fire;lbl();
+    tg.forEach(d=>{if(d.mv&&!d.hit){d.y=d.by+Math.sin(loop.t*d.mv.sp)*d.mv.ay;}});
+    fx.forEach(f=>f.t+=dt);fx=fx.filter(f=>f.t<.6);msgT-=dt;
+    if(proj){const n=4;for(let i=0;i<n&&proj;i++){const h2=dt/n;proj.vx+=wind*30*h2;proj.vy+=520*h2;proj.x+=proj.vx*h2;proj.y+=proj.vy*h2;proj.t+=h2;
+        const hitD=tg.find(d=>!d.hit&&Math.hypot(d.x-proj.x,d.y-proj.y)<d.r+7);
+        if(hitD){hitD.hit=true;hitD.t=0;api.addScore(25);api.snd('ok');msg=t('tk_hit');msgT=1.2;fx.push({x:hitD.x,y:hitD.y,t:0,c:'#ffd43b'});proj=null;resolve();break}
+        if(hitWall(proj.x,proj.y)||proj.y>=GY||proj.x<-40||proj.x>W+40||proj.y>Hh+40){if(proj.y<=GY+10&&proj.x>0&&proj.x<W)fx.push({x:proj.x,y:Math.min(proj.y,GY),t:0,c:'#adb5bd'});api.snd('tap');proj=null;resolve();break}}}
+    tg.forEach(d=>{if(d.hit)d.t+=dt});
+    hud.set({ms:t('tk_ms',ms+1,NM),tg:t('tk_tg',tg.filter(d=>d.hit).length,tg.length),sh:t('tk_shots',shots),li:'❤'.repeat(lives),wd:wind?t('tk_wind',(wind>0?'→ ':'← ')+Math.abs(Math.round(wind))):t('tk_nowind')})}
+  function resolve(){const left=tg.filter(d=>!d.hit).length;if(left===0){over=true;api.snd('win');const st=shots>=3?3:shots>=1?2:1;api.addScore(shots*10);api.after(()=>api.complete({stars:st,key:'M'+(ms+1),summary:()=>t('tk_clear')+' '+t('tk_sum',shots),onContinue:()=>begin(ms+1<NM?ms+1:0)}),700);return}
+    if(shots<=0){lives--;over=true;api.snd('no');if(lives<=0)api.after(()=>arcOver(api,box,{msg:['Out of shots. Try the mission again!','गोले खत्म। मिशन फिर आज़माओ!'],retry:()=>begin(ms)}),700);else{msg=t('tk_miss');msgT=2;api.after(()=>begin(ms,true),1200)}}}
+  function dummy(d){ctx.save();ctx.translate(d.x,d.y);let sc=1,rot=0;if(d.hit){const k=Math.min(1,d.t*2);rot=k*1.2;sc=1-k*.4;ctx.globalAlpha=Math.max(0,1-d.t*.9);ctx.translate(0,-Math.sin(k*3)*20)}ctx.rotate(rot);ctx.scale(sc,sc);
+    ctx.fillStyle='#fcc419';ctx.beginPath();ctx.arc(0,0,d.r,0,7);ctx.fill();ctx.lineWidth=3;ctx.strokeStyle='#e67700';ctx.stroke();
+    ctx.fillStyle='#e03131';ctx.beginPath();ctx.arc(0,0,d.r*.55,0,7);ctx.fill();ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(0,0,d.r*.3,0,7);ctx.fill();ctx.fillStyle='#1f2750';ctx.beginPath();ctx.arc(-6,-4,2.5,0,7);ctx.arc(6,-4,2.5,0,7);ctx.fill();ctx.beginPath();ctx.arc(0,3,5,0,Math.PI);ctx.strokeStyle='#1f2750';ctx.lineWidth=2;ctx.stroke();ctx.restore()}
+  function draw(){if(!ctx)return;const g=ctx.createLinearGradient(0,0,0,Hh);g.addColorStop(0,'#74c0fc');g.addColorStop(1,'#d3f9d8');ctx.fillStyle=g;ctx.fillRect(0,0,W,Hh);ctx.fillStyle='rgba(255,255,255,.85)';[[90,60],[300,40],[520,80]].forEach(([x,y])=>{ctx.beginPath();ctx.arc(x,y,22,0,7);ctx.arc(x+22,y+6,18,0,7);ctx.arc(x-22,y+6,16,0,7);ctx.fill()});
+    ctx.fillStyle='#40c057';ctx.fillRect(0,GY,W,Hh-GY);ctx.fillStyle='#2f9e44';ctx.fillRect(0,GY,W,8);
+    walls.forEach(w=>{ctx.fillStyle=w.plat?'#8d6e63':'#c2693f';ctx.fillRect(w.x,w.y,w.w,w.h);ctx.strokeStyle='#7f3b1c';ctx.lineWidth=2;ctx.strokeRect(w.x,w.y,w.w,w.h);if(!w.plat){ctx.beginPath();for(let y=w.y+16;y<w.y+w.h;y+=16){ctx.moveTo(w.x,y);ctx.lineTo(w.x+w.w,y)}ctx.stroke()}});
+    tg.forEach(dummy);
+    /* tank */
+    ctx.save();ctx.translate(tx,GY);ctx.fillStyle='#2f9e44';ctx.beginPath();ctx.roundRect?ctx.roundRect(-34,-18,68,18,9):ctx.rect(-34,-18,68,18);ctx.fill();ctx.fillStyle='#51cf66';ctx.beginPath();ctx.roundRect?ctx.roundRect(-22,-34,44,18,8):ctx.rect(-22,-34,44,18);ctx.fill();ctx.strokeStyle='#2b8a3e';ctx.lineWidth=3;ctx.stroke();
+    ctx.save();ctx.translate(0,-30);ctx.rotate(-ang*Math.PI/180);ctx.fillStyle='#2b8a3e';ctx.fillRect(0,-5,38,10);ctx.restore();ctx.fillStyle='#d3f9d8';[-22,0,22].forEach(x=>{ctx.beginPath();ctx.arc(x,-8,5,0,7);ctx.fill()});ctx.restore();
+    if(!proj&&!over&&api.diff===0){const b=barrel();ctx.fillStyle='rgba(31,39,80,.5)';let x=b.x,y=b.y,vx=b.vx,vy=b.vy;for(let i=0;i<14;i++){for(let k=0;k<3;k++){vx+=wind*30*.016;vy+=520*.016;x+=vx*.016;y+=vy*.016}ctx.beginPath();ctx.arc(x,y,3,0,7);ctx.fill()}}
+    if(proj){ctx.fillStyle='#1f2750';ctx.beginPath();ctx.arc(proj.x,proj.y,7,0,7);ctx.fill();ctx.strokeStyle='#ffd43b';ctx.lineWidth=2;ctx.stroke()}
+    fx.forEach(f=>{ctx.globalAlpha=Math.max(0,1-f.t/.6);ctx.strokeStyle=f.c;ctx.lineWidth=4;ctx.beginPath();ctx.arc(f.x,f.y,10+f.t*80,0,7);ctx.stroke();ctx.globalAlpha=1});
+    if(msgT>0){ctx.fillStyle='#1f2750';ctx.font='900 26px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(msg,W/2,30)}
+    arcPausedOverlay(ctx,W,Hh,loop)}
+  api.on(window,'keydown',e=>{if(!$('#modal').classList.contains('hid'))return;if(e.key==='+'||e.key==='='){pow=Math.min(100,pow+3);lbl()}if(e.key==='-'||e.key==='_'){pow=Math.max(20,pow-3);lbl()}});
+  arcIntro(api,box,{title:['Tank Tactics','टैंक टैक्टिक्स'],text:['Aim your cartoon tank and pop every target dummy before you run out of shots.','अपने कार्टून टैंक से निशाना लगाओ और गोले खत्म होने से पहले हर निशाने को गिराओ।'],go:()=>begin(0)})}
+registerGame({id:'tank',icon:'🛡️',art:ART.tank,color:'#2b8a3e',cat:'arcade',ages:[2,3],name:['Tank Tactics','टैंक टैक्टिक्स'],desc:['Aim angle and power to pop target dummies behind walls. Playful and non-graphic.','दीवारों के पीछे के निशानों को गिराने के लिए कोण और शक्ति तय करो। खेल-खेल में, बिना किसी हिंसक दृश्य के।'],
+  how:[['Set the angle and power with the sliders (or ↑ ↓ and + −). Move with ◀ ▶.','स्लाइडर (या ↑ ↓ और + −) से कोण और शक्ति तय करो। ◀ ▶ से चलो।'],['Press 💥 Fire (or space). The ball flies in an arc and bounces off walls.','💥 दागो (या स्पेस) दबाओ। गोला चाप में उड़ता है और दीवारों से रुक जाता है।'],['Pop all target dummies in the mission using the shots you have.','मिलने वाले गोलों से मिशन के सारे निशाने गिराओ।'],['Out of shots? You lose a heart and retry. You have 3 hearts. Higher missions add wind and moving targets.','गोले खत्म? एक दिल घटता है और फिर कोशिश करो। तुम्हारे पास 3 दिल हैं। ऊँचे मिशन में हवा और चलते निशाने आते हैं।']],start:tankStart});
+/* ===== GAME 21: Sky Jumper ===== */
+addTX({sj_lv:['Level {0}/{1}','स्तर {0}/{1}'],sj_st:['Stars {0}/{1}','तारे {0}/{1}'],sj_li:['Lives {0}','जीवन {0}'],sj_cp:['Checkpoint saved! 🚩','चेकपॉइंट सहेजा! 🚩'],sj_fin:['Finish line!','अंतिम रेखा!'],sj_oops:['Oops! Back to the checkpoint.','अरे! वापस चेकपॉइंट पर।'],sj_jump:['Jump','कूदो'],sj_done:['Level complete!','स्तर पूरा!'],sj_sum:['Stars collected: {0} of {1}.','इकट्ठे तारे: {1} में से {0}।'],sj_all:['You finished every level!','तुमने हर स्तर पूरा किया!'],sj_aria:['Platform game. Run, jump, collect stars and reach the finish flag.','प्लेटफ़ॉर्म खेल। दौड़ो, कूदो, तारे इकट्ठा करो और अंतिम झंडे तक पहुँचो।'],sj_tip:['Run with ◀ ▶ (or arrow keys, A D). Jump with ⤒ (space, ↑ or W). Land on platforms, avoid 🌵 spikes and gaps, grab ⭐.','◀ ▶ (या तीर कुंजियाँ, A D) से दौड़ो। ⤒ (स्पेस, ↑ या W) से कूदो। प्लेटफ़ॉर्म पर उतरो, 🌵 काँटों और गड्ढों से बचो, ⭐ पकड़ो।']});
+function skyStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;const keys=arcKeys(api);
+  const W=480,H=360,NL=4;let lvl,P,plats,starsA,spikes,flags,endX,pl,lives,cam,cp,msg,msgT,over,cv,ctx,hud,total,got,prevJ,coy,buf,fall;
+  function gen(l){const maxGap=[70,92,112][api.diff]+l*4,rnd=api.rnd;plats=[];starsA=[];spikes=[];flags=[];let x=0,y=270;const n=12+l*4+api.diff*2;
+    plats.push({x:0,y:270,w:220,h:16,mx:0,my:0,sp:0,bx:0,by:270});
+    x=220;for(let i=1;i<=n;i++){const gap=34+rnd()*(maxGap-34);const w=i===n?260:80+rnd()*90;let ny=y+(rnd()*100-50);ny=Math.max(170,Math.min(300,ny));if(Math.abs(ny-y)>66)ny=y+Math.sign(ny-y)*66;
+      const px=x+gap;const mov=i>2&&i<n&&i%6!==0&&rnd()<[.12,.2,.28][api.diff]+l*.03;const kind=mov?(rnd()<.5?'h':'v'):'';
+      const p={x:px,y:ny,w:Math.max(w,kind==='h'?100:80),h:16,bx:px,by:ny,mx:kind==='h'?46:0,my:kind==='v'?40:0,sp:1+rnd()*.8,ph:rnd()*6};plats.push(p);
+      if(!mov&&i!==n&&i%6!==0&&w>=120&&rnd()<[.2,.3,.4][api.diff])spikes.push({p,ox:p.w/2-14,w:28});
+      const ns=1+Math.floor(rnd()*3);for(let s=0;s<ns;s++)starsA.push({x:px+p.w*(s+1)/(ns+1),y:ny-50-rnd()*30,p:null,got:false});
+      if(i%6===0)flags.push({p,ox:p.w/2});
+      x=px+p.w;y=ny}
+    endX=x-80;plats.forEach(p=>{p.ph=p.ph||0});total=starsA.length}
+  function begin(l,fresh){lvl=l;gen(l);if(fresh!==false)lives=[6,5,4][api.diff];pl={x:60,y:240,vx:0,vy:0,on:null,face:1};cp={x:60,y:240};cam=0;got=0;msg='';msgT=0;over=false;prevJ=false;coy=0;buf=0;
+    starsA.forEach(s=>s.got=false);
+    cv=arcCanvas(api,W,H,t('sj_aria'));ctx=cv.getContext('2d');hud=arcHUD([['lv','🏔️'],['st','⭐'],['li','❤️']]);cv.style.maxWidth='560px';
+    const pad=arcPad(api,keys,[['left','◀'],['jump','⤒ '+t('sj_jump')],['right','▶']]);
+    box.replaceChildren(h('div',null,hud.node,cv,pad,h('p',{class:'sim'},t('sj_tip')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>begin(lvl,true)},'🔄 '+t('restart')))));
+    api.setProgress(l/NL);if(!loop)loop=arcLoop(api,update,draw)}
+  function die(){lives--;api.snd('no');msg=t('sj_oops');msgT=1.4;if(lives<=0){over=true;api.after(()=>arcOver(api,box,{retry:()=>begin(0,true)}),400);return}pl.x=cp.x;pl.y=cp.y;pl.vx=0;pl.vy=0;pl.on=null}
+  function update(dt){if(over)return;const tt=loop.t;
+    plats.forEach(p=>{const ox=p.x,oy=p.y;if(p.mx)p.x=p.bx+Math.sin(tt*p.sp+p.ph)*p.mx;if(p.my)p.y=p.by+Math.sin(tt*p.sp+p.ph)*p.my;p.dx=p.x-ox;p.dy=p.y-oy});
+    const jumpKey=keys.up||keys.fire||keys.jump;const dir=(keys.right?1:0)-(keys.left?1:0);const acc=dir?2400:2800;const maxV=190;
+    if(dir){pl.vx+=dir*acc*dt;pl.face=dir}else{const f=Math.min(Math.abs(pl.vx),acc*dt);pl.vx-=Math.sign(pl.vx)*f}pl.vx=Math.max(-maxV,Math.min(maxV,pl.vx));
+    if(pl.on){pl.x+=pl.on.dx||0;pl.y+=pl.on.dy||0}
+    coy-=dt;buf-=dt;if(jumpKey&&!prevJ)buf=.13;if(!jumpKey&&pl.vy<-200&&prevJ)pl.vy*=.55;prevJ=!!jumpKey;
+    if(buf>0&&coy>0){pl.vy=-540;buf=0;coy=0;pl.on=null;api.snd('pop')}
+    const py0=pl.y;pl.vy+=1500*dt;pl.x+=pl.vx*dt;pl.y+=pl.vy*dt;pl.x=Math.max(12,pl.x);
+    pl.on=null;if(pl.vy>=0){for(const p of plats){if(pl.x+10>p.x&&pl.x-10<p.x+p.w&&py0<=p.y+4&&pl.y>=p.y&&pl.y<=p.y+24){pl.y=p.y;pl.vy=0;pl.on=p;coy=.1;break}}}
+    starsA.forEach(s=>{if(!s.got&&Math.abs(pl.x-s.x)<22&&Math.abs((pl.y-18)-s.y)<26){s.got=true;got++;api.addScore(10);api.snd('ok')}});
+    spikes.forEach(s=>{const sx=s.p.x+s.ox;if(pl.x+8>sx&&pl.x-8<sx+s.w&&pl.y>s.p.y-18&&pl.y<=s.p.y+2)die()});
+    flags.forEach(f=>{const fx=f.p.x+f.ox;if(cp.fx!==fx&&Math.abs(pl.x-fx)<20&&Math.abs(pl.y-f.p.y)<40){cp={x:fx,y:f.p.y-1,fx};msg=t('sj_cp');msgT=1.2;api.snd('ok');api.addScore(5)}});
+    if(pl.y>H+80)die();
+    if(pl.x>=endX&&!over){over=true;api.snd('win');api.addScore(30+lives*5);const r=got/Math.max(1,total);const st=r>=.85?3:r>=.5?2:1;api.after(()=>api.complete({stars:st,key:'L'+(lvl+1),summary:()=>t('sj_done')+' '+t('sj_sum',got,total),onContinue:()=>begin(lvl+1<NL?lvl+1:0,false)}),500)}
+    cam=Math.max(0,Math.min(endX+160-W,pl.x-W*.38));msgT-=dt;
+    hud.set({lv:t('sj_lv',lvl+1,NL),st:got+'/'+total,li:'❤'.repeat(Math.max(0,lives))})}
+  function draw(){if(!ctx)return;const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#74c0fc');g.addColorStop(1,'#e7f5ff');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+    ctx.fillStyle='rgba(255,255,255,.9)';for(let i=0;i<8;i++){const x=((i*260-cam*.3)%(W+200)+W+200)%(W+200)-60,y=30+(i*53)%110;ctx.beginPath();ctx.arc(x,y,16,0,7);ctx.arc(x+18,y+4,13,0,7);ctx.arc(x-16,y+5,11,0,7);ctx.fill()}
+    ctx.save();ctx.translate(-cam,0);
+    plats.forEach(p=>{ctx.fillStyle='#8d6e63';ctx.fillRect(p.x,p.y,p.w,p.h);ctx.fillStyle='#51cf66';ctx.fillRect(p.x,p.y,p.w,6);if(p.mx||p.my){ctx.fillStyle='#fff';ctx.font='900 12px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(p.mx?'⇄':'⇅',p.x+p.w/2,p.y+13)}});
+    spikes.forEach(s=>{const sx=s.p.x+s.ox;ctx.fillStyle='#e03131';ctx.beginPath();ctx.moveTo(sx,s.p.y);ctx.lineTo(sx+s.w/4,s.p.y-18);ctx.lineTo(sx+s.w/2,s.p.y);ctx.lineTo(sx+3*s.w/4,s.p.y-18);ctx.lineTo(sx+s.w,s.p.y);ctx.closePath();ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke()});
+    flags.forEach(f=>{const fx=f.p.x+f.ox;ctx.fillStyle='#495057';ctx.fillRect(fx-2,f.p.y-44,4,44);ctx.fillStyle=(cp.fx===fx)?'#12b886':'#ff922b';ctx.beginPath();ctx.moveTo(fx+2,f.p.y-44);ctx.lineTo(fx+28,f.p.y-34);ctx.lineTo(fx+2,f.p.y-24);ctx.fill()});
+    ctx.fillStyle='#495057';ctx.fillRect(endX-2,plats[plats.length-1].y-80,5,80);const fy=plats[plats.length-1].y-80;ctx.fillStyle='#fff';ctx.fillRect(endX+3,fy,36,28);ctx.fillStyle='#1f2750';for(let r=0;r<2;r++)for(let c=0;c<3;c++)if((r+c)%2===0)ctx.fillRect(endX+3+c*12,fy+r*14,12,14);
+    ctx.font='24px system-ui,"Apple Color Emoji","Segoe UI Emoji",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';starsA.forEach(s=>{if(!s.got)ctx.fillText('⭐',s.x,s.y+Math.sin(loop.t*3+s.x)*3)});
+    /* player */
+    ctx.fillStyle='#fa5252';ctx.beginPath();ctx.arc(pl.x,pl.y-26,13,0,7);ctx.fill();ctx.fillStyle='#364fc7';ctx.fillRect(pl.x-9,pl.y-16,18,16);ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(pl.x+pl.face*4-3,pl.y-28,3.5,0,7);ctx.arc(pl.x+pl.face*4+5,pl.y-28,3.5,0,7);ctx.fill();ctx.fillStyle='#1f2750';ctx.beginPath();ctx.arc(pl.x+pl.face*5-3,pl.y-28,1.6,0,7);ctx.arc(pl.x+pl.face*5+5,pl.y-28,1.6,0,7);ctx.fill();
+    ctx.restore();
+    if(msgT>0){ctx.fillStyle='#1f2750';ctx.font='900 24px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(msg,W/2,36)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Sky Jumper','स्काई जंपर'],text:['Run and jump across floating platforms. Collect stars, grab checkpoints and reach the finish flag.','तैरते प्लेटफ़ॉर्म पर दौड़ो और कूदो। तारे इकट्ठा करो, चेकपॉइंट पकड़ो और अंतिम झंडे तक पहुँचो।'],go:()=>begin(0,true)})}
+registerGame({id:'sky',icon:'🏔️',art:ART.sky,color:'#1098ad',cat:'arcade',ages:[1,2,3],name:['Sky Jumper','स्काई जंपर'],desc:['Jump across moving platforms, collect stars and race to the finish flag.','चलते प्लेटफ़ॉर्म पर कूदो, तारे इकट्ठा करो और अंतिम झंडे तक दौड़ो।'],
+  how:[['Run with ◀ ▶ (or arrow keys, A D). Jump with ⤒, space, ↑ or W.','◀ ▶ (या तीर कुंजियों, A D) से दौड़ो। ⤒, स्पेस, ↑ या W से कूदो।'],['Land on platforms. Some move left-right ⇄ or up-down ⇅.','प्लेटफ़ॉर्म पर उतरो। कुछ बाएँ-दाएँ ⇄ या ऊपर-नीचे ⇅ चलते हैं।'],['Avoid red spikes and gaps. If you fall you restart from the last 🚩 checkpoint.','लाल काँटों और गड्ढों से बचो। गिरने पर आखिरी 🚩 चेकपॉइंट से दोबारा शुरू होगा।'],['Collect ⭐ for points and reach the checkered flag to finish. Easy mode has wider safe jumps and more lives.','अंकों के लिए ⭐ इकट्ठा करो और खत्म करने के लिए चेकदार झंडे तक पहुँचो। आसान मोड में सुरक्षित कूदें चौड़ी और जीवन ज़्यादा हैं।']],start:skyStart});
+/* ===== GAME 22: Memory Match Arena ===== */
+addTX({mm_theme:['Theme','विषय'],mm_grid:['Grid size','ग्रिड का आकार'],mm_timer:['Timer','टाइमर'],mm_players:['Players','खिलाड़ी'],mm_p1:['1 player','1 खिलाड़ी'],mm_p2:['2 players','2 खिलाड़ी'],mm_moves:['Moves: {0}','चालें: {0}'],mm_pairs:['Pairs: {0}/{1}','जोड़े: {0}/{1}'],mm_time:['Time: {0}s','समय: {0} सेकंड'],mm_turn:['Player {0}’s turn','खिलाड़ी {0} की बारी'],mm_pl:['Player {0}','खिलाड़ी {0}'],
+mm_match:['A match! 🎉','जोड़ी मिल गई! 🎉'],mm_nomatch:['Not a match. Remember where they are!','जोड़ी नहीं बनी। याद रखो कहाँ हैं!'],mm_wins:['Player {0} wins with {1} pairs!','खिलाड़ी {0} {1} जोड़ों के साथ जीता!'],mm_tie:['It is a tie. Well played!','बराबरी रही। बहुत बढ़िया खेले!'],mm_sum:['Finished in {0} moves.','{0} चालों में पूरा।'],mm_sum2:['{0}','{0}'],mm_a:['Animals','जानवर'],mm_f:['Fruit','फल'],mm_s:['Space','अंतरिक्ष'],mm_v:['Vehicles','वाहन'],mm_card:['Card {0}, face down','कार्ड {0}, उल्टा'],mm_cardup:['{0}','{0}'],mm_cardok:['{0}, matched','{0}, जोड़ी मिली'],mm_on:['On','चालू'],mm_off:['Off','बंद'],mm_again:['New game','नया खेल'],mm_setup:['Set up your game','अपना खेल तैयार करो'],mm_t:['Time is up! Finish faster next time.','समय खत्म! अगली बार और तेज़ खेलो।']});
+const MM_TH={a:[['🐶',['Dog','कुत्ता']],['🐱',['Cat','बिल्ली']],['🐭',['Mouse','चूहा']],['🐰',['Rabbit','खरगोश']],['🦊',['Fox','लोमड़ी']],['🐻',['Bear','भालू']],['🐼',['Panda','पांडा']],['🐸',['Frog','मेंढक']],['🐵',['Monkey','बंदर']],['🐘',['Elephant','हाथी']],['🦁',['Lion','शेर']],['🐯',['Tiger','बाघ']]],
+ f:[['🍎',['Apple','सेब']],['🍌',['Banana','केला']],['🍇',['Grapes','अंगूर']],['🍊',['Orange','संतरा']],['🍓',['Strawberry','स्ट्रॉबेरी']],['🍉',['Watermelon','तरबूज़']],['🍍',['Pineapple','अनानास']],['🥭',['Mango','आम']],['🍒',['Cherries','चेरी']],['🍐',['Pear','नाशपाती']],['🍋',['Lemon','नींबू']],['🥥',['Coconut','नारियल']]],
+ s:[['🌍',['Earth','पृथ्वी']],['🌙',['Moon','चाँद']],['☀️',['Sun','सूरज']],['⭐',['Star','तारा']],['🚀',['Rocket','रॉकेट']],['🪐',['Saturn','शनि']],['👽',['Alien','एलियन']],['☄️',['Comet','धूमकेतु']],['🛰️',['Satellite','उपग्रह']],['🌌',['Galaxy','आकाशगंगा']],['🧑‍🚀',['Astronaut','अंतरिक्ष यात्री']],['🔭',['Telescope','दूरबीन']]],
+ v:[['🚗',['Car','कार']],['🚌',['Bus','बस']],['🚲',['Bicycle','साइकिल']],['🚂',['Train','रेलगाड़ी']],['✈️',['Plane','हवाई जहाज़']],['🚢',['Ship','जहाज़']],['🚁',['Helicopter','हेलीकॉप्टर']],['🚜',['Tractor','ट्रैक्टर']],['🛵',['Scooter','स्कूटर']],['🚒',['Fire engine','दमकल']],['🚑',['Ambulance','एम्बुलेंस']],['🛺',['Auto-rickshaw','ऑटो']]]};
+const MM_COLS={3:3,6:4,8:4,10:5,12:6};
+function memoryStart(api){const stage=api.stage;const two=api.mode==='two';let theme='a',pairs=[3,6,8][api.diff]||6,timer=false;
+  let cards,open,found,moves,tleft,tick,locked,cur,sc,msg,over;
+  function setup(){api.status(t('mm_setup'));api.onLang(setup);api.setProgress(0);clearTick();
+    const chip=(on,txt,fn)=>h('button',{class:'chip'+(on?' on':''),'aria-pressed':on,onclick:fn},txt);
+    stage.replaceChildren(h('div',{class:'card',style:{textAlign:'center'}},h('h2',null,'🃏 '+t('mm_setup')),
+      h('h3',null,t('mm_theme')),h('div',{class:'row c'},['a','f','s','v'].map(k=>chip(theme===k,MM_TH[k][0][0]+' '+t('mm_'+k),()=>{theme=k;setup()}))),
+      h('h3',null,t('mm_grid')),h('div',{class:'row c'},[3,6,8,10,12].map(n=>chip(pairs===n,(MM_COLS[n])+'×'+(n*2/MM_COLS[n]),()=>{pairs=n;setup()}))),
+      h('h3',null,t('mm_timer')),h('div',{class:'row c'},chip(!timer,t('mm_off'),()=>{timer=false;setup()}),chip(timer,'⏱ '+t('mm_on'),()=>{timer=true;setup()})),
+      h('p',null,two?t('mm_p2'):t('mm_p1')),h('button',{class:'btn big',onclick:begin},'▶ '+t('ar_start'))))}
+  function clearTick(){if(tick){api.clear(tick);tick=null}}
+  function begin(){const pool=api.shuffle(MM_TH[theme]).slice(0,pairs);cards=api.shuffle(pool.concat(pool).map((c,i)=>({e:c[0],n:c[1],id:pool.indexOf(c)})));open=[];found=new Set();moves=0;locked=false;cur=0;sc=[0,0];msg='';over=false;tleft=pairs*(api.diff===0?12:api.diff===1?8:6)+10;
+    clearTick();if(timer)tick=api.every(()=>{if(over||Engine.sess.paused)return;tleft--;const e=$('#mm-t');if(e)e.textContent=t('mm_time',tleft);if(tleft<=0)lose()},1000);
+    api.onLang(draw);draw()}
+  function lose(){over=true;clearTick();msg=t('mm_t');arcRecord(api);api.snd('no');draw()}
+  function draw(){const cols=MM_COLS[pairs];api.setProgress(found.size/pairs);
+    stage.replaceChildren(h('div',null,h('div',{class:'arc-hud'},h('span',{class:'pill'},t('mm_moves',moves)),h('span',{class:'pill'},t('mm_pairs',found.size,pairs)),timer?h('span',{class:'pill',id:'mm-t'},t('mm_time',Math.max(0,tleft))):null,
+        two?h('span',{class:'pill'},'👤1: '+sc[0]+' · 👤2: '+sc[1]):null),
+      two&&!over?h('p',{style:{textAlign:'center',fontWeight:800},role:'status'},'👉 '+t('mm_turn',cur+1)):null,
+      h('div',{class:'mm',style:{gridTemplateColumns:`repeat(${cols},1fr)`}},cards.map((c,i)=>{const up=open.includes(i)||found.has(i);const ok=found.has(i);
+        return h('button',{class:'mc'+(up?' up':'')+(ok?' ok':''),'aria-label':ok?t('mm_cardok',L(c.n)):up?L(c.n):t('mm_card',i+1),disabled:ok||over?true:null,'aria-pressed':up,onclick:()=>flip(i)},up?h('span',null,c.e):h('span',{'aria-hidden':'true'},'❓'),up?h('small',null,L(c.n)):null)})),
+      msg?h('p',{class:'fb '+(over&&!found.size===pairs?'info':'ok'),role:'status'},msg):null,
+      h('div',{class:'row c',style:{marginTop:'10px'}},h('button',{class:'btn alt',onclick:setup},'⚙ '+t('mm_setup')),h('button',{class:'btn alt',onclick:begin},'🔄 '+t('mm_again')))))}
+  function flip(i){if(locked||over||open.includes(i)||found.has(i)||Engine.sess.paused)return;api.snd('tap');open.push(i);msg='';
+    if(open.length<2){draw();return}
+    moves++;const[a,b]=open;
+    if(cards[a].id===cards[b].id){found.add(a);found.add(b);sc[cur]++;open=[];api.addScore(10);api.snd('ok');msg=t('mm_match');draw();if(found.size===cards.length)win()}
+    else{locked=true;msg=t('mm_nomatch');draw();api.after(()=>{open=[];locked=false;if(two)cur=1-cur;draw()},950)}}
+  function win(){over=true;clearTick();const par=pairs;let stars=moves<=par*1.6?3:moves<=par*2.4?2:1;let sum;
+    if(two){stars=3;sum=()=>sc[0]===sc[1]?t('mm_tie'):t('mm_wins',sc[0]>sc[1]?1:2,Math.max(sc[0],sc[1]))}else sum=()=>t('mm_sum',moves);
+    api.addScore(Math.max(0,50-moves));api.after(()=>api.complete({stars,key:'P'+pairs+(two?'x':''),summary:sum,onContinue:setup}),600)}
+  setup()}
+registerGame({id:'memory',icon:'🃏',art:ART.memory,color:'#7048e8',cat:'arcade',ages:[1,2,3],name:['Memory Match Arena','मेमोरी मैच एरीना'],desc:['Flip cards and find matching pairs. Play alone or take turns with a friend.','कार्ड पलटो और जोड़ियाँ ढूँढो। अकेले खेलो या दोस्त के साथ बारी-बारी।'],
+  modes:[{id:'one',label:['1 player','1 खिलाड़ी']},{id:'two',label:['2 players','2 खिलाड़ी']}],
+  how:[['Choose a theme, a grid size and whether to use a timer.','विषय, ग्रिड का आकार और टाइमर चुनो।'],['Tap two cards to flip them. If they match, they stay open.','दो कार्ड दबाकर पलटो। जोड़ी मिले तो खुले रहते हैं।'],['In 2-player mode a match gives you another go; otherwise the turn passes.','2 खिलाड़ी में जोड़ी मिलने पर बारी जारी रहती है; वरना अगले की बारी।'],['Every card shows a name too, so you do not need colours to play.','हर कार्ड पर नाम भी है, इसलिए रंग देखना ज़रूरी नहीं।']],start:memoryStart});
 /* ===== bootstrap ===== */
 (function(){
   try{if(!Store.get(KEY)&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){S.rm=true}}catch(e){}
