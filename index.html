@@ -140,8 +140,8 @@ const Store={ok:false,mem:{},init(){try{localStorage.setItem('__km','1');localSt
   del(k){delete this.mem[k];try{localStorage.removeItem(k)}catch(e){}}};
 Store.init();
 const KEY='kidsmind.adventure.v1';
-function defState(){return{lang:'en',age:0,sound:false,music:false,rm:false,fav:[],recent:[],g:{},d:{},badges:{},daily:{},sess:0}}
-let S=Object.assign(defState(),Store.get(KEY)||{});
+function defState(){return{lang:'en',age:0,sound:false,music:true,musicMig:1,rm:false,fav:[],recent:[],g:{},d:{},badges:{},daily:{},sess:0}}
+const _saved=Store.get(KEY)||{};let S=Object.assign(defState(),_saved);if(!_saved.musicMig){S.music=true;S.musicMig=1}
 S.g=S.g||{};S.d=S.d||{};S.badges=S.badges||{};S.fav=S.fav||[];S.recent=S.recent||[];S.daily=S.daily||{};
 function save(){Store.set(KEY,S)}
 
@@ -156,7 +156,7 @@ hello:['Hi! I am Mindy. Let’s play and learn!','नमस्ते! मैं 
 start:['Start Playing','खेलना शुरू करो'],pickAge:['Pick your age group','अपनी उम्र का समूह चुनो'],
 allGames:['All Games','सभी खेल'],age1:['Little Explorers','छोटे खोजी'],age2:['Smart Adventurers','समझदार साहसी'],age3:['Brain Champions','दिमाग के चैंपियन'],
 ages:['Ages {0}','उम्र {0}'],years:['{0} years','{0} वर्ष'],
-cat_all:['All','सभी'],cat_arcade:['Arcade & Strategy','आर्केड और रणनीति'],arc_banner:['Fast fun and clever thinking: 10 arcade and strategy games. Anyone can play any game, and age is only a suggestion.','तेज़ मज़ा और चतुर सोच: 10 आर्केड और रणनीति खेल। कोई भी कोई भी खेल खेल सकता है, उम्र सिर्फ एक सुझाव है।'],credit:['Developed by Anil Sharma, Former General Manager, Central Bank of India','अनिल शर्मा द्वारा विकसित, पूर्व महाप्रबंधक, सेंट्रल बैंक ऑफ इंडिया'],about:['About this app','इस ऐप के बारे में'],cat_brain:['Brain','दिमाग'],cat_lang:['Words','शब्द'],cat_sci:['Nature & Science','प्रकृति और विज्ञान'],cat_create:['Create','रचना'],cat_life:['Life Skills','जीवन कौशल'],
+cat_all:['All','सभी'],cat_arcade:['Arcade & Strategy','आर्केड और रणनीति'],arc_banner:['Fast fun and clever thinking: arcade and strategy games. Anyone can play any game, and age is only a suggestion.','तेज़ मज़ा और चतुर सोच: आर्केड और रणनीति खेल। कोई भी कोई भी खेल खेल सकता है, उम्र सिर्फ एक सुझाव है।'],credit:['Developed by Anil Sharma, Former General Manager, Central Bank of India','अनिल शर्मा द्वारा विकसित, पूर्व महाप्रबंधक, सेंट्रल बैंक ऑफ इंडिया'],about:['About this app','इस ऐप के बारे में'],cat_brain:['Brain','दिमाग'],cat_lang:['Words','शब्द'],cat_sci:['Nature & Science','प्रकृति और विज्ञान'],cat_create:['Create','रचना'],cat_life:['Life Skills','जीवन कौशल'],
 cont:['Continue Playing','खेल जारी रखो'],favs:['My Favourites','मेरे पसंदीदा'],noFavs:['Tap ♡ on a game to save it here.','किसी खेल पर ♡ दबाओ, वह यहाँ आ जाएगा।'],noRecent:['Games you play will show here.','जो खेल तुम खेलोगे वे यहाँ दिखेंगे।'],
 daily:['Daily Challenge','आज की चुनौती'],dailyGo:['Play today’s challenge','आज की चुनौती खेलो'],dailyDone:['Done today! Play again if you like.','आज पूरी हुई! चाहो तो फिर खेलो।'],dailyTxt:['Today: {0}','आज: {0}'],
 progress:['My Progress','मेरी प्रगति'],played:['Games played','खेले गए खेल'],levels:['Levels done','पूरे स्तर'],stars:['Stars','सितारे'],bests:['Personal bests','सर्वश्रेष्ठ स्कोर'],badges:['Badges','बैज'],
@@ -190,7 +190,15 @@ const DIFFN=['easy','medium','hard'];
 const Snd={ctx:null,mt:null,mi:0,get(){try{if(!this.ctx){const C=window.AudioContext||window.webkitAudioContext;if(C)this.ctx=new C()}if(this.ctx&&this.ctx.state==='suspended')this.ctx.resume()}catch(e){}return this.ctx},
   tone(f,d,when,vol,type){const c=this.get();if(!c)return;try{const o=c.createOscillator(),g=c.createGain();o.type=type||'sine';o.frequency.value=f;const t0=c.currentTime+(when||0);g.gain.setValueAtTime(0.0001,t0);g.gain.exponentialRampToValueAtTime(vol||0.12,t0+0.02);g.gain.exponentialRampToValueAtTime(0.0001,t0+d);o.connect(g);g.connect(c.destination);o.start(t0);o.stop(t0+d+0.05)}catch(e){}},
   play(k){if(!S.sound)return;const p={ok:[[660,.12,0],[880,.18,.1]],no:[[260,.2,0],[220,.25,.12]],win:[[523,.15,0],[659,.15,.14],[784,.15,.28],[1047,.3,.42]],tap:[[500,.06,0]],pop:[[700,.08,0]]}[k]||[];p.forEach(x=>this.tone(x[0],x[1],x[2]))},
-  music(){clearInterval(this.mt);this.mt=null;if(!S.music)return;const sc=[262,294,330,392,440,392,330,294];this.mt=setInterval(()=>{if(document.hidden||!S.music)return;this.tone(sc[this.mi++%sc.length],.5,0,.03,'triangle')},700)}};
+  /* background music: soft looping tunes, only while a game is being played; toggled by S.music */
+  TUNES:[[[0,2,4,7,4,2,0,2],[4,7,9,7,4,2,4,-1],[0,4,7,12,9,7,4,2],[0,-1,2,-1,4,-1,0,-1]],[[7,4,2,4,7,9,7,4],[2,4,7,9,12,9,7,4],[9,7,4,2,4,7,4,2],[0,2,4,2,0,-1,-1,-1]],[[0,4,2,5,4,7,5,9],[7,5,4,2,0,2,4,-1],[2,5,9,7,5,4,2,0],[4,7,12,9,7,4,2,0]]],
+  mk(kind){this.stopMusic();if(!S.music)return;this.get();const tune=this.TUNES[(kind|0)%this.TUNES.length];const root=261.63,bass=[0,0,5,7];let step=0;
+    this.mt=setInterval(()=>{if(document.hidden||!S.music||(Engine.sess&&Engine.sess.paused))return;const bar=Math.floor(step/8)%tune.length,n=tune[bar][step%8];
+      if(n>=0){const sc=[0,2,4,7,9,12,14,16],f=root*Math.pow(2,(n)/12);this.tone(f,.42,0,.035,'triangle')}
+      if(step%4===0)this.tone(root/2*Math.pow(2,bass[bar%4]/12),.9,0,.04,'sine');step++},260)},
+  music(){this.mk(this.kind||0)},
+  startMusic(id){this.kind=hashStr(String(id||'x'))%3;this.mk(this.kind)},
+  stopMusic(){clearInterval(this.mt);this.mt=null}};
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&window.speechSynthesis)try{speechSynthesis.cancel()}catch(e){}});
 function speak(text,lang){try{if(!('speechSynthesis' in window))return false;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang=lang||(S.lang==='hi'?'hi-IN':'en-IN');u.rate=.85;speechSynthesis.speak(u);return true}catch(e){return false}}
 
@@ -226,7 +234,7 @@ function dailyInfo(){const k=dateKey();const gi=(k+7)%GAMES.length;const age=S.a
 const Engine={sess:null,cur:null,
   stop(){const s=this.sess;if(!s)return;this.sess=null;s.alive=false;s.timers.forEach(clearTimeout);s.ints.forEach(clearInterval);s.rafs.forEach(cancelAnimationFrame);
     s.lis.forEach(([t,e,f,o])=>{try{t.removeEventListener(e,f,o)}catch(x){}});s.clean.forEach(f=>{try{f()}catch(x){}});
-    try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}closeModal()},
+    try{if(window.speechSynthesis)speechSynthesis.cancel()}catch(e){}Snd.stopMusic();closeModal()},
   go(fn){this.stop();this.cur=fn;fn()},
   relang(){const s=this.sess;if(!s)return;this.header(s);try{if(s.overlay)s.overlay();else if(s.redraw)s.redraw()}catch(e){console.error(e)}},
   open(id,opt){const g=GAMES.find(x=>x.id===id);if(!g)return;this.stop();this.cur=()=>this.open(id,opt);opt=opt||{};
@@ -247,7 +255,7 @@ const Engine={sess:null,cur:null,
     show(node)},
   play(id,opt){const g=GAMES.find(x=>x.id===id);if(!g)return;this.stop();const st=gstat(id);st.played=(st.played||0)+1;S.recent=[id].concat(S.recent.filter(x=>x!==id)).slice(0,6);save();
     const s={id,g,diff:opt.diff,mode:opt.mode,daily:!!opt.daily,alive:true,timers:[],ints:[],rafs:[],lis:[],clean:[],score:0,redraw:null,pauseFns:null,paused:false,done:false};
-    this.sess=s;this.cur=()=>this.open(id,opt);
+    this.sess=s;this.cur=()=>this.open(id,opt);Snd.startMusic(id);
     const seed=opt.daily?(dateKey()*31+hashStr(id))>>>0:(Math.random()*4294967296)>>>0;const rr=mulberry32(seed);
     s.api={id,diff:s.diff,mode:s.mode,daily:s.daily,rnd:rr,ri:(a,b)=>a+Math.floor(rr()*(b-a+1)),pick:a=>a[Math.floor(rr()*a.length)],
       shuffle:a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(rr()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a},
@@ -272,6 +280,7 @@ const Engine={sess:null,cur:null,
       h('span',{class:'pill','aria-label':t('score')},'⭐ ',h('span',{id:'hdr-score'},s.score)),
       s.pauseFns?h('button',{class:'iconbtn','aria-label':s.paused?t('resume'):t('pause'),onclick:()=>{s.paused=!s.paused;s.pauseFns[s.paused?0:1]();this.header(s)}},s.paused?'▶':'⏸'):null,
       h('button',{class:'iconbtn','aria-label':t('help'),title:t('help'),onclick:()=>openModal(h('div',null,h('h2',null,t('howTo')),h('ul',null,g.how.map(x=>h('li',null,L(x)))),g.note?h('p',{class:'sim'},L(g.note)):null,h('button',{class:'btn',onclick:closeModal},t('close'))))},'❓'),
+      h('button',{class:'iconbtn','aria-label':t('music')+': '+(S.music?t('on'):t('off')),title:t('music'),style:{opacity:S.music?1:.4},'aria-pressed':!!S.music,onclick:()=>{S.music=!S.music;save();if(S.music)Snd.startMusic(s.id);else Snd.stopMusic();this.header(s)}},'🎵'),
       h('button',{class:'iconbtn','aria-label':t('sound')+': '+(S.sound?t('on'):t('off')),'aria-pressed':!!S.sound,onclick:()=>{S.sound=!S.sound;save();Snd.play('tap');this.header(s)}},S.sound?'🔊':'🔇'),
       h('button',{class:'iconbtn','aria-label':t('lang'),title:t('lang'),onclick:()=>setLang(S.lang==='en'?'hi':'en')},S.lang==='en'?'हि':'EN'),
       h('button',{class:'iconbtn','aria-label':t('restart'),title:t('restart'),onclick:()=>s.api.restart()},'🔄')))},
@@ -351,13 +360,13 @@ function Parent(){Engine.cur=Parent;
     h('div',{class:'card'},h('h2',null,t('pHow')),h('p',null,t('pHowTxt')),h('p',null,t('pSafe'))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('h2',null,t('sound')),
       h('div',{class:'row'},h('button',{class:'chip'+(S.sound?' on':''),'aria-pressed':!!S.sound,onclick:()=>{S.sound=!S.sound;save();Snd.play('tap');Parent()}},'🔊 '+t('sound')+': '+(S.sound?t('on'):t('off'))),
-        h('button',{class:'chip'+(S.music?' on':''),'aria-pressed':!!S.music,onclick:()=>{S.music=!S.music;save();Snd.get();Snd.music();Parent()}},'🎵 '+t('music')+': '+(S.music?t('on'):t('off'))),
+        h('button',{class:'chip'+(S.music?' on':''),'aria-pressed':!!S.music,onclick:()=>{S.music=!S.music;save();if(!S.music)Snd.stopMusic();Parent()}},'🎵 '+t('music')+': '+(S.music?t('on'):t('off'))),
         h('button',{class:'chip'+(S.rm?' on':''),'aria-pressed':!!S.rm,onclick:()=>{S.rm=!S.rm;save();applyRM();Parent()}},'🌿 '+t('pReduced')+': '+(S.rm?t('on'):t('off'))))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('h2',null,t('pData')),h('p',null,t('pDataTxt')),h('p',{class:'fb info'},Store.ok?t('pStoreOk'):t('pStoreNo'))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('h2',null,t('about')),h('p',null,'KidsMind Adventure – Learn, Play & Explore'),h('p',{class:'credit'},h('b',null,t('credit')))),
     h('div',{class:'card',style:{marginTop:'12px'}},h('button',{class:'btn warn',onclick:()=>openModal(h('div',null,h('h2',null,t('pReset')),h('p',null,t('pResetQ')),h('div',{class:'row'},
       h('button',{class:'btn alt',onclick:closeModal},t('cancel')),
-      h('button',{class:'btn warn',onclick:()=>{const lang=S.lang;S=defState();S.lang=lang;Store.del(KEY);save();closeModal();Snd.music();applyRM();toast(t('pResetDone'));Engine.go(Home)}},t('pReset')))))},'🗑 '+t('pReset'))));
+      h('button',{class:'btn warn',onclick:()=>{const lang=S.lang;S=defState();S.lang=lang;Store.del(KEY);save();closeModal();Snd.stopMusic();applyRM();toast(t('pResetDone'));Engine.go(Home)}},t('pReset')))))},'🗑 '+t('pReset'))));
   show(node)}
 /* ===== Shared quiz runner (used by many games) ===== */
 const R=x=>typeof x==='function'?x():L(x);
@@ -2009,6 +2018,142 @@ function memoryStart(api){const stage=api.stage;const two=api.mode==='two';let t
 registerGame({id:'memory',icon:'🃏',art:ART.memory,color:'#7048e8',cat:'arcade',ages:[1,2,3],name:['Memory Match Arena','मेमोरी मैच एरीना'],desc:['Flip cards and find matching pairs. Play alone or take turns with a friend.','कार्ड पलटो और जोड़ियाँ ढूँढो। अकेले खेलो या दोस्त के साथ बारी-बारी।'],
   modes:[{id:'one',label:['1 player','1 खिलाड़ी']},{id:'two',label:['2 players','2 खिलाड़ी']}],
   how:[['Choose a theme, a grid size and whether to use a timer.','विषय, ग्रिड का आकार और टाइमर चुनो।'],['Tap two cards to flip them. If they match, they stay open.','दो कार्ड दबाकर पलटो। जोड़ी मिले तो खुले रहते हैं।'],['In 2-player mode a match gives you another go; otherwise the turn passes.','2 खिलाड़ी में जोड़ी मिलने पर बारी जारी रहती है; वरना अगले की बारी।'],['Every card shows a name too, so you do not need colours to play.','हर कार्ड पर नाम भी है, इसलिए रंग देखना ज़रूरी नहीं।']],start:memoryStart});
+/* ===== GAME 23: Rail Pilot Express (train cab driving, automatic block signals) ===== */
+addTX({rp_ms:['Route {0}/{1}','मार्ग {0}/{1}'],rp_next:['Next signal','अगला सिग्नल'],rp_asp:['Aspect','संकेत'],rp_dist:['Distance run','चली दूरी'],rp_safe:['Safety score','सुरक्षा अंक'],rp_thr:['Power','शक्ति'],rp_brk:['Train brake','ट्रेन ब्रेक'],rp_coast:['Coast','ढील दो'],rp_serv:['Service brake','सामान्य ब्रेक'],rp_emg:['Emergency stop','आपात रोक'],rp_horn:['Horn','हॉर्न'],
+rp_green:['GREEN · go','हरा · चलो'],rp_yel:['YELLOW · slow','पीला · धीमे'],rp_red:['RED · stop','लाल · रुको'],rp_none:['none ahead','आगे नहीं'],rp_limit:['LIMIT','सीमा'],rp_atp:['ATP NORMAL','ATP सामान्य'],rp_atpw:['SLOW DOWN!','धीमे करो!'],rp_atpe:['ATP BRAKING','ATP ब्रेक लगा'],rp_kmh:['km/h','किमी/घं'],rp_stop:['STOP','रुको'],
+rp_atpmsg:['The safety system (ATP) stopped the train. Safety −15.','सुरक्षा प्रणाली (ATP) ने ट्रेन रोकी। सुरक्षा −15।'],rp_spad:['You passed a red signal! Safety −20.','तुमने लाल सिग्नल पार किया! सुरक्षा −20।'],rp_board:['Passengers are getting on and off…','यात्री चढ़-उतर रहे हैं…'],rp_creep:['Move forward a little. Stop inside the platform.','थोड़ा आगे बढ़ो। प्लेटफ़ॉर्म के अंदर रुको।'],rp_missed:['You went past the platform. Try the route again!','तुम प्लेटफ़ॉर्म से आगे निकल गए। मार्ग फिर आज़माओ!'],rp_good:['Perfect stop! +30','बढ़िया रुकना! +30'],rp_nextst:['Next stop: {0}','अगला स्टेशन: {0}'],
+rp_arr:['Arrived at {0}!','{0} पहुँच गए!'],rp_sum:['Safety score {0}. Good driving!','सुरक्षा अंक {0}। बढ़िया चलाया!'],rp_start:['Push the power slider up to start moving.','चलना शुरू करने के लिए शक्ति स्लाइडर ऊपर करो।'],rp_brakehint:['Start braking soon.','जल्दी ब्रेक लगाना शुरू करो।'],rp_aria:['Train driver view. Use power and brake sliders. Stop at stations and obey signals.','ट्रेन चालक का दृश्य। शक्ति और ब्रेक स्लाइडर चलाओ। स्टेशन पर रुको और सिग्नल मानो।'],
+rp_tip:['Keys: ↑/↓ power, ←/→ brake, space horn. Obey GREEN / YELLOW / RED signals and speed boards. The ATP safety system protects you but costs safety points.','कुंजियाँ: ↑/↓ शक्ति, ←/→ ब्रेक, स्पेस हॉर्न। हरे / पीले / लाल सिग्नल और गति-बोर्ड मानो। ATP सुरक्षा प्रणाली तुम्हें बचाती है पर सुरक्षा अंक काटती है।'],rp_fict:['Fictional routes for learning. Real railway rules differ.','सीखने के लिए काल्पनिक मार्ग। असली रेलवे के नियम अलग हो सकते हैं।'],rp_zb:['{0} km/h','{0} किमी/घं'],rp_dwell:['Boarding {0}s','चढ़ना-उतरना {0} सेकंड']});
+const RP_PL=180,RP_B=700;
+const RP_M=[
+ {n:['Green Valley Run','हरी घाटी की सैर'],len:2700,st:[{s:2350,n:['Green Valley','हरी घाटी']}],lead:null,zones:[],curves:[[600,1100,.00022],[1500,2000,-.00026]],fog:0},
+ {n:['Follow the Freight','मालगाड़ी के पीछे'],len:4300,st:[{s:3900,n:['River Town','नदी नगर']}],lead:{s:1500,v:14,out:2900},zones:[],curves:[[900,1500,-.0002],[3000,3500,.00025]],fog:0},
+ {n:['Hills and Bridges','पहाड़ियाँ और पुल'],len:4900,st:[{s:4500,n:['Hill Station','पहाड़ी स्टेशन']}],lead:null,zones:[{a:1200,b:1900,v:60,n:['Bridge','पुल']},{a:2700,b:3400,v:80,n:['Curve','मोड़']}],curves:[[1000,1700,.0003],[2700,3400,-.00045]],fog:0},
+ {n:['Foggy Morning','कोहरे की सुबह'],len:4500,st:[{s:4100,n:['Misty Junction','धुँध जंक्शन']}],lead:{s:1800,v:15,out:3100},zones:[{a:2000,b:2700,v:80,n:['Curve','मोड़']}],curves:[[2000,2700,.0003]],fog:1},
+ {n:['City Express','सिटी एक्सप्रेस'],len:5400,st:[{s:2200,n:['Market Road','बाज़ार रोड']},{s:5000,n:['Central City','सेंट्रल सिटी']}],lead:{s:3000,v:15,out:3900},zones:[{a:3500,b:4100,v:60,n:['Bridge','पुल']},{a:600,b:1100,v:80,n:['Curve','मोड़']}],curves:[[600,1100,-.0003],[3500,4100,.0003]],fog:0}];
+ART.rail='<svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#a5d8ff"/><path d="M0 44h64v20H0z" fill="#69db7c"/><path d="M26 30L6 64M38 30l20 34" stroke="#495057" stroke-width="3"/><path d="M32 30v34" stroke="#adb5bd" stroke-width="1" stroke-dasharray="3 4"/><rect x="18" y="12" width="28" height="22" rx="6" fill="#fff" stroke="#0b7285" stroke-width="3"/><rect x="22" y="16" width="20" height="9" rx="3" fill="#74c0fc"/><circle cx="25" cy="29" r="2.5" fill="#ffd43b"/><circle cx="39" cy="29" r="2.5" fill="#ffd43b"/><circle cx="52" cy="13" r="3" fill="#51cf66"/></svg>';
+function railStart(api){const stage=api.stage;const box=h('div');stage.replaceChildren(box);let loop=null;const keys=arcKeys(api);
+  const W=640,H=400,F=430,CH=2.6,HZ=H*.40;
+  let M,mi,s,v,thr,brk,thrE,brkE,L,lead,safe,atp,atpT,warnT,over,stopped,dwell,sti,sigPassed,msg,msgT,cv,ctx,hud,off,sThr,sBrk,thrSl,brkSl,horn,doneSt,tilt,startedMove;
+  const asp=i=>{if(!lead||lead.gone)return 0;const a=RP_B*(i+1);return (L>=a&&L<a+RP_B)?2:(L>=a+RP_B&&L<a+2*RP_B)?1:0};/*0 green 1 yellow 2 red*/
+  const nSig=()=>Math.floor(M.len/RP_B);
+  function begin(m){mi=m;M=RP_M[m];s=0;v=0;thr=0;brk=0;thrE=0;brkE=0;safe=100;atp=false;atpT=0;warnT=0;over=false;stopped=false;dwell=0;sti=0;sigPassed=0;msg=t('rp_start');msgT=4;doneSt=0;tilt=0;startedMove=false;
+    lead=M.lead?{s:M.lead.s,v:M.lead.v,out:M.lead.out,gone:false}:null;L=lead?lead.s:0;
+    cv=arcCanvas(api,W,H,t('rp_aria'));ctx=cv.getContext('2d');hud=arcHUD([['ms','🚆'],['ns','🚦'],['as','🔔'],['di','📏'],['sf','🛡️']]);
+    thrSl=h('input',{type:'range',min:0,max:100,value:0,'aria-label':t('rp_thr'),oninput:e=>{thr=+e.target.value/100}});brkSl=h('input',{type:'range',min:0,max:100,value:0,'aria-label':t('rp_brk'),oninput:e=>{brk=+e.target.value/100}});
+    const lt=h('label',null,t('rp_thr')+' ',h('b',{id:'rp-tv'},'0%')),lb=h('label',null,t('rp_brk')+' ',h('b',{id:'rp-bv'},'0%'));
+    const set=(a,b)=>{thr=a;brk=b;sync()};
+    box.replaceChildren(h('div',null,hud.node,cv,h('div',{class:'arc-ctl'},lt,thrSl),h('div',{class:'arc-ctl'},lb,brkSl),
+      h('div',{class:'arc-ctl'},h('button',{class:'btn alt',onclick:()=>set(0,0)},'🪂 '+t('rp_coast')),h('button',{class:'btn alt',onclick:()=>set(0,.6)},'🛑 '+t('rp_serv')),h('button',{class:'btn warn',onclick:()=>set(0,1)},'⛔ '+t('rp_emg')),h('button',{class:'btn alt',onclick:hornF},'📯 '+t('rp_horn'))),
+      h('p',{class:'sim'},t('rp_tip')),h('p',{class:'sim'},t('rp_fict')),h('div',{class:'row c'},h('button',{class:'btn alt',onclick:()=>begin(mi)},'🔄 '+t('restart')),h('button',{class:'btn alt',onclick:pick},'☰ '+t('rp_ms',mi+1,RP_M.length)))));
+    api.setProgress(mi/RP_M.length);if(!loop)loop=arcLoop(api,update,draw);
+    if(window.__KM_TEST)window.__KM_TEST.rail={st:()=>({s,v,thr,brk,safe,sti,L,perm:perm().v,over,stopped,atp}),set:(a,b)=>set(a,b)}}
+  function sync(){if(thrSl){thrSl.value=Math.round(thr*100);brkSl.value=Math.round(brk*100);const a=$('#rp-tv'),b=$('#rp-bv');if(a)a.textContent=Math.round(thr*100)+'%';if(b)b.textContent=Math.round(brk*100)+'%'}}
+  function pick(){const mk=()=>h('div',{class:'card'},h('h2',null,'🚆 '+t('rp_ms',mi+1,RP_M.length)),h('div',{class:'grid g2'},RP_M.map((m,i)=>{const sv=(S.g.rail&&S.g.rail.lv['M'+(i+1)])||0;return h('button',{class:'btn alt',style:{flexDirection:'column',minHeight:'86px'},onclick:()=>begin(i)},h('b',null,(i+1)+'. '+L_(m.n)),h('small',null,(m.len/1000)+' km'+(m.fog?' · 🌫️':'')+(m.lead?' · 🚂':'')),h('span',{class:'stars'},starsStr(sv)))})));box.replaceChildren(mk());api.onLang(()=>pick())}
+  function hornF(){if(S.sound){Snd.tone(392,.5,0,.08,'sawtooth');Snd.tone(330,.5,.05,.06,'sawtooth')}msg='📯';msgT=.8}
+  function zoneAt(x){return M.zones.find(z=>x>=z.a&&x<=z.b)}
+  function perm(){/* permitted speed (m/s) from zones, signals, stations */
+    const A=(vt,d)=>Math.sqrt(vt*vt+2*.65*Math.max(0,d));let p=110/3.6,why='';
+    const z=zoneAt(s);if(z)p=Math.min(p,z.v/3.6);
+    M.zones.forEach(zz=>{if(zz.a>s&&zz.a-s<1600)p=Math.min(p,A(zz.v/3.6,zz.a-s-10))});
+    for(let i=0;i<nSig();i++){const S0=RP_B*(i+1);if(S0>s&&S0-s<2400){const a=asp(i);if(a===2)p=Math.min(p,A(0,S0-s-35));else if(a===1)p=Math.min(p,A(60/3.6,S0-s-5))}}
+    let j=Math.floor(s/RP_B)-1;if(j>=0&&j<nSig()&&asp(j)===1)p=Math.min(p,60/3.6);
+    const st=M.st[sti];if(st)p=Math.min(p,A(0,st.s+RP_PL-12-s));
+    if(lead&&!lead.gone&&L>s)p=Math.min(p,A(lead.v*.8,L-s-110));
+    return{v:Math.max(0,p)}}
+  function fail(msgKey){over=true;api.after(()=>arcOver(api,box,{msg:t(msgKey),retry:()=>begin(mi)}),400)}
+  function update(dt){if(over)return;const dd=api.diff;
+    if(keys.up)thr=Math.min(1,thr+.5*dt);if(keys.down)thr=Math.max(0,thr-.7*dt);if(keys.right)brk=Math.min(1,brk+.8*dt);if(keys.left)brk=Math.max(0,brk-1*dt);if(keys.up||keys.down||keys.left||keys.right)sync();
+    if(keys.fire&&!horn){hornF();horn=true}if(!keys.fire)horn=false;
+    const P=perm().v;
+    /* lead train */
+    if(lead){L+=lead.v*dt;if(!lead.gone&&L>=lead.out)lead.gone=true}
+    /* controls with lag; assist on easy */
+    let t1=thr;if(dd===0&&v>P-1.5)t1=0;if(brk>.1)t1=0;
+    thrE+=(t1-thrE)*Math.min(1,dt*1.4);let b1=brk;if(atp)b1=1.6;brkE+=(b1-brkE)*Math.min(1,dt*(atp?6:2.5));
+    const aT=thrE*1.0*Math.max(0,1-v/31.5),aB=brkE*.85,drag=v>0?.02+.0004*v:0;
+    const v0=v;v=Math.max(0,v+(aT-aB-drag)*dt);if(v>0)startedMove=true;s+=(v+v0)/2*dt;tilt=tilt*.9+((Math.random()-.5)*v*.004)*.1;
+    /* ATP */
+    const over1=(v-P)*3.6,warn=[9,5,3][dd],emer=[22,13,8][dd];
+    if(!atp){if(over1>emer){atp=true;atpT=0;safe=Math.max(0,safe-15);msg=t('rp_atpmsg');msgT=3;api.snd('no')}else if(over1>warn){warnT=.4;safe=Math.max(0,safe-2.2*dt)}}
+    else{if(v<.3){atpT+=dt;if(atpT>1.8){atp=false;brk=0;sync()}}}
+    warnT-=dt;
+    /* collision guard */
+    if(lead&&!lead.gone&&L>s&&L-s<45&&v>lead.v&&!atp){atp=true;atpT=0;safe=Math.max(0,safe-20);msg=t('rp_atpmsg');msgT=3}
+    /* signals */
+    for(let i=0;i<nSig();i++){const S0=RP_B*(i+1);if(i>=sigPassed&&s>=S0){sigPassed=i+1;if(asp(i)===2){safe=Math.max(0,safe-20);msg=t('rp_spad');msgT=3;api.snd('no')}else api.addScore(5)}}
+    /* station */
+    const st=M.st[sti];
+    if(st){if(v<.4&&startedMove){const front=s;if(front>=st.s+25&&front<=st.s+RP_PL+12){if(dwell<=0&&!stopped){stopped=true;dwell=4;msg=t('rp_board');msgT=4;const good=front>=st.s+RP_PL-45;if(good){api.addScore(30);msg=t('rp_good')+' '+t('rp_board');api.snd('ok')}else api.snd('pop')}}
+        else if(front>st.s+RP_PL+12&&!stopped){fail('rp_missed');return}
+        else if(front<st.s+25&&front>st.s-250&&v<.4&&!atp){msg=t('rp_creep');msgT=2}}
+      if(stopped){dwell-=dt;if(dwell<=0){stopped=false;api.addScore(40);const nx=M.st[sti+1];sti++;if(!nx){finish();return}else{msg=t('rp_nextst',L2(nx.n));msgT=3}}}}
+    msgT-=dt;
+    const nsi=Math.floor(s/RP_B),nsSig=(nsi<nSig())?nsi:-1;
+    const aspS=nsSig>=0?asp(nsSig):0;
+    hud.set({ms:t('rp_ms',mi+1,RP_M.length),ns:nsSig>=0?'S'+(nsSig+1)+' · '+Math.max(0,Math.round(RP_B*(nsSig+1)-s))+' m':t('rp_none'),as:nsSig>=0?t(['rp_green','rp_yel','rp_red'][aspS]):'–',di:(s/1000).toFixed(2)+' km',sf:Math.round(safe)});
+    api.setScore(Math.round(s/50+safe*2+doneSt))}
+  const L2=a=>L_(a);function L_(a){return S.lang==='hi'?a[1]:a[0]}
+  function finish(){over=true;api.snd('win');api.addScore(Math.round(safe));const stars=safe>=88?3:safe>=65?2:1;doneSt=0;api.after(()=>api.complete({stars,key:'M'+(mi+1),summary:()=>t('rp_arr',L_(M.st[M.st.length-1].n))+' '+t('rp_sum',Math.round(safe)),onContinue:()=>begin(mi+1<RP_M.length?mi+1:0)}),500)}
+  /* ---------- rendering ---------- */
+  function offAt(z){const i=z/5;const a=Math.floor(i),f=i-a;const o0=off[Math.min(a,off.length-1)],o1=off[Math.min(a+1,off.length-1)];return o0+(o1-o0)*f}
+  function curveAt(x){let c=0;M.curves.forEach(cc=>{if(x>=cc[0]&&x<=cc[1])c=cc[2]});return c}
+  function X(lat,z){return W/2+F*(lat-offAt(z))/z+tilt*20}
+  function Y(z,hh){return HZ+F*(CH-(hh||0))/z}
+  function poly(pts,fill){ctx.beginPath();pts.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fillStyle=fill;ctx.fill()}
+  const hash=k=>{const x=Math.sin(k*127.1+311.7)*43758.5453;return x-Math.floor(x)};
+  function draw(){if(!ctx)return;const vis=M.fog?240:520,fog=M.fog;const MAXZ=vis;
+    off=[0];let slope=0,o=0;for(let i=1;i<=Math.ceil(520/5)+2;i++){const z=i*5;slope+=curveAt(s+z)*5;o+=slope*5;off.push(o*.6)}
+    const sky=ctx.createLinearGradient(0,0,0,HZ+10);sky.addColorStop(0,fog?'#c9d0d6':'#5aaef0');sky.addColorStop(1,fog?'#e4e8ea':'#d5eefc');ctx.fillStyle=sky;ctx.fillRect(0,0,W,HZ+10);
+    ctx.fillStyle=fog?'#b8c2c4':'#7fb08f';ctx.beginPath();ctx.moveTo(0,HZ);for(let x=0;x<=W;x+=20)ctx.lineTo(x,HZ-14-Math.sin((x+s*.05+offAt(300)*3)*.02)*10-Math.sin(x*.011)*8);ctx.lineTo(W,HZ);ctx.fill();
+    ctx.fillStyle=fog?'#cdd5d3':'#6fcf6f';ctx.fillRect(0,HZ,W,H-HZ);
+    for(let z=MAXZ;z>6;z-=12){const z2=Math.max(6,z-12);const band=Math.floor((s+z)/24)%2;ctx.fillStyle=fog?(band?'#c3ccca':'#cdd5d3'):(band?'#63c363':'#74d474');ctx.fillRect(0,Y(z,0),W,Y(z2,0)-Y(z,0)+1)}
+    /* ballast */
+    const bp=[];for(let z=MAXZ;z>=6;z-=10)bp.push([X(-2.3,z),Y(z,0)]);for(let z=6;z<=MAXZ;z+=10)bp.push([X(6.6,z),Y(z,0)]);poly(bp,'#8d8780');
+    const ballast2=[];for(let z=MAXZ;z>=6;z-=10)ballast2.push([X(-1.5,z),Y(z,0)]);for(let z=6;z<=MAXZ;z+=10)ballast2.push([X(1.5,z),Y(z,0)]);poly(ballast2,'#6f6a64');
+    /* sleepers */
+    ctx.strokeStyle='#4a2f1a';const step=.75;let z0=6+((step-(s%step))%step);
+    for(let z=z0;z<110;z+=step){const w=Math.max(1,F*.2/z);ctx.lineWidth=w;[0,4.2].forEach(c=>{ctx.beginPath();ctx.moveTo(X(c-1.35,z),Y(z,0));ctx.lineTo(X(c+1.35,z),Y(z,0));ctx.stroke()})}
+    /* rails */
+    ctx.strokeStyle='#d9dde0';[-.72,.72,3.48,4.92].forEach(lat=>{ctx.beginPath();for(let z=MAXZ;z>=6;z-=4){const x=X(lat,z),y=Y(z,0);z===MAXZ?ctx.moveTo(x,y):ctx.lineTo(x,y)}ctx.lineWidth=2.2;ctx.stroke()});
+    /* objects far->near */
+    const objs=[];
+    for(let k=Math.floor((s+8)/30);k<=Math.floor((s+MAXZ)/30);k++){const z=k*30-s;if(z<7||z>MAXZ)continue;const hh=hash(k),side=hh<.5?-1:1,lat=side*(11+hash(k+9)*34);const hz=hash(k+3);objs.push({z,f:()=>{const x=X(lat,z),y=Y(z,0),sc=F/z;if(hz<.12){poly([[x-2.2*sc,y],[x+2.2*sc,y],[x+2.2*sc,y-2.4*sc],[x-2.2*sc,y-2.4*sc]],'#ffe8cc');poly([[x-2.6*sc,y-2.4*sc],[x+2.6*sc,y-2.4*sc],[x,y-4*sc]],'#e8590c')}else{ctx.fillStyle='#6b4423';ctx.fillRect(x-.18*sc,y-1.6*sc,.36*sc,1.6*sc);ctx.fillStyle=hz<.5?'#2f9e44':'#37b24d';ctx.beginPath();ctx.arc(x,y-2.9*sc,1.5*sc,0,7);ctx.fill()}}})}
+    for(let k=Math.floor((s+8)/45);k<=Math.floor((s+MAXZ)/45);k++){const z=k*45-s;if(z<7||z>MAXZ)continue;objs.push({z,f:()=>{const x=X(-2.6,z),y=Y(z,0),sc=F/z;ctx.fillStyle='#575f66';ctx.fillRect(x-.12*sc,y-6.6*sc,.24*sc,6.6*sc);ctx.fillRect(x-.2*sc,y-6.7*sc,X(4.6,z)-x,.18*sc)}})}
+    for(let i=0;i<nSig();i++){const S0=RP_B*(i+1),z=S0-s;if(z<7||z>MAXZ)continue;objs.push({z,f:()=>{const x=X(-2.9,z),y=Y(z,0),sc=F/z,a=asp(i);ctx.fillStyle='#343a40';ctx.fillRect(x-.1*sc,y-5.6*sc,.2*sc,5.6*sc);poly([[x-.55*sc,y-5.9*sc],[x+.55*sc,y-5.9*sc],[x+.55*sc,y-3.9*sc],[x-.55*sc,y-3.9*sc]],'#212529');
+      [['#37d65a','#103d1b',0],['#ffd43b','#4d3d05',1],['#ff4d4d','#4d1010',2]].forEach(([on,off1,k2],q)=>{ctx.fillStyle=a===k2?on:off1;ctx.beginPath();ctx.arc(x,y-(5.45-q*.6)*sc,.22*sc,0,7);ctx.fill();if(a===k2){ctx.globalAlpha=.35;ctx.beginPath();ctx.arc(x,y-(5.45-q*.6)*sc,.55*sc,0,7);ctx.fill();ctx.globalAlpha=1}});
+      if(z<200){ctx.fillStyle='#fff';ctx.font='700 '+Math.max(9,.42*sc)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText('S'+(i+1),x,y-6.1*sc)}}})}
+    M.zones.forEach(zz=>{const z=zz.a-s;if(z<7||z>MAXZ)return;objs.push({z,f:()=>{const x=X(-3.1,z),y=Y(z,0),sc=F/z;ctx.fillStyle='#495057';ctx.fillRect(x-.06*sc,y-2.8*sc,.12*sc,2.8*sc);ctx.fillStyle='#ffd43b';ctx.beginPath();ctx.arc(x,y-3.2*sc,.6*sc,0,7);ctx.fill();ctx.lineWidth=Math.max(1,.1*sc);ctx.strokeStyle='#e03131';ctx.stroke();ctx.fillStyle='#1f2750';ctx.font='900 '+Math.max(8,.55*sc)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(zz.v,x,y-3.2*sc);ctx.textBaseline='alphabetic'}})});
+    M.st.forEach((st,k)=>{const za=st.s-s,zb=st.s+RP_PL-s;if(zb<7||za>MAXZ)return;const z1=Math.max(7,za),z2=Math.min(MAXZ,zb);objs.push({z:(z1+z2)/2,f:()=>{const lat1=-4.6,lat2=-9;poly([[X(lat1,z1),Y(z1,1)],[X(lat2,z1),Y(z1,1)],[X(lat2,z2),Y(z2,1)],[X(lat1,z2),Y(z2,1)]],'#ced4da');poly([[X(lat1,z1),Y(z1,1)],[X(lat1,z2),Y(z2,1)],[X(lat1,z2),Y(z2,0)],[X(lat1,z1),Y(z1,0)]],'#868e96');
+      for(let z=Math.ceil((st.s+10)/25)*25;z<st.s+RP_PL;z+=25){const zz=z-s;if(zz<7||zz>MAXZ)continue;const x=X(-5.2,zz),y=Y(zz,1),sc=F/zz;ctx.fillStyle='#495057';ctx.fillRect(x-.1*sc,y-3.4*sc,.2*sc,3.4*sc);poly([[X(-4.4,zz),y-3.4*sc],[X(-8.8,zz),y-3.4*sc],[X(-8.8,zz),y-3.9*sc],[X(-4.4,zz),y-3.9*sc]],'#e64980')}
+      const ze=st.s+RP_PL-s;if(ze>7&&ze<MAXZ&&k===sti){const x=X(-3.6,ze),y=Y(ze,0),sc=F/ze;ctx.fillStyle='#e03131';ctx.fillRect(x-.8*sc,y-2.6*sc,1.6*sc,1*sc);ctx.fillStyle='#fff';ctx.font='900 '+Math.max(9,.6*sc)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(t('rp_stop'),x,y-1.85*sc)}
+      const zn=st.s+20-s;if(zn>7&&zn<MAXZ){const x=X(-6.8,zn),y=Y(zn,1),sc=F/zn;ctx.fillStyle='#1864ab';ctx.fillRect(x-2*sc,y-3*sc,4*sc,.8*sc);ctx.fillStyle='#fff';ctx.font='700 '+Math.max(8,.5*sc)+'px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(L_(st.n),x,y-2.4*sc)}}})});
+    if(lead){const z=L-s;if(z>9&&z<MAXZ)objs.push({z,f:()=>{const lat=lead.gone?4.2:0;const x0=X(lat-1.5,z),x1=X(lat+1.5,z),yb=Y(z,0.5),yt=Y(z,4);poly([[x0,yb],[x1,yb],[x1,yt],[x0,yt]],'#c92a2a');ctx.fillStyle='#fff';ctx.fillRect(x0+(x1-x0)*.1,yt+(yb-yt)*.15,(x1-x0)*.8,(yb-yt)*.2);ctx.fillStyle='#212529';ctx.fillRect(x0,yb-(yb-yt)*.12,x1-x0,(yb-yt)*.12)}})}
+    objs.sort((a,b)=>b.z-a.z);objs.forEach(ob=>{ctx.globalAlpha=Math.max(.0,Math.min(1,(fog?(1-ob.z/vis):1)));ob.f();ctx.globalAlpha=1});
+    if(fog){const fg=ctx.createLinearGradient(0,HZ-30,0,HZ+120);fg.addColorStop(0,'rgba(228,232,234,.95)');fg.addColorStop(1,'rgba(228,232,234,0)');ctx.fillStyle=fg;ctx.fillRect(0,HZ-30,W,150)}
+    /* wipers/window frame */
+    ctx.strokeStyle='#1c2128';ctx.lineWidth=14;ctx.strokeRect(0,0,W,H*.74);
+    /* HUD */
+    const py=H*.74;ctx.fillStyle='#0f1620';ctx.fillRect(0,py,W,H-py);ctx.fillStyle='#16202c';ctx.fillRect(8,py+8,W-16,H-py-16);
+    const kmh=v*3.6,P=perm().v*3.6,cx=96,cy=py+(H-py)/2+12,R=52;
+    ctx.lineWidth=11;ctx.lineCap='butt';ctx.strokeStyle='#2c3a4c';ctx.beginPath();ctx.arc(cx,cy,R,.75*Math.PI,2.25*Math.PI);ctx.stroke();
+    const ang=a=>.75*Math.PI+1.5*Math.PI*Math.min(1,a/120);ctx.strokeStyle=kmh>P+3?'#ff6b6b':'#37d65a';ctx.beginPath();ctx.arc(cx,cy,R,.75*Math.PI,ang(kmh));ctx.stroke();
+    ctx.strokeStyle='#ffd43b';ctx.lineWidth=4;ctx.beginPath();ctx.arc(cx,cy,R+9,ang(P)-.03,ang(P)+.03);ctx.stroke();
+    ctx.fillStyle='#fff';ctx.textAlign='center';ctx.font='900 34px system-ui,sans-serif';ctx.fillText(Math.round(kmh),cx,cy+10);ctx.font='600 12px system-ui,sans-serif';ctx.fillStyle='#9fb0c3';ctx.fillText(t('rp_kmh'),cx,cy+28);
+    ctx.textAlign='left';ctx.fillStyle='#ffd43b';ctx.font='800 20px system-ui,sans-serif';ctx.fillText(t('rp_limit')+' '+Math.round(P),190,py+30);
+    const nsi=Math.floor(s/RP_B);ctx.fillStyle='#9fb0c3';ctx.font='700 14px system-ui,sans-serif';
+    if(nsi<nSig()){const a=asp(nsi);ctx.fillText('🚦 S'+(nsi+1)+' · '+Math.max(0,Math.round(RP_B*(nsi+1)-s))+' m',190,py+52);ctx.fillStyle=['#37d65a','#ffd43b','#ff6b6b'][a];ctx.beginPath();ctx.arc(188+170,py+47,7,0,7);ctx.fill()}
+    const wa=warnT>0||atp;ctx.fillStyle=atp?'#ff6b6b':wa?'#ffd43b':'#37d65a';ctx.font='800 15px system-ui,sans-serif';ctx.fillText(atp?t('rp_atpe'):warnT>0?t('rp_atpw'):t('rp_atp'),190,py+72);
+    const st=M.st[sti];if(st){const d=Math.max(0,Math.round(st.s+RP_PL-s));ctx.fillStyle='#9fb0c3';ctx.font='700 13px system-ui,sans-serif';ctx.fillText('🚉 '+L_(st.n)+' · '+d+' m',190,py+92)}
+    const bw=150;ctx.fillStyle='#2c3a4c';ctx.fillRect(W-bw-24,py+26,bw,10);ctx.fillRect(W-bw-24,py+58,bw,10);ctx.fillStyle='#37a6ff';ctx.fillRect(W-bw-24,py+26,bw*thrE,10);ctx.fillStyle='#ff9f43';ctx.fillRect(W-bw-24,py+58,bw*Math.min(1,brkE),10);ctx.fillStyle='#9fb0c3';ctx.font='700 11px system-ui,sans-serif';ctx.fillText(t('rp_thr'),W-bw-24,py+22);ctx.fillText(t('rp_brk'),W-bw-24,py+54);
+    if(kmh>P+3&&!M.fog&&api.diff===0&&P<110){}
+    if(msgT>0&&msg){ctx.fillStyle='rgba(15,22,32,.82)';const tw=Math.min(W-40,ctx.measureText(msg).width+40);ctx.font='800 17px system-ui,sans-serif';const w2=Math.min(W-30,ctx.measureText(msg).width+36);ctx.fillRect(W/2-w2/2,22,w2,34);ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText(msg,W/2,45)}
+    if(stopped){ctx.fillStyle='rgba(15,22,32,.82)';ctx.fillRect(W/2-120,70,240,34);ctx.fillStyle='#69db7c';ctx.font='800 16px system-ui,sans-serif';ctx.textAlign='center';ctx.fillText(t('rp_dwell',Math.max(0,Math.ceil(dwell))),W/2,92)}
+    arcPausedOverlay(ctx,W,H,loop)}
+  arcIntro(api,box,{title:['Rail Pilot Express','रेल पायलट एक्सप्रेस'],text:['Sit in the driver’s seat! Obey signals and speed boards, then stop exactly at the station platform.','चालक की सीट पर बैठो! सिग्नल और गति-बोर्ड मानो, फिर ठीक स्टेशन के प्लेटफ़ॉर्म पर रुको।'],go:()=>begin(0)})}
+registerGame({id:'rail',icon:'🚆',art:ART.rail,color:'#0b7285',cat:'arcade',ages:[2,3],name:['Rail Pilot Express','रेल पायलट एक्सप्रेस'],desc:['Drive an express train from the cab. Follow signals, obey speed limits and stop at the platform.','केबिन से एक्सप्रेस ट्रेन चलाओ। सिग्नल मानो, गति सीमा का पालन करो और प्लेटफ़ॉर्म पर रुको।'],
+  note:['Fictional routes made for learning. Real railways have more rules.','सीखने के लिए बनाए गए काल्पनिक मार्ग। असली रेलवे में और नियम होते हैं।'],
+  how:[['Use the Power slider to speed up and the Train brake slider to slow down (keys ↑ ↓ ← →).','तेज़ करने के लिए शक्ति स्लाइडर और धीमा करने के लिए ट्रेन ब्रेक स्लाइडर (कुंजियाँ ↑ ↓ ← →) इस्तेमाल करो।'],['Signals: GREEN go, YELLOW slow down (next may be red), RED stop before it. Keep under the LIMIT shown.','सिग्नल: हरा चलो, पीला धीमे (अगला लाल हो सकता है), लाल उससे पहले रुको। दिखाई गई सीमा से नीचे रहो।'],['The ATP safety system brakes for you if you go too fast, but it takes away safety points.','अगर तुम बहुत तेज़ चलो तो ATP सुरक्षा प्रणाली खुद ब्रेक लगाती है, पर सुरक्षा अंक काटती है।'],['Stop inside the platform to finish each route. Easy level gives help with speed.','हर मार्ग पूरा करने के लिए प्लेटफ़ॉर्म के अंदर रुको। आसान स्तर में गति पर मदद मिलती है।']],start:railStart});
 /* ===== bootstrap ===== */
 (function(){
   try{if(!Store.get(KEY)&&window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){S.rm=true}}catch(e){}
